@@ -160,7 +160,7 @@
             this.btnRepliedApplications.Location = new System.Drawing.Point(20, 193);
             this.btnRepliedApplications.Name = "btnRepliedApplications";
             this.btnRepliedApplications.Size = new System.Drawing.Size(165, 45);
-            this.btnRepliedApplications.TabIndex = 6;
+            this.btnRepliedApplications.TabIndex = 2;
             this.btnRepliedApplications.Tag = "RepliedApplications";
             this.btnRepliedApplications.Text = "Replied Applications";
             this.btnRepliedApplications.UseVisualStyleBackColor = false;
@@ -175,7 +175,7 @@
             this.btnAllApplications.Location = new System.Drawing.Point(20, 244);
             this.btnAllApplications.Name = "btnAllApplications";
             this.btnAllApplications.Size = new System.Drawing.Size(165, 45);
-            this.btnAllApplications.TabIndex = 7;
+            this.btnAllApplications.TabIndex = 3;
             this.btnAllApplications.Tag = "AllApplications";
             this.btnAllApplications.Text = "All Applications";
             this.btnAllApplications.UseVisualStyleBackColor = false;
@@ -190,7 +190,7 @@
             this.btnEditTemplates.Location = new System.Drawing.Point(225, 244);
             this.btnEditTemplates.Name = "btnEditTemplates";
             this.btnEditTemplates.Size = new System.Drawing.Size(165, 45);
-            this.btnEditTemplates.TabIndex = 11;
+            this.btnEditTemplates.TabIndex = 7;
             this.btnEditTemplates.Tag = "EditTemplates";
             this.btnEditTemplates.Text = "Edit Templates";
             this.btnEditTemplates.UseVisualStyleBackColor = false;
@@ -205,7 +205,7 @@
             this.btnNewTemplate.Location = new System.Drawing.Point(225, 193);
             this.btnNewTemplate.Name = "btnNewTemplate";
             this.btnNewTemplate.Size = new System.Drawing.Size(165, 45);
-            this.btnNewTemplate.TabIndex = 10;
+            this.btnNewTemplate.TabIndex = 6;
             this.btnNewTemplate.Tag = "NewTemplate";
             this.btnNewTemplate.Text = "New Template";
             this.btnNewTemplate.UseVisualStyleBackColor = false;
@@ -232,7 +232,7 @@
             this.btnViewTemplates.Location = new System.Drawing.Point(225, 142);
             this.btnViewTemplates.Name = "btnViewTemplates";
             this.btnViewTemplates.Size = new System.Drawing.Size(165, 45);
-            this.btnViewTemplates.TabIndex = 8;
+            this.btnViewTemplates.TabIndex = 5;
             this.btnViewTemplates.Tag = "ViewTemplates";
             this.btnViewTemplates.Text = "View Templates";
             this.btnViewTemplates.UseVisualStyleBackColor = false;
@@ -247,7 +247,7 @@
             this.btnContinueReplying.Location = new System.Drawing.Point(20, 295);
             this.btnContinueReplying.Name = "btnContinueReplying";
             this.btnContinueReplying.Size = new System.Drawing.Size(165, 70);
-            this.btnContinueReplying.TabIndex = 12;
+            this.btnContinueReplying.TabIndex = 4;
             this.btnContinueReplying.Tag = "ContinueReplying";
             this.btnContinueReplying.Text = "Continue Replying";
             this.btnContinueReplying.UseVisualStyleBackColor = false;
@@ -262,7 +262,7 @@
             this.btnUnsuccessfulApplicants.Location = new System.Drawing.Point(430, 244);
             this.btnUnsuccessfulApplicants.Name = "btnUnsuccessfulApplicants";
             this.btnUnsuccessfulApplicants.Size = new System.Drawing.Size(165, 45);
-            this.btnUnsuccessfulApplicants.TabIndex = 16;
+            this.btnUnsuccessfulApplicants.TabIndex = 10;
             this.btnUnsuccessfulApplicants.Tag = "UnsuccessfulApplicants";
             this.btnUnsuccessfulApplicants.Text = "Unsuccessful Applicants";
             this.btnUnsuccessfulApplicants.UseVisualStyleBackColor = false;
@@ -277,7 +277,7 @@
             this.btnSuccessfulApplicants.Location = new System.Drawing.Point(430, 193);
             this.btnSuccessfulApplicants.Name = "btnSuccessfulApplicants";
             this.btnSuccessfulApplicants.Size = new System.Drawing.Size(165, 45);
-            this.btnSuccessfulApplicants.TabIndex = 15;
+            this.btnSuccessfulApplicants.TabIndex = 9;
             this.btnSuccessfulApplicants.Tag = "SuccessfulApplicants";
             this.btnSuccessfulApplicants.Text = "Successful Applicants";
             this.btnSuccessfulApplicants.UseVisualStyleBackColor = false;
@@ -304,7 +304,7 @@
             this.btnViewResponses.Location = new System.Drawing.Point(430, 142);
             this.btnViewResponses.Name = "btnViewResponses";
             this.btnViewResponses.Size = new System.Drawing.Size(165, 45);
-            this.btnViewResponses.TabIndex = 13;
+            this.btnViewResponses.TabIndex = 8;
             this.btnViewResponses.Tag = "ViewResponses";
             this.btnViewResponses.Text = "View Responses";
             this.btnViewResponses.UseVisualStyleBackColor = false;
@@ -319,7 +319,7 @@
             this.btnWaitingResponse.Location = new System.Drawing.Point(430, 295);
             this.btnWaitingResponse.Name = "btnWaitingResponse";
             this.btnWaitingResponse.Size = new System.Drawing.Size(165, 45);
-            this.btnWaitingResponse.TabIndex = 17;
+            this.btnWaitingResponse.TabIndex = 11;
             this.btnWaitingResponse.Tag = "WaitingResponse";
             this.btnWaitingResponse.Text = "Waiting Response";
             this.btnWaitingResponse.UseVisualStyleBackColor = false;

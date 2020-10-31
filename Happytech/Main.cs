@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Happytech.Classes;
 using Happytech.Pages;
 
 namespace Happytech
@@ -17,7 +18,7 @@ namespace Happytech
         {
             InitializeComponent();
 
-            pWindow.Controls.Add(new Home());
+            if (new Database().FindEmployee() == false) pWindow.Controls.Add(new EmployeeError()); else pWindow.Controls.Add(new Home());
         }
     }
 }

@@ -35,6 +35,8 @@
             // pWindow
             // 
             resources.ApplyResources(this.pWindow, "pWindow");
+            this.pWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.pWindow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pWindow.ForeColor = System.Drawing.Color.White;
             this.pWindow.Name = "pWindow";
             // 
@@ -42,10 +44,13 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
             this.Controls.Add(this.pWindow);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Main";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

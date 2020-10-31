@@ -16,7 +16,7 @@ namespace Happytech.Pages
         {
             InitializeComponent();
 
-            lblWelcome.Text = $"Welcome back, {Environment.UserName}!";
+            lblWelcome.Text = $"Welcome back, {Employee.name}!";
 
             //TODO: Query to get number of replied applications by user
             //TODO: Query to get number of new applications
@@ -47,7 +47,7 @@ namespace Happytech.Pages
                 case "WaitingResponse": window.Controls.Add(new ViewResponses()); break;
             }
 
-            Classes.Pages.firstAction = btn.Tag.ToString(); //Sets the first action to perform when the page opens
+            UserPages.firstAction = btn.Tag.ToString(); //Sets the first action to perform when the page opens
         }
     }
 }
