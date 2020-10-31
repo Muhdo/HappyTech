@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Happytech.Classes;
 
 namespace Happytech.Pages
 {
     public partial class Home : UserControl
     {
+        Database db = new Database();
         public Home()
         {
             InitializeComponent();
@@ -19,7 +21,7 @@ namespace Happytech.Pages
             lblWelcome.Text = $"Welcome back, {Employee.name}!";
 
             //TODO: Query to get number of replied applications by user
-            //TODO: Query to get number of new applications
+            lblNewApplications.Text = db.QuantityNewApplications().ToString(); //Gets number of new Applications
         }
 
         private void ChangeWindow(object sender, EventArgs e)
