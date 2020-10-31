@@ -46,14 +46,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Classes\GlobalData.cs" />
+    <Compile Include="Pages\Home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ViewApplications.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\ViewApplications.Designer.cs">
+      <DependentUpon>ViewApplications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ViewResponses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\ViewResponses.Designer.cs">
+      <DependentUpon>ViewResponses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ViewTemplates.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\ViewTemplates.Designer.cs">
+      <DependentUpon>ViewTemplates.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Pages\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ViewApplications.resx">
+      <DependentUpon>ViewApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ViewResponses.resx">
+      <DependentUpon>ViewResponses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ViewTemplates.resx">
+      <DependentUpon>ViewTemplates.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -76,5 +116,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
