@@ -33,12 +33,13 @@
             // 
             // VerticalFlow
             // 
+            this.VerticalFlow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
             this.VerticalFlow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.VerticalFlow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.VerticalFlow.Location = new System.Drawing.Point(0, 0);
             this.VerticalFlow.Margin = new System.Windows.Forms.Padding(0);
             this.VerticalFlow.Name = "VerticalFlow";
-            this.VerticalFlow.Size = new System.Drawing.Size(300, 550);
+            this.VerticalFlow.Size = new System.Drawing.Size(298, 548);
             this.VerticalFlow.TabIndex = 0;
             this.VerticalFlow.WrapContents = false;
             // 
@@ -46,12 +47,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.VerticalFlow);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "List";
-            this.Size = new System.Drawing.Size(300, 550);
+            this.Size = new System.Drawing.Size(298, 548);
             this.ResumeLayout(false);
 
         }

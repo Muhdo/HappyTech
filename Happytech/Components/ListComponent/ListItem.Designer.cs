@@ -41,7 +41,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(300, 30);
+            this.panel1.Size = new System.Drawing.Size(300, 35);
             this.panel1.TabIndex = 0;
             // 
             // btnDelete
@@ -54,7 +54,7 @@
             this.btnDelete.Location = new System.Drawing.Point(240, 0);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(60, 30);
+            this.btnDelete.Size = new System.Drawing.Size(60, 35);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Tag = "";
             this.btnDelete.Text = "Delete";
@@ -67,7 +67,7 @@
             this.lblName.Location = new System.Drawing.Point(0, 0);
             this.lblName.Name = "lblName";
             this.lblName.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.lblName.Size = new System.Drawing.Size(237, 30);
+            this.lblName.Size = new System.Drawing.Size(237, 35);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "{Sad Employee Name}";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -82,7 +82,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ListItem";
-            this.Size = new System.Drawing.Size(300, 30);
+            this.Size = new System.Drawing.Size(300, 35);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Classes\Applications.cs" />
     <Compile Include="Classes\Employee.cs" />
+    <Compile Include="Classes\Role.cs" />
     <Compile Include="Components\ListComponent\List.cs">
       <SubType>UserControl</SubType>
     </Compile>

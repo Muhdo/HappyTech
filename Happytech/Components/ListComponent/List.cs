@@ -20,6 +20,8 @@ namespace Happytech.Components.ListComponent
 
         public void LoadData(Employee[] employees)
         {
+            VerticalFlow.Controls.Clear();
+
             foreach (Employee employee in employees)
             {
                 VerticalFlow.Controls.Add(new ListItem(employee.Id, employee.Name));
