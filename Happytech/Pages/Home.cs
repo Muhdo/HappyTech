@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Happytech.Classes;
+using Happytech.Properties;
 
 namespace Happytech.Pages
 {
@@ -18,10 +19,12 @@ namespace Happytech.Pages
         {
             InitializeComponent();
 
-            lblWelcome.Text = $"Welcome back, {Employee.name}!";
+            if (CurrentEmployee.Id == 0) btnSettings.Visible = true;
 
-            //TODO: Query to get number of replied applications by user
-            lblNewApplications.Text = db.QuantityNewApplications().ToString(); //Gets number of new Applications
+            lblWelcome.Text = $"Welcome back, {CurrentEmployee.Name}!";
+
+            lblRepliedApplications.Text = db.QuantityRepliedApplications().ToString(); //Gets number of replied applications
+            lblNewApplications.Text = db.QuantityNewApplications().ToString(); //Gets number of new applications
         }
 
         private void ChangeWindow(object sender, EventArgs e)
@@ -47,6 +50,8 @@ namespace Happytech.Pages
                 case "SuccessfulApplicants": window.Controls.Add(new ViewResponses()); break;
                 case "UnsuccessfulApplicants": window.Controls.Add(new ViewResponses()); break;
                 case "WaitingResponse": window.Controls.Add(new ViewResponses()); break;
+                //Settings
+                case "Settings": window.Controls.Add(new Settings()); break;
             }
 
             UserPages.firstAction = btn.Tag.ToString(); //Sets the first action to perform when the page opens

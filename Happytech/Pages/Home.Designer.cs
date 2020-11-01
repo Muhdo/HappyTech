@@ -48,6 +48,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnViewResponses = new System.Windows.Forms.Button();
             this.btnWaitingResponse = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -325,11 +326,28 @@
             this.btnWaitingResponse.UseVisualStyleBackColor = false;
             this.btnWaitingResponse.Click += new System.EventHandler(this.ChangeWindow);
             // 
+            // btnSettings
+            // 
+            this.btnSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.btnSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
+            this.btnSettings.Location = new System.Drawing.Point(895, 544);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(165, 45);
+            this.btnSettings.TabIndex = 15;
+            this.btnSettings.Tag = "Settings";
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.UseVisualStyleBackColor = false;
+            this.btnSettings.Visible = false;
+            this.btnSettings.Click += new System.EventHandler(this.ChangeWindow);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnWaitingResponse);
             this.Controls.Add(this.btnUnsuccessfulApplicants);
             this.Controls.Add(this.btnSuccessfulApplicants);
@@ -378,5 +396,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnViewResponses;
         private System.Windows.Forms.Button btnWaitingResponse;
+        private System.Windows.Forms.Button btnSettings;
     }
 }

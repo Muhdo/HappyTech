@@ -48,7 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -61,12 +63,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Applications.cs" />
+    <Compile Include="Classes\Employee.cs" />
+    <Compile Include="Components\ListComponent\List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ListComponent\List.Designer.cs">
+      <DependentUpon>List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ListComponent\ListItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ListComponent\ListItem.Designer.cs">
+      <DependentUpon>ListItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="databaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>databaseDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Database\Database.cs" />
+    <Compile Include="Database.cs" />
     <Compile Include="GlobalData.cs" />
     <Compile Include="Pages\EmployeeError.cs">
       <SubType>UserControl</SubType>
@@ -79,6 +95,12 @@
     </Compile>
     <Compile Include="Pages\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Settings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\ViewApplications.cs">
       <SubType>UserControl</SubType>
@@ -106,6 +128,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Components\ListComponent\List.resx">
+      <DependentUpon>List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ListComponent\ListItem.resx">
+      <DependentUpon>ListItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\EmployeeError.resx">
       <DependentUpon>EmployeeError.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\ViewApplications.resx">
       <DependentUpon>ViewApplications.cs</DependentUpon>
@@ -178,5 +209,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

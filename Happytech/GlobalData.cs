@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using Happytech.Classes;
 
 namespace Happytech
 {
@@ -12,17 +13,17 @@ namespace Happytech
         public static string firstAction { get; set; }
     }
 
-    class Employee
+    public class CurrentEmployee
     {
-        public static int id;
-        public static string name;
-        public static string role;
+        public static int Id;
+        public static string Name;
+        public static string Role;
 
         public void SetEmployee(int id, string name, string role)
         {
-            Employee.id = id;
-            Employee.name = name;
-            Employee.role = role;
+            CurrentEmployee.Id = id;
+            CurrentEmployee.Name = name;
+            CurrentEmployee.Role = role;
         }
     }
 }
