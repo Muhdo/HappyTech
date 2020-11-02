@@ -16,13 +16,19 @@ namespace Happytech
         //The employee needs to be added to the system by the administrator which is identified with the "EmployeeID" = 0
         private SqlCommand _findEmployee = new SqlCommand("SELECT EmployeeID, Name, Role FROM Employee INNER JOIN Role ON Employee.RoleID = Role.RoleID WHERE Name = @Name", connection);
         //Lists every employee excluding the admin account
-        private SqlCommand _listEmployees = new SqlCommand("SELECT EmployeeID, Name, Role FROM Employee INNER JOIN Role ON Employee.RoleID = Role.RoleID", connection);
+        private SqlCommand _listEmployees = new SqlCommand("SELECT EmployeeID, Name, Role FROM Employee INNER JOIN Role ON Employee.RoleID = Role.RoleID WHERE EmployeeID <> 0", connection);
         //Adds a new employee
         private SqlCommand _addEmployee = new SqlCommand("INSERT INTO Employee (Name, RoleID) VALUES (@Name, @RoleID)", connection);
         //Removes employee from database
         private SqlCommand _removeEmployee = new SqlCommand("DELETE FROM Employee WHERE EmployeeID = @EmployeeID", connection);
         //Lists every role available
         private SqlCommand _listRoles = new SqlCommand("SELECT RoleID, Role FROM Role", connection);
+        //Checks if the role is in use by any employee
+        private SqlCommand _isRoleInUse = new SqlCommand("SELECT EmployeeID FROM Employee WHERE RoleID = @RoleID", connection);
+        //Removes a role from database
+        private SqlCommand _removeRole = new SqlCommand("DELETE FROM Role WHERE RoleID = @RoleID", connection);
+        //Adds a new role
+        private SqlCommand _addRole = new SqlCommand("INSERT INTO Role (Role) VALUES (@Role)", connection);
         //Number of new applications (not replied yet)
         private SqlCommand _numberNewApplications = new SqlCommand("SELECT COUNT(ApplicationID) FROM Application WHERE NOT EXISTS (SELECT ApplicationID FROM Reply)", connection);
         //Returns data from new applications
@@ -109,7 +115,7 @@ namespace Happytech
 
                 success = true;
             }
-            catch (Exception e) { Console.WriteLine(e);}
+            catch (Exception) {}
 
             CloseDb();
             return success;
@@ -162,6 +168,74 @@ namespace Happytech
 
             CloseDb();
             return roles.ToArray();
+        }
+
+        /// <summary>
+        /// Adds a new role.
+        /// </summary>
+        /// <param name="role">New role available.</param>
+        /// <returns>True if was inserted, false in any error.</returns>
+        public bool AddRole(string role)
+        {
+            OpenDb();
+
+            bool success = false;
+
+            try
+            {
+                _addRole.Parameters.AddWithValue("@Role", role.Trim());
+                _addRole.ExecuteNonQuery();
+                _addRole.Parameters.Clear();
+
+                success = true;
+            }
+            catch (Exception) {}
+
+            CloseDb();
+            return success;
+        }
+
+        /// <summary>
+        /// Removes a specific role.
+        /// </summary>
+        /// <param name="roleId">Id of the role.</param>
+        /// <returns>True is it was removed, false is it wasn't.</returns>
+        public bool RemoveRole(int roleId)
+        {
+            OpenDb();
+
+            bool success = false;
+            try
+            {
+                _removeRole.Parameters.AddWithValue("@RoleID", roleId);
+                _removeRole.ExecuteNonQuery();
+                _removeRole.Parameters.Clear();
+
+                success = true;
+            }
+            catch (Exception) { }
+
+            CloseDb();
+            return success;
+        }
+
+        /// <summary>
+        /// Searches if the role is in use by any Employee.
+        /// </summary>
+        /// <param name="roleID">Id of the role to look.</param>
+        /// <returns>True if is in use, false if it isn't.</returns>
+        public bool IsRoleInUse(int roleID)
+        {
+            OpenDb();
+
+            _isRoleInUse.Parameters.AddWithValue("@RoleID", roleID);
+            Reader = _isRoleInUse.ExecuteReader();
+            _isRoleInUse.Parameters.Clear();
+
+            bool isInUse = Reader.HasRows;
+
+            CloseDb();
+            return isInUse;
         }
 
         /// <summary>

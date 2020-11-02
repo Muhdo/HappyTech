@@ -39,7 +39,19 @@
             this.lblUsernameError = new System.Windows.Forms.Label();
             this.lblErrorInsertingUser = new System.Windows.Forms.Label();
             this.lblSelectRoleError = new System.Windows.Forms.Label();
+            this.lblErrorInsertingRole = new System.Windows.Forms.Label();
+            this.lblNewRoleError = new System.Windows.Forms.Label();
+            this.btnSaveRole = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbRoleName = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.lstEmployees = new Happytech.Components.ListComponent.List();
+            this.lblRemoveRoleError = new System.Windows.Forms.Label();
+            this.lblErrorRemovingRole = new System.Windows.Forms.Label();
+            this.btnRemoveRole = new System.Windows.Forms.Button();
+            this.cbRemoveRole = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnBack
@@ -88,7 +100,8 @@
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(215, 26);
             this.tbUsername.TabIndex = 1;
-            this.tbUsername.Leave += new System.EventHandler(this.CheckUsername);
+            this.tbUsername.Tag = "Username";
+            this.tbUsername.Leave += new System.EventHandler(this.CheckAvailability);
             // 
             // label3
             // 
@@ -123,6 +136,7 @@
             this.cbRole.Size = new System.Drawing.Size(215, 27);
             this.cbRole.Sorted = true;
             this.cbRole.TabIndex = 24;
+            this.cbRole.Tag = "Role";
             // 
             // btnSaveUser
             // 
@@ -175,6 +189,79 @@
             this.lblSelectRoleError.Text = "Please select a role";
             this.lblSelectRoleError.Visible = false;
             // 
+            // lblErrorInsertingRole
+            // 
+            this.lblErrorInsertingRole.AutoSize = true;
+            this.lblErrorInsertingRole.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblErrorInsertingRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblErrorInsertingRole.Location = new System.Drawing.Point(829, 219);
+            this.lblErrorInsertingRole.Name = "lblErrorInsertingRole";
+            this.lblErrorInsertingRole.Size = new System.Drawing.Size(193, 19);
+            this.lblErrorInsertingRole.TabIndex = 34;
+            this.lblErrorInsertingRole.Text = "Oppsy Daisy role not addedsy";
+            this.lblErrorInsertingRole.Visible = false;
+            // 
+            // lblNewRoleError
+            // 
+            this.lblNewRoleError.AutoSize = true;
+            this.lblNewRoleError.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblNewRoleError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblNewRoleError.Location = new System.Drawing.Point(327, 220);
+            this.lblNewRoleError.Name = "lblNewRoleError";
+            this.lblNewRoleError.Size = new System.Drawing.Size(142, 19);
+            this.lblNewRoleError.TabIndex = 33;
+            this.lblNewRoleError.Text = "Errors for role textbox";
+            this.lblNewRoleError.Visible = false;
+            // 
+            // btnSaveRole
+            // 
+            this.btnSaveRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
+            this.btnSaveRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveRole.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.btnSaveRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
+            this.btnSaveRole.Location = new System.Drawing.Point(833, 189);
+            this.btnSaveRole.Name = "btnSaveRole";
+            this.btnSaveRole.Size = new System.Drawing.Size(215, 27);
+            this.btnSaveRole.TabIndex = 32;
+            this.btnSaveRole.Tag = "";
+            this.btnSaveRole.Text = "Save";
+            this.btnSaveRole.UseVisualStyleBackColor = false;
+            this.btnSaveRole.Click += new System.EventHandler(this.btnSaveRole_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label7.Location = new System.Drawing.Point(327, 169);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 19);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Role";
+            // 
+            // tbRoleName
+            // 
+            this.tbRoleName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
+            this.tbRoleName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbRoleName.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.tbRoleName.ForeColor = System.Drawing.Color.White;
+            this.tbRoleName.Location = new System.Drawing.Point(331, 191);
+            this.tbRoleName.MaxLength = 256;
+            this.tbRoleName.Name = "tbRoleName";
+            this.tbRoleName.Size = new System.Drawing.Size(215, 26);
+            this.tbRoleName.TabIndex = 29;
+            this.tbRoleName.Tag = "Role";
+            this.tbRoleName.Leave += new System.EventHandler(this.CheckAvailability);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label8.Location = new System.Drawing.Point(326, 135);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(94, 28);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "New Role";
+            // 
             // lstEmployees
             // 
             this.lstEmployees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -186,11 +273,97 @@
             this.lstEmployees.Size = new System.Drawing.Size(300, 550);
             this.lstEmployees.TabIndex = 18;
             // 
+            // lblRemoveRoleError
+            // 
+            this.lblRemoveRoleError.AutoSize = true;
+            this.lblRemoveRoleError.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblRemoveRoleError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblRemoveRoleError.Location = new System.Drawing.Point(327, 340);
+            this.lblRemoveRoleError.Name = "lblRemoveRoleError";
+            this.lblRemoveRoleError.Size = new System.Drawing.Size(123, 19);
+            this.lblRemoveRoleError.TabIndex = 40;
+            this.lblRemoveRoleError.Text = "Please select a role";
+            this.lblRemoveRoleError.Visible = false;
+            // 
+            // lblErrorRemovingRole
+            // 
+            this.lblErrorRemovingRole.AutoSize = true;
+            this.lblErrorRemovingRole.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblErrorRemovingRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblErrorRemovingRole.Location = new System.Drawing.Point(829, 340);
+            this.lblErrorRemovingRole.Name = "lblErrorRemovingRole";
+            this.lblErrorRemovingRole.Size = new System.Drawing.Size(196, 19);
+            this.lblErrorRemovingRole.TabIndex = 39;
+            this.lblErrorRemovingRole.Text = "Oppsy Daisy user not addedsy";
+            this.lblErrorRemovingRole.Visible = false;
+            // 
+            // btnRemoveRole
+            // 
+            this.btnRemoveRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
+            this.btnRemoveRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveRole.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.btnRemoveRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
+            this.btnRemoveRole.Location = new System.Drawing.Point(833, 310);
+            this.btnRemoveRole.Name = "btnRemoveRole";
+            this.btnRemoveRole.Size = new System.Drawing.Size(215, 27);
+            this.btnRemoveRole.TabIndex = 38;
+            this.btnRemoveRole.Tag = "";
+            this.btnRemoveRole.Text = "Save";
+            this.btnRemoveRole.UseVisualStyleBackColor = false;
+            this.btnRemoveRole.Click += new System.EventHandler(this.btnRemoveRole_Click);
+            // 
+            // cbRemoveRole
+            // 
+            this.cbRemoveRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
+            this.cbRemoveRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRemoveRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbRemoveRole.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.cbRemoveRole.ForeColor = System.Drawing.Color.White;
+            this.cbRemoveRole.FormattingEnabled = true;
+            this.cbRemoveRole.Location = new System.Drawing.Point(331, 310);
+            this.cbRemoveRole.Name = "cbRemoveRole";
+            this.cbRemoveRole.Size = new System.Drawing.Size(215, 27);
+            this.cbRemoveRole.Sorted = true;
+            this.cbRemoveRole.TabIndex = 37;
+            this.cbRemoveRole.Tag = "Role";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label9.Location = new System.Drawing.Point(327, 289);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 19);
+            this.label9.TabIndex = 36;
+            this.label9.Text = "Role";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label10.Location = new System.Drawing.Point(326, 256);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(125, 28);
+            this.label10.TabIndex = 35;
+            this.label10.Text = "Remove Role";
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.Controls.Add(this.lblRemoveRoleError);
+            this.Controls.Add(this.lblErrorRemovingRole);
+            this.Controls.Add(this.btnRemoveRole);
+            this.Controls.Add(this.cbRemoveRole);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lblErrorInsertingRole);
+            this.Controls.Add(this.lblNewRoleError);
+            this.Controls.Add(this.btnSaveRole);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.tbRoleName);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.lblSelectRoleError);
             this.Controls.Add(this.lblErrorInsertingUser);
             this.Controls.Add(this.lblUsernameError);
@@ -225,5 +398,17 @@
         private System.Windows.Forms.Label lblUsernameError;
         private System.Windows.Forms.Label lblErrorInsertingUser;
         private System.Windows.Forms.Label lblSelectRoleError;
+        private System.Windows.Forms.Label lblErrorInsertingRole;
+        private System.Windows.Forms.Label lblNewRoleError;
+        private System.Windows.Forms.Button btnSaveRole;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tbRoleName;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblRemoveRoleError;
+        private System.Windows.Forms.Label lblErrorRemovingRole;
+        private System.Windows.Forms.Button btnRemoveRole;
+        private System.Windows.Forms.ComboBox cbRemoveRole;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }
