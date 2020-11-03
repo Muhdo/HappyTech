@@ -45,13 +45,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.tbRoleName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.lstEmployees = new Happytech.Components.ListComponent.List();
             this.lblRemoveRoleError = new System.Windows.Forms.Label();
             this.lblErrorRemovingRole = new System.Windows.Forms.Label();
             this.btnRemoveRole = new System.Windows.Forms.Button();
             this.cbRemoveRole = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.lstEmployees = new Happytech.Components.ListComponent.List();
             this.SuspendLayout();
             // 
             // btnBack
@@ -134,6 +134,7 @@
             this.cbRole.Location = new System.Drawing.Point(582, 69);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(215, 27);
+            this.cbRole.Sorted = true;
             this.cbRole.TabIndex = 24;
             this.cbRole.Tag = "Role";
             // 
@@ -261,6 +262,17 @@
             this.label8.TabIndex = 30;
             this.label8.Text = "New Role";
             // 
+            // lstEmployees
+            // 
+            this.lstEmployees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.lstEmployees.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lstEmployees.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lstEmployees.ForeColor = System.Drawing.Color.White;
+            this.lstEmployees.Location = new System.Drawing.Point(15, 45);
+            this.lstEmployees.Name = "lstEmployees";
+            this.lstEmployees.Size = new System.Drawing.Size(300, 550);
+            this.lstEmployees.TabIndex = 18;
+            // 
             // lblRemoveRoleError
             // 
             this.lblRemoveRoleError.AutoSize = true;
@@ -280,9 +292,9 @@
             this.lblErrorRemovingRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.lblErrorRemovingRole.Location = new System.Drawing.Point(829, 340);
             this.lblErrorRemovingRole.Name = "lblErrorRemovingRole";
-            this.lblErrorRemovingRole.Size = new System.Drawing.Size(229, 19);
+            this.lblErrorRemovingRole.Size = new System.Drawing.Size(196, 19);
             this.lblErrorRemovingRole.TabIndex = 39;
-            this.lblErrorRemovingRole.Text = "This role is assigned to an employee";
+            this.lblErrorRemovingRole.Text = "Oppsy Daisy user not addedsy";
             this.lblErrorRemovingRole.Visible = false;
             // 
             // btnRemoveRole
@@ -311,6 +323,7 @@
             this.cbRemoveRole.Location = new System.Drawing.Point(331, 310);
             this.cbRemoveRole.Name = "cbRemoveRole";
             this.cbRemoveRole.Size = new System.Drawing.Size(215, 27);
+            this.cbRemoveRole.Sorted = true;
             this.cbRemoveRole.TabIndex = 37;
             this.cbRemoveRole.Tag = "Role";
             // 
@@ -333,17 +346,6 @@
             this.label10.Size = new System.Drawing.Size(125, 28);
             this.label10.TabIndex = 35;
             this.label10.Text = "Remove Role";
-            // 
-            // lstEmployees
-            // 
-            this.lstEmployees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.lstEmployees.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lstEmployees.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lstEmployees.ForeColor = System.Drawing.Color.White;
-            this.lstEmployees.Location = new System.Drawing.Point(15, 45);
-            this.lstEmployees.Name = "lstEmployees";
-            this.lstEmployees.Size = new System.Drawing.Size(300, 550);
-            this.lstEmployees.TabIndex = 18;
             // 
             // Settings
             // 
