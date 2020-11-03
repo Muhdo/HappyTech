@@ -38,7 +38,7 @@ namespace Happytech.Pages
         private void btnSaveUser_Click(object sender, EventArgs e)
         {
             CheckAvailability(tbUsername);
-            SelectedRole();
+            SelectedRole(cbRole);
 
             //Checks if there is any error
             //If doesn't have errors, it will try to add the employee
@@ -77,10 +77,12 @@ namespace Happytech.Pages
         //Removes a role
         private void btnRemoveRole_Click(object sender, EventArgs e)
         {
+            SelectedRole(cbRemoveRole);
+
             lblErrorRemovingRole.Visible = db.IsRoleInUse(roles[cbRemoveRole.SelectedIndex].Id); //Checks if the role is in use by any employee.
 
             //Checks if there is any error
-            if (!lblErrorRemovingRole.Visible) 
+            if (!lblErrorRemovingRole.Visible)
                 if (db.RemoveRole(roles[cbRemoveRole.SelectedIndex].Id)) //Removes the role and checks if it was successful
                     PopulateRolesCb(); //If removed, it updates the comboboxes
         }
@@ -130,6 +132,12 @@ namespace Happytech.Pages
         private void PopulateRolesCb()
         {
             roles = db.ListRoles(); //Gets the available roles
+
+            //Sorts the array instead of being the comboboxes sorting
+            Array.Sort(roles, (aRole, bRole) => string.Compare(aRole.RoleName, bRole.RoleName, StringComparison.Ordinal));
+
+            cbRole.Items.Clear();
+            cbRemoveRole.Items.Clear();
 
             foreach (Role role in roles)
             {

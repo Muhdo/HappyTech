@@ -134,7 +134,6 @@
             this.cbRole.Location = new System.Drawing.Point(582, 69);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(215, 27);
-            this.cbRole.Sorted = true;
             this.cbRole.TabIndex = 24;
             this.cbRole.Tag = "Role";
             // 
@@ -292,9 +291,9 @@
             this.lblErrorRemovingRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.lblErrorRemovingRole.Location = new System.Drawing.Point(829, 340);
             this.lblErrorRemovingRole.Name = "lblErrorRemovingRole";
-            this.lblErrorRemovingRole.Size = new System.Drawing.Size(196, 19);
+            this.lblErrorRemovingRole.Size = new System.Drawing.Size(229, 19);
             this.lblErrorRemovingRole.TabIndex = 39;
-            this.lblErrorRemovingRole.Text = "Oppsy Daisy user not addedsy";
+            this.lblErrorRemovingRole.Text = "This role is assigned to an employee";
             this.lblErrorRemovingRole.Visible = false;
             // 
             // btnRemoveRole
@@ -323,7 +322,6 @@
             this.cbRemoveRole.Location = new System.Drawing.Point(331, 310);
             this.cbRemoveRole.Name = "cbRemoveRole";
             this.cbRemoveRole.Size = new System.Drawing.Size(215, 27);
-            this.cbRemoveRole.Sorted = true;
             this.cbRemoveRole.TabIndex = 37;
             this.cbRemoveRole.Tag = "Role";
             // 
