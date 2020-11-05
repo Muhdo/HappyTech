@@ -19,7 +19,7 @@ namespace Happytech.Pages
         {
             InitializeComponent();
 
-            if (CurrentEmployee.Id == 0) btnSettings.Visible = true;
+            if (CurrentEmployee.IsAdmin) btnSettings.Visible = true;
 
             lblWelcome.Text = $"Welcome back, {CurrentEmployee.Name}!";
 

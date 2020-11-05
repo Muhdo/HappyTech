@@ -14,7 +14,7 @@ namespace Happytech
         
         //Can be identified as the login
         //The employee needs to be added to the system by the administrator which is identified with the "EmployeeID" = 0
-        private SqlCommand _findEmployee = new SqlCommand("SELECT EmployeeID, Name, Role FROM Employee INNER JOIN Role ON Employee.RoleID = Role.RoleID WHERE Name = @Name", connection);
+        private SqlCommand _findEmployee = new SqlCommand("SELECT EmployeeID, Name, Role, IsAdmin FROM Employee INNER JOIN Role ON Employee.RoleID = Role.RoleID WHERE Name = @Name", connection);
         //Lists every employee excluding the admin account
         private SqlCommand _listEmployees = new SqlCommand("SELECT EmployeeID, Name, Role FROM Employee INNER JOIN Role ON Employee.RoleID = Role.RoleID WHERE EmployeeID <> 0", connection);
         //Adds a new employee
@@ -35,6 +35,8 @@ namespace Happytech
         private SqlCommand _newApplications = new SqlCommand("SELECT ApplicationID, Name, Email, Role, Curriculum FROM Application INNER JOIN Role ON PositionID = RoleID WHERE NOT EXISTS (SELECT ApplicationID FROM Reply)", connection);
         //Number of replied applications by current user
         private SqlCommand _numberRepliedApplications = new SqlCommand("SELECT COUNT(ReplyID) FROM Reply WHERE Sent = 0 AND EmployeeID = @EmployeeID", connection);
+        //Adds a new application
+        private SqlCommand _applyToPosition = new SqlCommand("INSERT INTO Application (Name, Email, RoleID, Curriculum) VALUES (@Name, @Email, @RoleID, @Curriculum)", connection);
 
         /// <summary>
         /// Finds if the current windows employee is registered
@@ -61,7 +63,8 @@ namespace Happytech
                 new CurrentEmployee().SetEmployee(
                     (int)Reader["EmployeeID"], 
                     (string)Reader["Name"],
-                    (string)Reader["Role"]);
+                    (string)Reader["Role"], 
+                    (bool) Reader["IsAdmin"]);
             }
 
             CloseDb();
@@ -257,9 +260,9 @@ namespace Happytech
         }
 
         /// <summary>
-        /// Returns every new application
+        /// Returns every new application.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Every New Application.</returns>
         public List<Applications> NewApplications()
         {
             OpenDb();
@@ -278,7 +281,7 @@ namespace Happytech
                     Name = (string)Reader["Name"],
                     Email = (string)Reader["Email"],
                     Position = (string)Reader["Role"],
-                    Curriculum = Reader["Curriculum"]
+                    Curriculum = (string)Reader["Curriculum"]
                 });
             }
 
@@ -286,6 +289,10 @@ namespace Happytech
             return currentApplications;
         }
 
+        /// <summary>
+        /// Returns the quantity of replied applications.
+        /// </summary>
+        /// <returns>Number of replied applications.</returns>
         public int QuantityRepliedApplications()
         {
             OpenDb();
@@ -300,6 +307,37 @@ namespace Happytech
 
             CloseDb();
             return quant;
+        }
+
+        /// <summary>
+        /// Apply to an available position.
+        /// </summary>
+        /// <param name="name">Name of the applicant.</param>
+        /// <param name="email">Email of the applicant.</param>
+        /// <param name="roleID">Role Id of the applying role.</param>
+        /// <param name="curriculum">Location of the curriculum file.</param>
+        /// <returns>True if it was submitted, False if it wasn't.</returns>
+        public bool ApplyToPosition(string name, string email, int roleID, string curriculum)
+        {
+            OpenDb();
+
+            bool success = false;
+            try
+            {
+                _applyToPosition.Parameters.AddWithValue("@Name", name.Trim());
+                _applyToPosition.Parameters.AddWithValue("@Email", email.Trim());
+                _applyToPosition.Parameters.AddWithValue("@RoleID", roleID);
+                _applyToPosition.Parameters.AddWithValue("@Curriculum", curriculum);
+                _applyToPosition.ExecuteNonQuery();
+                _applyToPosition.Parameters.Clear();
+
+                success = true;
+            }
+            catch (Exception) { }
+
+
+            CloseDb();
+            return success;
         }
 
         /// <summary>
