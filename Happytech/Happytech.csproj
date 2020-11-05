@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplyToPosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplyToPosition.Designer.cs">
+      <DependentUpon>ApplyToPosition.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Applications.cs" />
     <Compile Include="Classes\Employee.cs" />
     <Compile Include="Classes\Role.cs" />
@@ -129,6 +135,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ApplyToPosition.resx">
+      <DependentUpon>ApplyToPosition.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\ListComponent\List.resx">
       <DependentUpon>List.cs</DependentUpon>
     </EmbeddedResource>
