@@ -12,7 +12,7 @@ namespace Happytech.Classes
         private string _name;
         private string _email;
         private string _position;
-        private object _curriculum;
+        private string _curriculum;
 
         public int ApplicationId
         {
@@ -34,7 +34,7 @@ namespace Happytech.Classes
             get => _position;
             set => _position = value;
         }
-        public object Curriculum
+        public string Curriculum
         {
             get => _curriculum;
             set => _curriculum = value;

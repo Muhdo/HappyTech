@@ -18,12 +18,14 @@ namespace Happytech
         public static int Id;
         public static string Name;
         public static string Role;
+        public static bool IsAdmin;
 
-        public void SetEmployee(int id, string name, string role)
+        public void SetEmployee(int id, string name, string role, bool isAdmin)
         {
             CurrentEmployee.Id = id;
             CurrentEmployee.Name = name;
             CurrentEmployee.Role = role;
+            CurrentEmployee.IsAdmin = isAdmin;
         }
     }
 }
