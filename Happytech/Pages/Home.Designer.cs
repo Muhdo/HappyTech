@@ -47,7 +47,6 @@
             this.btnSuccessfulApplicants = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btnViewResponses = new System.Windows.Forms.Button();
-            this.btnWaitingResponse = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -311,21 +310,6 @@
             this.btnViewResponses.UseVisualStyleBackColor = false;
             this.btnViewResponses.Click += new System.EventHandler(this.ChangeWindow);
             // 
-            // btnWaitingResponse
-            // 
-            this.btnWaitingResponse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
-            this.btnWaitingResponse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWaitingResponse.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.btnWaitingResponse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.btnWaitingResponse.Location = new System.Drawing.Point(430, 295);
-            this.btnWaitingResponse.Name = "btnWaitingResponse";
-            this.btnWaitingResponse.Size = new System.Drawing.Size(165, 45);
-            this.btnWaitingResponse.TabIndex = 11;
-            this.btnWaitingResponse.Tag = "WaitingResponse";
-            this.btnWaitingResponse.Text = "Waiting Response";
-            this.btnWaitingResponse.UseVisualStyleBackColor = false;
-            this.btnWaitingResponse.Click += new System.EventHandler(this.ChangeWindow);
-            // 
             // btnSettings
             // 
             this.btnSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
@@ -347,7 +331,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
             this.Controls.Add(this.btnSettings);
-            this.Controls.Add(this.btnWaitingResponse);
             this.Controls.Add(this.btnUnsuccessfulApplicants);
             this.Controls.Add(this.btnSuccessfulApplicants);
             this.Controls.Add(this.label5);
@@ -394,7 +377,6 @@
         private System.Windows.Forms.Button btnSuccessfulApplicants;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnViewResponses;
-        private System.Windows.Forms.Button btnWaitingResponse;
         private System.Windows.Forms.Button btnSettings;
     }
 }
