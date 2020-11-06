@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Happytech.Properties;
 using System.Data.SqlClient;
 using Happytech.Classes;
+using System.Windows;
 
 namespace Happytech
 {
@@ -10,7 +11,7 @@ namespace Happytech
     {
         private SqlDataReader Reader; //It's a reader...
 
-        private static SqlConnection connection = new SqlConnection(Properties.Settings.Default.connectionString); //Connection to database, to change the string go to: Properties>Settings and change connectionString
+        private static SqlConnection connection = new SqlConnection(Settings.Default.connectionString); //Connection to database, to change the string go to: Properties>Settings and change connectionString
         
         //Can be identified as the login
         //The employee needs to be added to the system by the administrator which is identified with the "EmployeeID" = 0
@@ -37,6 +38,9 @@ namespace Happytech
         private SqlCommand _numberRepliedApplications = new SqlCommand("SELECT COUNT(ReplyID) FROM Reply WHERE Sent = 0 AND EmployeeID = @EmployeeID", connection);
         //Adds a new application
         private SqlCommand _applyToPosition = new SqlCommand("INSERT INTO Application (Name, Email, RoleID, Curriculum) VALUES (@Name, @Email, @RoleID, @Curriculum)", connection);
+
+        // Adds a new template
+        private SqlCommand _addTemplate = new SqlCommand("INSERT INTO Template (Name) VALUES (@Name)", connection);
 
         /// <summary>
         /// Finds if the current windows employee is registered
@@ -95,6 +99,26 @@ namespace Happytech
 
             CloseDb();
             return employees.ToArray();
+        }
+
+        public bool AddTemplate(string name)
+        {
+            try
+            {
+                OpenDb();
+                _addTemplate.Parameters.AddWithValue("@Name", name);
+                _addTemplate.ExecuteNonQuery();
+                _addTemplate.Parameters.Clear();
+                CloseDb();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // TODO: SPECIFIC EXCEPTIONS
+                MessageBox.Show(ex.Message);
+            }
+
+            return false;
         }
 
         /// <summary>

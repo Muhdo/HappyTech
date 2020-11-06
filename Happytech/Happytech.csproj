@@ -97,6 +97,12 @@
     </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="GlobalData.cs" />
+    <Compile Include="Pages\CreateTemplate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\CreateTemplate.Designer.cs">
+      <DependentUpon>CreateTemplate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\EmployeeError.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -149,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components\ListComponent\ListItem.resx">
       <DependentUpon>ListItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\CreateTemplate.resx">
+      <DependentUpon>CreateTemplate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\EmployeeError.resx">
       <DependentUpon>EmployeeError.cs</DependentUpon>

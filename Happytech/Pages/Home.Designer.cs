@@ -339,7 +339,6 @@
             this.btnSettings.Tag = "Settings";
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = false;
-            this.btnSettings.Visible = false;
             this.btnSettings.Click += new System.EventHandler(this.ChangeWindow);
             // 
             // Home

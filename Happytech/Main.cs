@@ -18,7 +18,12 @@ namespace Happytech
         {
             InitializeComponent();
 
-            if (new Database().FindEmployee() == false) pWindow.Controls.Add(new EmployeeError()); else pWindow.Controls.Add(new Home());
+            if (new Database().FindEmployee() == false) 
+                pWindow.Controls.Add(new EmployeeError()); 
+            else
+                pWindow.Controls.Add(new Home());
+
+
         }
     }
 }

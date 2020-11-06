@@ -12,9 +12,21 @@ namespace Happytech.Pages
 {
     public partial class ViewTemplates : UserControl
     {
+        Database db = new Database();
+
         public ViewTemplates()
         {
             InitializeComponent();
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtTemplateName.Text))
+            {
+                db.AddTemplate(txtTemplateName.Text);
+                this.Controls.Clear();
+                this.Controls.Add(new Home()); 
+            }
         }
     }
 }
