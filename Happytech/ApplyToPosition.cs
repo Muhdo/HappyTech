@@ -61,24 +61,27 @@ namespace Happytech
             }
         }
 
-        //NOT FINNISHED
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            bool existsErrors = false; 
 
             lblErrorName.Visible = CheckError(tbName);
             lblErrorEmail.Visible = CheckError(tbEmail);
             lblErrorPosition.Visible = SelectedRole();
             lblErrorCurriculum.Visible = curriculumLocation == null || !File.Exists(curriculumLocation);
 
-            lblErrorSubmit.Visible = !db.ApplyToPosition(tbName.Text, tbEmail.Text, roles[cbRole.SelectedIndex].Id, curriculumLocation);
+            bool existsErrors = VisibleChanged();
 
-            if (!lblErrorSubmit.Visible)
+            if (!existsErrors)
             {
-                tbName.Text = null;
-                tbEmail.Text = null;
-                cbRole.SelectedIndex = -1;
-                lblFileName.Text = null;
+                lblErrorSubmit.Visible = !db.ApplyToPosition(tbName.Text, tbEmail.Text, roles[cbRole.SelectedIndex].Id, curriculumLocation);
+
+                if (!lblErrorSubmit.Visible)
+                {
+                    tbName.Text = null;
+                    tbEmail.Text = null;
+                    cbRole.SelectedIndex = -1;
+                    lblFileName.Text = null;
+                }
             }
         }
 
@@ -98,5 +101,13 @@ namespace Happytech
 
         //Checks if there is any selected role
         private bool SelectedRole() => cbRole.SelectedIndex == -1; //Error if nothing is selected
+
+        private bool VisibleChanged()
+        {
+            if (lblErrorName.Visible || lblErrorEmail.Visible || lblErrorPosition.Visible || lblErrorCurriculum.Visible)
+                return true;
+            
+            return false;
+        }
     }
 }
