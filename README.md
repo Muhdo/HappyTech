@@ -9,16 +9,18 @@
 4. Have fun.
 
 - **Database doesn't open.**
-1. Go to "Server Explorer" and in "Data Connections" remove the connection to the database.
-2. Create another connection to the database.
-3. Be sure to select `Microsoft SQL Server Database File (SqlClient)`.
-4. Select the database that is in `(...)/Happytech/Happytech/database.mdf`.
+1. Go to the base directory and delete `database_log.ldf`.
+2. Go to "Server Explorer" and in "Data Connections" remove the connection to the database.
+3. Create another connection to the database.
+4. Be sure to select `Microsoft SQL Server Database File (SqlClient)`.
+5. Select the database that is in `(...)/Happytech/Happytech/database.mdf`.
 
 - **The program doesn't open due to database problems.**
 1. Go to Task Manager.
 2. Search for every task that could be using the "SQL Server" service.
 3. Kill them all, there is no place for them here.
 4. They could be:
+   * SQL Server Windows NT - 64 Bit, <-- Probably it is this dude here, don't trust him...
    * Node.js: Server-side JavaScript,
    * SQL Server,
    * OBDC Service.
