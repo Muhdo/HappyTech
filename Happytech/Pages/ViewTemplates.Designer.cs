@@ -97,11 +97,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.label1.Location = new System.Drawing.Point(56, 99);
+            this.label1.Location = new System.Drawing.Point(113, 99);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(467, 65);
+            this.label1.Size = new System.Drawing.Size(354, 65);
             this.label1.TabIndex = 0;
-            this.label1.Text = "New Template Name";
+            this.label1.Text = "Template Setup";
             // 
             // ViewTemplates
             // 

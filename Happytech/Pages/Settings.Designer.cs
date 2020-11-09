@@ -337,20 +337,22 @@
             // 
             // lstEmployees
             // 
-            this.lstEmployees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.lstEmployees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
             this.lstEmployees.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lstEmployees.Cursor = System.Windows.Forms.Cursors.Default;
             this.lstEmployees.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lstEmployees.ForeColor = System.Drawing.Color.White;
-            this.lstEmployees.Location = new System.Drawing.Point(15, 45);
+            this.lstEmployees.Location = new System.Drawing.Point(15, 48);
             this.lstEmployees.Name = "lstEmployees";
-            this.lstEmployees.Size = new System.Drawing.Size(300, 550);
-            this.lstEmployees.TabIndex = 18;
+            this.lstEmployees.Size = new System.Drawing.Size(298, 548);
+            this.lstEmployees.TabIndex = 41;
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.Controls.Add(this.lstEmployees);
             this.Controls.Add(this.lblRemoveRoleError);
             this.Controls.Add(this.lblErrorRemovingRole);
             this.Controls.Add(this.btnRemoveRole);
@@ -372,7 +374,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lstEmployees);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBack);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -387,7 +388,6 @@
         #endregion
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label1;
-        private Components.ListComponent.List lstEmployees;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.Label label3;
@@ -409,5 +409,6 @@
         private System.Windows.Forms.ComboBox cbRemoveRole;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private Components.ListComponent.List lstEmployees;
     }
 }

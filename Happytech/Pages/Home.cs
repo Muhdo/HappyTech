@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Happytech.Classes;
 using Happytech.Properties;
+using System.IO;
 
 namespace Happytech.Pages
 {
@@ -25,33 +26,37 @@ namespace Happytech.Pages
 
             lblRepliedApplications.Text = db.QuantityRepliedApplications().ToString(); //Gets number of replied applications
             lblNewApplications.Text = db.QuantityNewApplications().ToString(); //Gets number of new applications
+
+            // Create curriculum folder if non existant
+            var currentDirectory = Directory.GetCurrentDirectory();
+            if(!Directory.Exists(currentDirectory + "/cv"))
+                Directory.CreateDirectory(currentDirectory + "/cv");
         }
 
         private void ChangeWindow(object sender, EventArgs e)
         {
             Button btn = (Button)sender; //Converts sender into a button
-            Panel window = (Panel) this.Parent;
-            window.Controls.Clear(); //Clears every page in the main panel 
+            Controls.Clear(); //Clears every page in the main panel 
             
             //Switches between the different possible pages
             switch (btn.Tag)
             {
                 //Applications
-                case "NewApplications": window.Controls.Add(new ViewApplications()); break;
-                case "RepliedApplications": window.Controls.Add(new ViewApplications()); break;
-                case "AllApplications": window.Controls.Add(new ViewApplications()); break;
-                case "ContinueReplying": window.Controls.Add(new ViewApplications()); break;
+                case "NewApplications": Controls.Add(new ViewApplications()); break;
+                case "RepliedApplications": Controls.Add(new RepliedApplications()); break;
+                case "AllApplications": Controls.Add(new ViewApplications()); break;
+                case "ContinueReplying": Controls.Add(new ViewApplications()); break;
                 //Templates
-                case "ViewTemplates": window.Controls.Add(new ViewTemplates()); break;
-                case "NewTemplate": window.Controls.Add(new ViewTemplates()); break;
-                case "EditTemplates": window.Controls.Add(new ViewTemplates()); break;
+                case "ViewTemplates": Controls.Add(new ViewTemplates()); break;
+                case "NewTemplate": Controls.Add(new ViewTemplates()); break;
+                case "EditTemplates": Controls.Add(new ViewTemplates()); break;
                 //Responses
-                case "ViewResponses": window.Controls.Add(new ViewResponses()); break;
-                case "SuccessfulApplicants": window.Controls.Add(new ViewResponses()); break;
-                case "UnsuccessfulApplicants": window.Controls.Add(new ViewResponses()); break;
-                case "WaitingResponse": window.Controls.Add(new ViewResponses()); break;
+                case "ViewResponses": Controls.Add(new ViewResponses()); break;
+                case "SuccessfulApplicants": Controls.Add(new ViewResponses()); break;
+                case "UnsuccessfulApplicants": Controls.Add(new ViewResponses()); break;
+                case "WaitingResponse": Controls.Add(new ViewResponses()); break;
                 //Settings
-                case "Settings": window.Controls.Add(new Settings()); break;
+                case "Settings": Controls.Add(new Settings()); break;
             }
 
             UserPages.firstAction = btn.Tag.ToString(); //Sets the first action to perform when the page opens
