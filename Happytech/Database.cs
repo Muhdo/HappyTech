@@ -49,8 +49,9 @@ namespace Happytech
 
         // REMOVE COMMANDS
 
-        // Delete replied application
-        private SqlCommand _removeReply = new SqlCommand("DELETE FROM Reply WHERE ReplyID = @ReplyID", connection);
+        // Delete application
+        private SqlCommand _removeApplication = new SqlCommand("DELETE FROM Application WHERE ApplicationID = @ApplicationID", connection);
+        private SqlCommand _removeReply = new SqlCommand("DELETE FROM Reply WHERE ApplicationID = @ApplicationID", connection);
 
         public DataTable FetchNewApplications()
         {
@@ -115,10 +116,39 @@ namespace Happytech
             return null;
         }
 
-        public bool RemoveReply(int ReplyID)
+        public bool RemoveApplication(int ApplicationID)
+        {
+            _removeApplication.Parameters.Clear();
+            _removeApplication.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+            try
+            {
+                // Open connection
+                OpenDb();
+
+                // Delete reply
+                if (_removeApplication.ExecuteNonQuery() > 0)
+                {
+                    CloseDb();
+                    return true;
+                }
+
+            }
+            // TODO: Specific exception handling
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            // Close database connection
+            CloseDb();
+            return false;
+        }
+
+        public bool RemoveReply(int ApplicationID)
         {
             _removeReply.Parameters.Clear();
-            _removeReply.Parameters.AddWithValue("@ReplyID", ReplyID);
+            _removeReply.Parameters.AddWithValue("@ApplicationID", ApplicationID);
 
             try
             {

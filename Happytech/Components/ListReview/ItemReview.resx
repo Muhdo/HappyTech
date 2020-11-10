@@ -165,6 +165,9 @@
   <data name="btnDelete.Text" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="btnDelete.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;btnDelete.Name" xml:space="preserve">
     <value>btnDelete</value>
   </data>
@@ -192,6 +195,9 @@
   <data name="btnCurriculum.Text" xml:space="preserve">
     <value>CV</value>
   </data>
+  <data name="btnCurriculum.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;btnCurriculum.Name" xml:space="preserve">
     <value>btnCurriculum</value>
   </data>
@@ -218,6 +224,9 @@
   </data>
   <data name="btnApplication.Text" xml:space="preserve">
     <value>Review</value>
+  </data>
+  <data name="btnApplication.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;btnApplication.Name" xml:space="preserve">
     <value>btnApplication</value>

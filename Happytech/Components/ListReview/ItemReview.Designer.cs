@@ -42,6 +42,9 @@
             resources.ApplyResources(this.lblName, "lblName");
             this.lblName.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblName.Name = "lblName";
+            this.lblName.Click += new System.EventHandler(this.ItemClick);
+            this.lblName.MouseEnter += new System.EventHandler(this.PointerHover);
+            this.lblName.MouseLeave += new System.EventHandler(this.PointerLeave);
             // 
             // btnDelete
             // 
@@ -77,12 +80,16 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(36)))), ((int)(((byte)(62)))));
             this.panel1.Controls.Add(this.lblName);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnCurriculum);
             this.panel1.Controls.Add(this.btnApplication);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
+            this.panel1.Click += new System.EventHandler(this.ItemClick);
+            this.panel1.MouseEnter += new System.EventHandler(this.PointerHover);
+            this.panel1.MouseLeave += new System.EventHandler(this.PointerLeave);
             // 
             // ItemReview
             // 

@@ -17,6 +17,7 @@ namespace Happytech.Pages
     public partial class RepliedApplications : System.Windows.Forms.UserControl
     {
         ListReview ListReview;
+        Database db = new Database();
         public RepliedApplications()
         {
             InitializeComponent();
@@ -57,7 +58,7 @@ namespace Happytech.Pages
             try
             {
                 // Set path and use the in the DB as the name for the .pdf
-                byte[] bytes = System.IO.File.ReadAllBytes($"{Directory.GetCurrentDirectory()}\\cv\\{name}.pdf");
+                byte[] bytes = File.ReadAllBytes($"{Directory.GetCurrentDirectory()}\\cv\\{name}.pdf");
                 var stream = new MemoryStream(bytes);
                 PdfDocument pdf = PdfDocument.Load(stream);
                 pdfReader.Document = pdf;
