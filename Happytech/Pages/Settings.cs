@@ -28,10 +28,8 @@ namespace Happytech.Pages
         //Just... returns to the previous page...
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Panel window = (Panel)this.Parent; //Gets the main panel
-            window.Controls.Clear(); //Clears every page in the main panel 
-
-            window.Controls.Add(new Home()); //Sets the new page
+            Controls.Clear();
+            Controls.Add(new Home());
         }
 
         //Saves a new employee
