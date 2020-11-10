@@ -30,10 +30,11 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTemplateName = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.pTemplateName = new System.Windows.Forms.Panel();
-            this.txtTemplateName = new System.Windows.Forms.TextBox();
+            this.btnBack = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pTemplateName.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +60,15 @@
             this.panel1.Size = new System.Drawing.Size(525, 60);
             this.panel1.TabIndex = 1;
             // 
+            // txtTemplateName
+            // 
+            this.txtTemplateName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTemplateName.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTemplateName.Location = new System.Drawing.Point(15, 13);
+            this.txtTemplateName.Name = "txtTemplateName";
+            this.txtTemplateName.Size = new System.Drawing.Size(422, 32);
+            this.txtTemplateName.TabIndex = 1;
+            // 
             // btnSubmit
             // 
             this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
@@ -70,7 +80,7 @@
             this.btnSubmit.TabIndex = 0;
             this.btnSubmit.Text = ">";
             this.btnSubmit.UseVisualStyleBackColor = false;
-            this.btnSubmit.Click += new System.EventHandler(this.button1_Click);
+            this.btnSubmit.Click += new System.EventHandler(this.backHome);
             // 
             // label2
             // 
@@ -94,20 +104,26 @@
             this.pTemplateName.Size = new System.Drawing.Size(590, 382);
             this.pTemplateName.TabIndex = 1;
             // 
-            // txtTemplateName
+            // btnBack
             // 
-            this.txtTemplateName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTemplateName.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTemplateName.Location = new System.Drawing.Point(15, 13);
-            this.txtTemplateName.Name = "txtTemplateName";
-            this.txtTemplateName.Size = new System.Drawing.Size(422, 32);
-            this.txtTemplateName.TabIndex = 1;
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
+            this.btnBack.Location = new System.Drawing.Point(53, 33);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 31);
+            this.btnBack.TabIndex = 2;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.backHome);
             // 
             // CreateTemplate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.pTemplateName);
             this.Name = "CreateTemplate";
             this.Size = new System.Drawing.Size(1080, 610);
@@ -127,5 +143,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pTemplateName;
         private System.Windows.Forms.TextBox txtTemplateName;
+        private System.Windows.Forms.Button btnBack;
     }
 }

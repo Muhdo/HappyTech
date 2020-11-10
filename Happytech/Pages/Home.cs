@@ -48,7 +48,7 @@ namespace Happytech.Pages
                 case "ContinueReplying": Controls.Add(new ViewApplications()); break;
                 //Templates
                 case "ViewTemplates": Controls.Add(new ViewTemplates()); break;
-                case "NewTemplate": Controls.Add(new ViewTemplates()); break;
+                case "NewTemplate": Controls.Add(new CreateTemplate()); break;
                 case "EditTemplates": Controls.Add(new ViewTemplates()); break;
                 //Responses
                 case "ViewResponses": Controls.Add(new ViewResponses()); break;
