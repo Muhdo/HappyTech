@@ -25,15 +25,22 @@ namespace Happytech.Pages
             Controls.Add(new Home());
         }
 
-        private void templateSetUp(object sender, EventArgs e)
+        private void templateSetUp()
         {
-            if (txtTemplateName.Text == "")
+            Controls.Clear();
+
+        }
+
+        private void setTemplateName(object sender, EventArgs e)
+        {
+            if(txtTemplateName.Text == "")
             {
-                noNameError.Visible = true;
+                lblNoNameError.Visible = true;
             }
             else
             {
                 string templateName = txtTemplateName.Text;
+                templateSetUp();
             }
         }
     }

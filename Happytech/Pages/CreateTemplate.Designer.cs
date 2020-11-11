@@ -35,7 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pTemplateName = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
-            this.noNameError = new System.Windows.Forms.Label();
+            this.lblNoNameError = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pTemplateName.SuspendLayout();
             this.SuspendLayout();
@@ -81,7 +81,7 @@
             this.btnSubmit.TabIndex = 0;
             this.btnSubmit.Text = ">";
             this.btnSubmit.UseVisualStyleBackColor = false;
-            this.btnSubmit.Click += new System.EventHandler(this.templateSetUp);
+            this.btnSubmit.Click += new System.EventHandler(this.setTemplateName);
             // 
             // label2
             // 
@@ -97,7 +97,7 @@
             // 
             // pTemplateName
             // 
-            this.pTemplateName.Controls.Add(this.noNameError);
+            this.pTemplateName.Controls.Add(this.lblNoNameError);
             this.pTemplateName.Controls.Add(this.label2);
             this.pTemplateName.Controls.Add(this.panel1);
             this.pTemplateName.Controls.Add(this.label1);
@@ -120,17 +120,17 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.backHome);
             // 
-            // noNameError
+            // lblNoNameError
             // 
-            this.noNameError.AutoSize = true;
-            this.noNameError.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.noNameError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.noNameError.Location = new System.Drawing.Point(30, 293);
-            this.noNameError.Name = "noNameError";
-            this.noNameError.Size = new System.Drawing.Size(308, 19);
-            this.noNameError.TabIndex = 3;
-            this.noNameError.Text = "Enter a name for the template before continuing.";
-            this.noNameError.Visible = false;
+            this.lblNoNameError.AutoSize = true;
+            this.lblNoNameError.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblNoNameError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblNoNameError.Location = new System.Drawing.Point(30, 293);
+            this.lblNoNameError.Name = "lblNoNameError";
+            this.lblNoNameError.Size = new System.Drawing.Size(308, 19);
+            this.lblNoNameError.TabIndex = 3;
+            this.lblNoNameError.Text = "Enter a name for the template before continuing.";
+            this.lblNoNameError.Visible = false;
             // 
             // CreateTemplate
             // 
@@ -158,6 +158,6 @@
         private System.Windows.Forms.Panel pTemplateName;
         private System.Windows.Forms.TextBox txtTemplateName;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Label noNameError;
+        private System.Windows.Forms.Label lblNoNameError;
     }
 }
