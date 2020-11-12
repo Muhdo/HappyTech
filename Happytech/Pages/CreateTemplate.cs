@@ -25,10 +25,17 @@ namespace Happytech.Pages
             Controls.Add(new Home());
         }
 
-        private void templateSetUp()
+        private void templateSetUp(string templateName)
         {
             Controls.Clear();
-
+            Label lblTemplateName = new Label();
+            lblTemplateName.Text = templateName;
+            lblTemplateName.ForeColor = Color.FromArgb(213, 83, 127);
+            lblTemplateName.Name = "lblTemplateName";
+            lblTemplateName.Font = new Font("Segoe UI", 36F);
+            lblTemplateName.AutoSize = true;
+            lblTemplateName.Location = new Point(500, 20);
+            Controls.Add(lblTemplateName);
         }
 
         private void setTemplateName(object sender, EventArgs e)
@@ -40,7 +47,7 @@ namespace Happytech.Pages
             else
             {
                 string templateName = txtTemplateName.Text;
-                templateSetUp();
+                templateSetUp(templateName);
             }
         }
     }
