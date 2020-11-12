@@ -28,5 +28,11 @@ namespace Happytech.Pages
                 this.Controls.Add(new Home()); 
             }
         }
+
+        private void backHome(object sender, EventArgs e)
+        {
+            Controls.Clear();
+            Controls.Add(new Home());
+        }
     }
 }

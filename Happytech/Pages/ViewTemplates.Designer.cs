@@ -34,6 +34,7 @@
             this.txtTemplateName = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.pTemplateName.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -103,11 +104,26 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Template Setup";
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
+            this.btnBack.Location = new System.Drawing.Point(53, 33);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 31);
+            this.btnBack.TabIndex = 3;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.backHome);
+            // 
             // ViewTemplates
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.pTemplateName);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ForeColor = System.Drawing.Color.White;
@@ -129,5 +145,6 @@
         private System.Windows.Forms.TextBox txtTemplateName;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnBack;
     }
 }
