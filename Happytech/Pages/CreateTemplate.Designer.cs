@@ -34,8 +34,8 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.pTemplateName = new System.Windows.Forms.Panel();
-            this.btnBack = new System.Windows.Forms.Button();
             this.lblNoNameError = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pTemplateName.SuspendLayout();
             this.SuspendLayout();
@@ -106,6 +106,18 @@
             this.pTemplateName.Size = new System.Drawing.Size(590, 382);
             this.pTemplateName.TabIndex = 1;
             // 
+            // lblNoNameError
+            // 
+            this.lblNoNameError.AutoSize = true;
+            this.lblNoNameError.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblNoNameError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblNoNameError.Location = new System.Drawing.Point(30, 293);
+            this.lblNoNameError.Name = "lblNoNameError";
+            this.lblNoNameError.Size = new System.Drawing.Size(308, 19);
+            this.lblNoNameError.TabIndex = 3;
+            this.lblNoNameError.Text = "Enter a name for the template before continuing.";
+            this.lblNoNameError.Visible = false;
+            // 
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
@@ -120,18 +132,6 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.backHome);
             // 
-            // lblNoNameError
-            // 
-            this.lblNoNameError.AutoSize = true;
-            this.lblNoNameError.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblNoNameError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.lblNoNameError.Location = new System.Drawing.Point(30, 293);
-            this.lblNoNameError.Name = "lblNoNameError";
-            this.lblNoNameError.Size = new System.Drawing.Size(308, 19);
-            this.lblNoNameError.TabIndex = 3;
-            this.lblNoNameError.Text = "Enter a name for the template before continuing.";
-            this.lblNoNameError.Visible = false;
-            // 
             // CreateTemplate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,6 +139,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.pTemplateName);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "CreateTemplate";
             this.Size = new System.Drawing.Size(1080, 610);
             this.panel1.ResumeLayout(false);
