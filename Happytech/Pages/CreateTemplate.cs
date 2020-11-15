@@ -34,7 +34,10 @@ namespace Happytech.Pages
             lblTemplateName.Name = "lblTemplateName";
             lblTemplateName.Font = new Font("Segoe UI", 36F);
             lblTemplateName.AutoSize = true;
-            lblTemplateName.Location = new Point(500, 20);
+            int width = this.Width;
+            int halfwidth = (int)Math.Round((decimal)width / 2);
+            int x = halfwidth - ((int)Math.Round((decimal)lblTemplateName.Width/2));
+            lblTemplateName.Location = new Point(x, 20);
             Controls.Add(lblTemplateName);
         }
 
