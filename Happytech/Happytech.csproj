@@ -6,7 +6,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5A155BEF-408A-4321-B30F-9187123BFD89}</ProjectGuid>
+    <ProjectGuid>{77A22DAB-3491-4661-9B04-AAD32D8BBB71}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>HappyTech</RootNamespace>
     <AssemblyName>HappyTech</AssemblyName>

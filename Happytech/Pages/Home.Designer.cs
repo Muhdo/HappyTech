@@ -48,6 +48,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnViewResponses = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
+            this.btn_OpenSubmitForm = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -325,11 +326,27 @@
             this.btnSettings.UseVisualStyleBackColor = false;
             this.btnSettings.Click += new System.EventHandler(this.ChangeWindow);
             // 
+            // btn_OpenSubmitForm
+            // 
+            this.btn_OpenSubmitForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
+            this.btn_OpenSubmitForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_OpenSubmitForm.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.btn_OpenSubmitForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
+            this.btn_OpenSubmitForm.Location = new System.Drawing.Point(20, 544);
+            this.btn_OpenSubmitForm.Name = "btn_OpenSubmitForm";
+            this.btn_OpenSubmitForm.Size = new System.Drawing.Size(165, 45);
+            this.btn_OpenSubmitForm.TabIndex = 16;
+            this.btn_OpenSubmitForm.Tag = "Settings";
+            this.btn_OpenSubmitForm.Text = "Submit Application";
+            this.btn_OpenSubmitForm.UseVisualStyleBackColor = false;
+            this.btn_OpenSubmitForm.Click += new System.EventHandler(this.btn_OpenSubmitForm_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.Controls.Add(this.btn_OpenSubmitForm);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnUnsuccessfulApplicants);
             this.Controls.Add(this.btnSuccessfulApplicants);
@@ -378,5 +395,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnViewResponses;
         private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Button btn_OpenSubmitForm;
     }
 }

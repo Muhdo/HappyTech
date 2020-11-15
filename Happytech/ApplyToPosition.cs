@@ -18,7 +18,7 @@ namespace Happytech
         Database db = new Database();
         Role[] roles; //Roles list
 
-        private string curriculumLocation = null;
+        private OpenFileDialog curriculumLocation = null;
 
         public ApplyToPosition()
         {
@@ -50,7 +50,7 @@ namespace Happytech
             {
                 try
                 {
-                    curriculumLocation = $"\"{dialog.FileName}\"";
+                    curriculumLocation = dialog;
                     lblFileName.Text = dialog.SafeFileName;
                 }
                 catch (Exception e)
@@ -63,17 +63,16 @@ namespace Happytech
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-
             lblErrorName.Visible = CheckError(tbName);
             lblErrorEmail.Visible = CheckError(tbEmail);
             lblErrorPosition.Visible = SelectedRole();
-            lblErrorCurriculum.Visible = curriculumLocation == null || !File.Exists(curriculumLocation);
+            lblErrorCurriculum.Visible = curriculumLocation == null || !File.Exists(curriculumLocation.FileName);
 
             bool existsErrors = VisibleChanged();
 
             if (!existsErrors)
             {
-                lblErrorSubmit.Visible = !db.ApplyToPosition(tbName.Text, tbEmail.Text, roles[cbRole.SelectedIndex].Id, curriculumLocation);
+                lblErrorSubmit.Visible = !db.ApplyToPosition(tbName.Text, tbEmail.Text, roles[cbRole.SelectedIndex].Id, SaveCV());
 
                 if (!lblErrorSubmit.Visible)
                 {
@@ -108,6 +107,33 @@ namespace Happytech
                 return true;
             
             return false;
+        }
+
+        /// <summary>
+        /// Saves the file in a specific folder in the application.
+        /// </summary>
+        /// <returns>File path or null.</returns>
+        private string SaveCV()
+        {
+            //File name with a unique variable, which is the Unix time
+            //Gets just the file name without extension
+            //Adds unix time to the end
+            //Adds the extension
+            string finalFileName = Path.GetFileNameWithoutExtension(curriculumLocation.SafeFileName) +
+                                   new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds() +
+                                   Path.GetExtension(curriculumLocation.SafeFileName);
+
+            try
+            {
+                //Tries to copy the file to the specific location
+                File.Copy(curriculumLocation.FileName, $"{Directory.GetCurrentDirectory()}\\cv\\{finalFileName}", false);
+
+                return Path.GetFileNameWithoutExtension(finalFileName); //Returns file name without extension
+            }
+            catch (Exception)
+            {
+                return null; //If there is an error will return null
+            }
         }
     }
 }

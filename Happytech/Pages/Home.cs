@@ -61,5 +61,11 @@ namespace Happytech.Pages
 
             UserPages.firstAction = btn.Tag.ToString(); //Sets the first action to perform when the page opens
         }
+
+        private void btn_OpenSubmitForm_Click(object sender, EventArgs e)
+        {
+            ApplyToPosition form = new ApplyToPosition();
+            form.Show();
+        }
     }
 }
