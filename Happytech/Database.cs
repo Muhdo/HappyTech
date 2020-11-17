@@ -31,7 +31,7 @@ namespace Happytech
         //Removes a role from database
         private SqlCommand _removeRole = new SqlCommand("DELETE FROM Role WHERE RoleID = @RoleID", connection);
         //Adds a new role
-        private SqlCommand _addRole = new SqlCommand("INSERT INTO Role (Role) VALUES (@Role)", connection);
+        private SqlCommand _addRole = new SqlCommand("INSERT INTO Role (Role, IsAdmin) VALUES (@Role, @IsAdmin)", connection);
         //Number of new applications (not replied yet)
         private SqlCommand _numberNewApplications = new SqlCommand("SELECT COUNT(ApplicationID) FROM Application WHERE NOT EXISTS (SELECT ApplicationID FROM Reply)", connection);
         //Returns data from new applications
@@ -421,8 +421,9 @@ namespace Happytech
         /// Adds a new role.
         /// </summary>
         /// <param name="role">New role available.</param>
+        /// <param name="isAdmin">If the role is admin.</param>
         /// <returns>True if was inserted, false in any error.</returns>
-        public bool AddRole(string role)
+        public bool AddRole(string role, bool isAdmin)
         {
             OpenDb();
 
@@ -431,6 +432,7 @@ namespace Happytech
             try
             {
                 _addRole.Parameters.AddWithValue("@Role", role.Trim());
+                _addRole.Parameters.AddWithValue("@IsAdmin", isAdmin);
                 _addRole.ExecuteNonQuery();
                 _addRole.Parameters.Clear();
 

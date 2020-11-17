@@ -61,7 +61,7 @@ namespace Happytech.Pages
 
             //Checks if there is any error
             //If doesn't have errors, it will try to add the role
-            if (!lblNewRoleError.Visible) lblErrorInsertingRole.Visible = !db.AddRole(tbRoleName.Text);
+            if (!lblNewRoleError.Visible) lblErrorInsertingRole.Visible = !db.AddRole(tbRoleName.Text, chkAdmin.Checked);
 
             //If there is no error
             if (!lblErrorInsertingRole.Visible)

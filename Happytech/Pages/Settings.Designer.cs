@@ -52,6 +52,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lstEmployees = new Happytech.Components.ListComponent.List();
+            this.chkAdmin = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnBack
@@ -347,11 +348,22 @@
             this.lstEmployees.Size = new System.Drawing.Size(298, 548);
             this.lstEmployees.TabIndex = 41;
             // 
+            // chkAdmin
+            // 
+            this.chkAdmin.AutoSize = true;
+            this.chkAdmin.Location = new System.Drawing.Point(582, 195);
+            this.chkAdmin.Name = "chkAdmin";
+            this.chkAdmin.Size = new System.Drawing.Size(108, 19);
+            this.chkAdmin.TabIndex = 42;
+            this.chkAdmin.Text = "Is administrator";
+            this.chkAdmin.UseVisualStyleBackColor = true;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.Controls.Add(this.chkAdmin);
             this.Controls.Add(this.lstEmployees);
             this.Controls.Add(this.lblRemoveRoleError);
             this.Controls.Add(this.lblErrorRemovingRole);
@@ -410,5 +422,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private Components.ListComponent.List lstEmployees;
+        private System.Windows.Forms.CheckBox chkAdmin;
     }
 }
