@@ -120,17 +120,19 @@ namespace Happytech
             //Adds unix time to the end
             //Adds the extension
             string finalFileName = Path.GetFileNameWithoutExtension(curriculumLocation.SafeFileName) +
-                                   new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds() +
+                                   DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") +
                                    Path.GetExtension(curriculumLocation.SafeFileName);
+
+            Console.WriteLine(Directory.GetCurrentDirectory() + "\\cv\\" + finalFileName);
 
             try
             {
                 //Tries to copy the file to the specific location
-                File.Copy(curriculumLocation.FileName, $"{Directory.GetCurrentDirectory()}\\cv\\{finalFileName}", false);
+                File.Copy(curriculumLocation.FileName, Directory.GetCurrentDirectory() + "\\cv\\" + finalFileName);
 
                 return Path.GetFileNameWithoutExtension(finalFileName); //Returns file name without extension
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return null; //If there is an error will return null
             }
