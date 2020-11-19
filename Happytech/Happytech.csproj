@@ -135,6 +135,12 @@
     <Compile Include="Pages\RepliedApplications.Designer.cs">
       <DependentUpon>RepliedApplications.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TemplateSetup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\TemplateSetup.Designer.cs">
+      <DependentUpon>TemplateSetup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ViewApplications.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\RepliedApplications.resx">
       <DependentUpon>RepliedApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\TemplateSetup.resx">
+      <DependentUpon>TemplateSetup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\ViewApplications.resx">
       <DependentUpon>ViewApplications.cs</DependentUpon>

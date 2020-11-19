@@ -28,18 +28,7 @@ namespace Happytech.Pages
         private void templateSetUp(string templateName)
         {
             Controls.Clear();
-            Label lblTemplateName = new Label();
-            lblTemplateName.Text = templateName;
-            lblTemplateName.ForeColor = Color.FromArgb(213, 83, 127);
-            lblTemplateName.Name = "lblTemplateName";
-            lblTemplateName.Font = new Font("Segoe UI", 36F);
-            lblTemplateName.AutoSize = true;
-            //figuring out where the label should be positioned so it's central
-            int halfwidth = (int)Math.Round((decimal)Width / 2);
-            int halfTextWidth = (int)Math.Round((decimal)lblTemplateName.Width / 2);
-            int x = halfwidth - halfTextWidth;
-            lblTemplateName.Location = new Point(x, 20);
-            Controls.Add(lblTemplateName);
+            Controls.Add(new HappyTech.Pages.TemplateSetup(templateName));
         }
 
         private void setTemplateName(object sender, EventArgs e)
