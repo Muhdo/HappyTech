@@ -34,9 +34,10 @@ namespace Happytech.Pages
             lblTemplateName.Name = "lblTemplateName";
             lblTemplateName.Font = new Font("Segoe UI", 36F);
             lblTemplateName.AutoSize = true;
-            int width = this.Width;
-            int halfwidth = (int)Math.Round((decimal)width / 2);
-            int x = halfwidth - ((int)Math.Round((decimal)lblTemplateName.Width/2));
+            //figuring out where the label should be positioned so it's central
+            int halfwidth = (int)Math.Round((decimal)Width / 2);
+            int halfTextWidth = (int)Math.Round((decimal)lblTemplateName.Width / 2);
+            int x = halfwidth - halfTextWidth;
             lblTemplateName.Location = new Point(x, 20);
             Controls.Add(lblTemplateName);
         }
