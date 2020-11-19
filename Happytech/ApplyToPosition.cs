@@ -115,23 +115,26 @@ namespace Happytech
         /// <returns>File path or null.</returns>
         private string SaveCV()
         {
-            //File name with a unique variable, which is the Unix time
+            //File name with a unique variable, GUID
             //Gets just the file name without extension
-            //Adds unix time to the end
+            //Adds the GUID to the end
             //Adds the extension
             string finalFileName = Path.GetFileNameWithoutExtension(curriculumLocation.SafeFileName) +
-                                   new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds() +
+                                   Guid.NewGuid() + 
                                    Path.GetExtension(curriculumLocation.SafeFileName);
+
+            Console.WriteLine(Directory.GetCurrentDirectory() + "\\cv\\" + finalFileName);
 
             try
             {
                 //Tries to copy the file to the specific location
-                File.Copy(curriculumLocation.FileName, $"{Directory.GetCurrentDirectory()}\\cv\\{finalFileName}", false);
+                File.Copy(curriculumLocation.FileName, Directory.GetCurrentDirectory() + "\\cv\\" + finalFileName);
 
                 return Path.GetFileNameWithoutExtension(finalFileName); //Returns file name without extension
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show(e.Message);
                 return null; //If there is an error will return null
             }
         }
