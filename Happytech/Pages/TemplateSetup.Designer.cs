@@ -51,7 +51,7 @@
             this.lblTemplateName.AutoSize = true;
             this.lblTemplateName.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTemplateName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.lblTemplateName.Location = new System.Drawing.Point(292, 33);
+            this.lblTemplateName.Location = new System.Drawing.Point(289, 16);
             this.lblTemplateName.Name = "lblTemplateName";
             this.lblTemplateName.Size = new System.Drawing.Size(467, 65);
             this.lblTemplateName.TabIndex = 4;
