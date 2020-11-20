@@ -30,6 +30,11 @@
         {
             this.btnBack = new System.Windows.Forms.Button();
             this.lblTemplateName = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tabSections = new System.Windows.Forms.TabControl();
+            this.tabSection1 = new System.Windows.Forms.TabPage();
+            this.tabNew = new System.Windows.Forms.TabPage();
+            this.tabSections.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBack
@@ -58,16 +63,64 @@
             this.lblTemplateName.Text = "New Template Name";
             this.lblTemplateName.Visible = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(275, 293);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 25);
+            this.label2.TabIndex = 7;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tabSections
+            // 
+            this.tabSections.Controls.Add(this.tabSection1);
+            this.tabSections.Controls.Add(this.tabNew);
+            this.tabSections.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabSections.Location = new System.Drawing.Point(53, 122);
+            this.tabSections.Name = "tabSections";
+            this.tabSections.Padding = new System.Drawing.Point(0, 0);
+            this.tabSections.SelectedIndex = 0;
+            this.tabSections.Size = new System.Drawing.Size(965, 436);
+            this.tabSections.TabIndex = 8;
+            this.tabSections.SelectedIndexChanged += new System.EventHandler(this.newTab);
+            // 
+            // tabSection1
+            // 
+            this.tabSection1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
+            this.tabSection1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabSection1.ForeColor = System.Drawing.Color.White;
+            this.tabSection1.Location = new System.Drawing.Point(4, 30);
+            this.tabSection1.Name = "tabSection1";
+            this.tabSection1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSection1.Size = new System.Drawing.Size(957, 402);
+            this.tabSection1.TabIndex = 0;
+            this.tabSection1.Text = "Section 1";
+            // 
+            // tabNew
+            // 
+            this.tabNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
+            this.tabNew.Location = new System.Drawing.Point(4, 30);
+            this.tabNew.Name = "tabNew";
+            this.tabNew.Size = new System.Drawing.Size(957, 402);
+            this.tabNew.TabIndex = 1;
+            this.tabNew.Text = "+";
+            // 
             // TemplateSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.Controls.Add(this.tabSections);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTemplateName);
             this.Controls.Add(this.btnBack);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TemplateSetup";
             this.Size = new System.Drawing.Size(1080, 610);
+            this.tabSections.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -77,5 +130,9 @@
 
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label lblTemplateName;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabControl tabSections;
+        private System.Windows.Forms.TabPage tabSection1;
+        private System.Windows.Forms.TabPage tabNew;
     }
 }
