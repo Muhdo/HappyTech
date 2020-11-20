@@ -12,22 +12,36 @@ namespace HappyTech.Pages
 {
     public partial class TemplateSetup : UserControl
     {
-        private int tabsIndex = 2;
+        private int tabsIndex = 1;
         private string nextTabText = "";
-        //private List<TabPage> tabs = new List<TabPage>();
-        //TabPage tabSection2 = new TabPage();
+        TabPage tabSection2 = new TabPage();
+        TabPage tabSection3 = new TabPage();
+        TabPage tabSection4 = new TabPage();
+        TabPage tabSection5 = new TabPage();
+        private List<TabPage> tabs = new List<TabPage>();
         
+
         public TemplateSetup(string templateName)
         {
             InitializeComponent();
             lblTemplateName.Text = templateName;
             lblTemplateName.Visible = true;
+            tabs.Add(tabSection2);
+            tabs.Add(tabSection3);
+            tabs.Add(tabSection4);
+            tabs.Add(tabSection5);
+            foreach (TabPage tab in tabs)
+            {
+                tabDesign(tab);
+            }
         }
 
-        //public void TabPage()
-        //{
-
-        //}
+        public void tabDesign(TabPage tab)
+        {
+            nextTabText = "Section " + (tabs.IndexOf(tab) + 1);
+            tab.BackColor = Color.FromArgb(39, 44, 74);
+            tab.Text = nextTabText;
+        }
 
         private void btnBackPage(object sender, EventArgs e)
         {
@@ -41,12 +55,11 @@ namespace HappyTech.Pages
             //condition should check if it was tabNew that was clicked
             if (true)
             {
-                nextTabText = "Section " + tabsIndex;
                 tabSections.Controls.Remove(tabNew);
                 try
                 {
                     //add the next tab
-                    tabSections.Controls.Add(new TabPage(nextTabText));
+                    tabSections.Controls.Add(tabs.ElementAt(tabsIndex));
                 }
                 catch (Exception)
                 {
