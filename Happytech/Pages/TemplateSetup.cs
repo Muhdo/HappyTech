@@ -20,6 +20,18 @@ namespace HappyTech.Pages
         TabPage tabSection4 = new TabPage();
         TabPage tabSection5 = new TabPage();
         private List<TabPage> tabs = new List<TabPage>();
+        TextBox code1 = new TextBox();
+        TextBox code2 = new TextBox();
+        TextBox code3 = new TextBox();
+        TextBox code4 = new TextBox();
+        TextBox code5 = new TextBox();
+        private List<TextBox> codes = new List<TextBox>();
+        TextBox comment1 = new TextBox();
+        TextBox comment2 = new TextBox();
+        TextBox comment3 = new TextBox();
+        TextBox comment4 = new TextBox();
+        TextBox comment5 = new TextBox();
+        private List<TextBox> comments = new List<TextBox>();
 
         public TemplateSetup(string templateName)
         {
@@ -31,11 +43,28 @@ namespace HappyTech.Pages
             tabs.Add(tabSection3);
             tabs.Add(tabSection4);
             tabs.Add(tabSection5);
+            codes.Add(code1);
+            codes.Add(code2);
+            codes.Add(code3);
+            codes.Add(code4);
+            codes.Add(code5);
+            comments.Add(comment1);
+            comments.Add(comment2);
+            comments.Add(comment3);
+            comments.Add(comment4);
+            comments.Add(comment5);
+            foreach (TextBox code in codes)
+            {
+                codeDesign(code);
+            }
+            foreach (TextBox comment in comments)
+            {
+                commentDesign(comment);
+            }
             foreach (TabPage tab in tabs)
             {
                 tabDesign(tab);
             }
-            
         }
 
         private void newTab(object sender, EventArgs e)
@@ -68,6 +97,34 @@ namespace HappyTech.Pages
             sectionName.Text = "Section name";
             sectionName.Location = new Point(23, 19);
             tab.Controls.Add(sectionName);
+            Button addComment = new Button();
+            addComment.Text = "Add Comment";
+            addComment.BackColor = Color.FromArgb(39, 44, 74);
+            addComment.FlatStyle = FlatStyle.Flat;
+            addComment.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            addComment.ForeColor = Color.FromArgb(213, 83, 217);
+            addComment.Location = new Point(771, 19);
+            addComment.Size = new Size(141, 31);
+            tab.Controls.Add(addComment);
+            addComment.Click += AddComment_Click;
+        }
+
+        private void AddComment_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            //add the next code and comment in the list for that tab
+        }
+
+        private void codeDesign(TextBox code)
+        {
+            code.Text = "Code " + (codes.IndexOf(code) + 1);
+            //code.Location = ?
+        }
+        private void commentDesign(TextBox comment)
+        {
+            comment.Text = "Comment...";
+            comment.Multiline = true;
+            //comment.Location = ?
         }
 
         private void btnBackPage(object sender, EventArgs e)
