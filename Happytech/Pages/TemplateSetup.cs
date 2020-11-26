@@ -64,6 +64,10 @@ namespace HappyTech.Pages
             tab.BackColor = Color.FromArgb(39, 44, 74);
             tab.Text = nextTabText;
             //here will also go code for adding text boxes and stuff to the tabs
+            TextBox sectionName = new TextBox();
+            sectionName.Text = "Section name";
+            sectionName.Location = new Point(23, 19);
+            tab.Controls.Add(sectionName);
         }
 
         private void btnBackPage(object sender, EventArgs e)

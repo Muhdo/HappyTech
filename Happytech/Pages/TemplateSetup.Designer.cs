@@ -32,10 +32,14 @@
             this.lblTemplateName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabSections = new System.Windows.Forms.TabControl();
+            this.tabNew = new System.Windows.Forms.TabPage();
             this.btnCreateTemplate = new System.Windows.Forms.Button();
             this.lblMaxTabsError = new System.Windows.Forms.Label();
-            this.tabNew = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabSections.SuspendLayout();
+            this.tabNew.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBack
@@ -57,7 +61,7 @@
             this.lblTemplateName.AutoSize = true;
             this.lblTemplateName.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTemplateName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.lblTemplateName.Location = new System.Drawing.Point(289, 16);
+            this.lblTemplateName.Location = new System.Drawing.Point(323, 14);
             this.lblTemplateName.Name = "lblTemplateName";
             this.lblTemplateName.Size = new System.Drawing.Size(467, 65);
             this.lblTemplateName.TabIndex = 4;
@@ -86,6 +90,19 @@
             this.tabSections.Size = new System.Drawing.Size(965, 366);
             this.tabSections.TabIndex = 8;
             // 
+            // tabNew
+            // 
+            this.tabNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
+            this.tabNew.Controls.Add(this.textBox3);
+            this.tabNew.Controls.Add(this.textBox2);
+            this.tabNew.Controls.Add(this.textBox1);
+            this.tabNew.Location = new System.Drawing.Point(4, 30);
+            this.tabNew.Name = "tabNew";
+            this.tabNew.Size = new System.Drawing.Size(957, 332);
+            this.tabNew.TabIndex = 0;
+            this.tabNew.Text = "    +";
+            this.tabNew.Enter += new System.EventHandler(this.newTab);
+            // 
             // btnCreateTemplate
             // 
             this.btnCreateTemplate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
@@ -111,15 +128,30 @@
             this.lblMaxTabsError.Text = "You have reached the maximum number of sections. ";
             this.lblMaxTabsError.Visible = false;
             // 
-            // tabNew
+            // textBox1
             // 
-            this.tabNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
-            this.tabNew.Location = new System.Drawing.Point(4, 30);
-            this.tabNew.Name = "tabNew";
-            this.tabNew.Size = new System.Drawing.Size(957, 332);
-            this.tabNew.TabIndex = 0;
-            this.tabNew.Text = "    +";
-            this.tabNew.Click += new System.EventHandler(newTab);
+            this.textBox1.Location = new System.Drawing.Point(23, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(195, 29);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "Section Name";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(23, 55);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(145, 29);
+            this.textBox2.TabIndex = 1;
+            this.textBox2.Text = "Code 1";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(23, 93);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(889, 73);
+            this.textBox3.TabIndex = 2;
+            this.textBox3.Text = "Comment space";
             // 
             // TemplateSetup
             // 
@@ -136,6 +168,8 @@
             this.Name = "TemplateSetup";
             this.Size = new System.Drawing.Size(1080, 610);
             this.tabSections.ResumeLayout(false);
+            this.tabNew.ResumeLayout(false);
+            this.tabNew.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +184,8 @@
         private System.Windows.Forms.Button btnCreateTemplate;
         private System.Windows.Forms.Label lblMaxTabsError;
         private System.Windows.Forms.TabPage tabNew;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
