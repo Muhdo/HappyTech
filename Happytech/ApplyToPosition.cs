@@ -32,13 +32,11 @@ namespace Happytech
             foreach (Role role in roles) cbRole.Items.Add(role.RoleName); //Adds the roles to the combobox
         }
 
-        private void btnSelectFile_Click(object sender, EventArgs e)
-        {
-            fileDialogForm();
-        }
+        private void btnSelectFile_Click(object sender, EventArgs e) => fileDialogForm(); //Opens Windows file dialog
 
         private void fileDialogForm()
         {
+            //definition of the file dialog
             OpenFileDialog dialog = new OpenFileDialog()
             {
                 Filter = @"PDF (.pdf)|*.pdf|Word Files (.docx ,.doc)|*.docx;*.doc|All Files|*.docx;*.doc;*.pdf",
@@ -46,12 +44,13 @@ namespace Happytech
                 Multiselect = false
             };
 
+            //In case there is some file selected
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    curriculumLocation = dialog;
-                    lblFileName.Text = dialog.SafeFileName;
+                    curriculumLocation = dialog; //Saves in global variable
+                    lblFileName.Text = dialog.SafeFileName; //Displays file name
                 }
                 catch (Exception e)
                 {
@@ -63,18 +62,18 @@ namespace Happytech
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            lblErrorName.Visible = CheckError(tbName);
-            lblErrorEmail.Visible = CheckError(tbEmail);
-            lblErrorPosition.Visible = SelectedRole();
-            lblErrorCurriculum.Visible = curriculumLocation == null || !File.Exists(curriculumLocation.FileName);
+            lblErrorName.Visible = CheckError(tbName); //Checks for errors in Name
+            lblErrorEmail.Visible = CheckError(tbEmail); //Checks for errors in Email
+            lblErrorPosition.Visible = SelectedRole(); //Checks if there is any role selected
+            lblErrorCurriculum.Visible = curriculumLocation == null || !File.Exists(curriculumLocation.FileName); //Checks if there is file and if exists
 
-            bool existsErrors = VisibleChanged();
+            bool existsErrors = VisibleChanged(); //Validates that everything is valid
 
-            if (!existsErrors)
+            if (!existsErrors) //If there is no errors
             {
-                lblErrorSubmit.Visible = !db.ApplyToPosition(tbName.Text, tbEmail.Text, roles[cbRole.SelectedIndex].Id, SaveCV());
+                lblErrorSubmit.Visible = !db.ApplyToPosition(tbName.Text, tbEmail.Text, roles[cbRole.SelectedIndex].Id, SaveCV()); //Tries to save in the database and save the file in the file explorer
 
-                if (!lblErrorSubmit.Visible)
+                if (!lblErrorSubmit.Visible) //If there is no errors submitting it will reset the page
                 {
                     tbName.Text = null;
                     tbEmail.Text = null;
@@ -105,7 +104,7 @@ namespace Happytech
         {
             if (lblErrorName.Visible || lblErrorEmail.Visible || lblErrorPosition.Visible || lblErrorCurriculum.Visible)
                 return true;
-            
+
             return false;
         }
 
@@ -120,10 +119,8 @@ namespace Happytech
             //Adds the GUID to the end
             //Adds the extension
             string finalFileName = Path.GetFileNameWithoutExtension(curriculumLocation.SafeFileName) +
-                                   Guid.NewGuid() + 
+                                   Guid.NewGuid() +
                                    Path.GetExtension(curriculumLocation.SafeFileName);
-
-            Console.WriteLine(Directory.GetCurrentDirectory() + "\\cv\\" + finalFileName);
 
             try
             {
