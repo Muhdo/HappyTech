@@ -123,6 +123,12 @@
     <Compile Include="Pages\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Replying.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Replying.Designer.cs">
+      <DependentUpon>Replying.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Settings.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Replying.resx">
+      <DependentUpon>Replying.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
