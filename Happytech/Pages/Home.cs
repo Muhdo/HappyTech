@@ -25,7 +25,7 @@ namespace Happytech.Pages
             lblWelcome.Text = $"Welcome back, {CurrentEmployee.Name}!";
 
             lblRepliedApplications.Text = db.QuantityRepliedApplications().ToString(); //Gets number of replied applications
-            lblNewApplications.Text = db.QuantityNewApplications().ToString(); //Gets number of new applications
+            lblNewApplications.Text = db.FetchNewApplications().Rows.Count.ToString(); //Gets number of new applications
 
             // Create curriculum folder if non existant
             var currentDirectory = Directory.GetCurrentDirectory();
