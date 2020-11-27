@@ -146,5 +146,10 @@ namespace HappyTech.Pages
             Controls.Clear();
             Controls.Add(new Happytech.Pages.CreateTemplate());
         }
+
+        private void saveTemplate(object sender, EventArgs e)
+        {
+            //gather all values and stick a big sql insert into database.cs
+        }
     }
 }
