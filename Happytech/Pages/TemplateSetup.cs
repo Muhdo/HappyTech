@@ -26,12 +26,16 @@ namespace HappyTech.Pages
         TextBox code4 = new TextBox();
         TextBox code5 = new TextBox();
         private List<TextBox> codes = new List<TextBox>();
+        int[] codeYs = new int[5] {55, 172, 286, 400, 514 };
         TextBox comment1 = new TextBox();
         TextBox comment2 = new TextBox();
         TextBox comment3 = new TextBox();
         TextBox comment4 = new TextBox();
         TextBox comment5 = new TextBox();
         private List<TextBox> comments = new List<TextBox>();
+        int[] commentYs = new int[5] { 93, 207, 321, 435, 549 };
+        //array storing how many codes have been added to each section
+        int[] sectionCodes = new int[5] { 0, 0, 0, 0, 0 };
 
         public TemplateSetup(string templateName)
         {
@@ -111,20 +115,30 @@ namespace HappyTech.Pages
 
         private void AddComment_Click(object sender, EventArgs e)
         {
-            //throw new NotImplementedException();
-            //add the next code and comment in the list for that tab
+            //find which tab is selected
+            //find value of sectionCodes for the tab
+            //if value < 4
+            //  tab.Controls.Add(codes[value])
+            //  tab.Controls.Add(comments[value])
+            //  increment sectionCodes value
+            //else
+            //  error - max comments reached
         }
 
         private void codeDesign(TextBox code)
         {
             code.Text = "Code " + (codes.IndexOf(code) + 1);
-            //code.Location = ?
+            int pos = codes.IndexOf(code);
+            int y = codeYs[pos];
+            code.Location = new Point(23, y);
         }
         private void commentDesign(TextBox comment)
         {
             comment.Text = "Comment...";
             comment.Multiline = true;
-            //comment.Location = ?
+            int pos = comments.IndexOf(comment);
+            int y = commentYs[pos];
+            comment.Location = new Point(23, y);
         }
 
         private void btnBackPage(object sender, EventArgs e)
