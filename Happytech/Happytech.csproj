@@ -147,6 +147,12 @@
     <Compile Include="Pages\TemplateSetup.Designer.cs">
       <DependentUpon>TemplateSetup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ViewApplications.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -212,6 +218,9 @@
     <EmbeddedResource Include="Pages\TemplateSetup.resx">
       <DependentUpon>TemplateSetup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\ViewApplications.resx">
       <DependentUpon>ViewApplications.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,6 +273,17 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>database.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\minimizebutton.png" />
+    <None Include="Resources\close button.png" />
+    <None Include="Resources\open drawer.png" />
+    <None Include="Resources\close drawer.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\templates1.png" />
+    <None Include="Resources\templates.png" />
+    <None Include="Resources\dashboard %281%29.png" />
+    <None Include="Resources\logotipo.png" />
+    <None Include="Resources\Small Logo.png" />
+    <None Include="Resources\Dashboard Illustation.jpg" />
     <None Include="Resources\home.png" />
   </ItemGroup>
   <ItemGroup>

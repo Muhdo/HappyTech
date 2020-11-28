@@ -16,11 +16,15 @@ namespace Happytech.Pages
 {
     public partial class RepliedApplications : System.Windows.Forms.UserControl
     {
+        ApplyToPosition ApplyForm; // Used as to know if there's one open already
         ListReview ListReview;
         Database db = new Database();
+
         public RepliedApplications()
         {
             InitializeComponent();
+            this.Dock = DockStyle.Fill;
+
 
             // Initialize the applications list
             ListReview = new ListReview();
@@ -78,6 +82,15 @@ namespace Happytech.Pages
         {
             Controls.Clear();
             Controls.Add(new Home());
+        }
+
+        private void btnInsertApplication_Click(object sender, EventArgs e)
+        {
+            if (ApplyForm == null)
+            {
+                ApplyForm = new ApplyToPosition();
+                ApplyForm.Show();
+            }
         }
     }
 }

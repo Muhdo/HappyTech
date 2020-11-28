@@ -51,8 +51,8 @@
             this.cbRemoveRole = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.lstEmployees = new Happytech.Components.ListComponent.List();
             this.chkAdmin = new System.Windows.Forms.CheckBox();
+            this.lstEmployees = new Happytech.Components.ListComponent.List();
             this.SuspendLayout();
             // 
             // btnBack
@@ -61,13 +61,14 @@
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.btnBack.Location = new System.Drawing.Point(895, 544);
+            this.btnBack.Location = new System.Drawing.Point(663, 500);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(165, 45);
             this.btnBack.TabIndex = 16;
             this.btnBack.Tag = "";
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Visible = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // label1
@@ -118,7 +119,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label4.Location = new System.Drawing.Point(578, 48);
+            this.label4.Location = new System.Drawing.Point(327, 127);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 19);
             this.label4.TabIndex = 23;
@@ -132,7 +133,7 @@
             this.cbRole.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.cbRole.ForeColor = System.Drawing.Color.White;
             this.cbRole.FormattingEnabled = true;
-            this.cbRole.Location = new System.Drawing.Point(582, 69);
+            this.cbRole.Location = new System.Drawing.Point(331, 148);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(215, 27);
             this.cbRole.TabIndex = 24;
@@ -144,7 +145,7 @@
             this.btnSaveUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveUser.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.btnSaveUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.btnSaveUser.Location = new System.Drawing.Point(833, 68);
+            this.btnSaveUser.Location = new System.Drawing.Point(331, 212);
             this.btnSaveUser.Name = "btnSaveUser";
             this.btnSaveUser.Size = new System.Drawing.Size(215, 27);
             this.btnSaveUser.TabIndex = 25;
@@ -170,7 +171,7 @@
             this.lblErrorInsertingUser.AutoSize = true;
             this.lblErrorInsertingUser.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblErrorInsertingUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.lblErrorInsertingUser.Location = new System.Drawing.Point(829, 98);
+            this.lblErrorInsertingUser.Location = new System.Drawing.Point(327, 242);
             this.lblErrorInsertingUser.Name = "lblErrorInsertingUser";
             this.lblErrorInsertingUser.Size = new System.Drawing.Size(196, 19);
             this.lblErrorInsertingUser.TabIndex = 27;
@@ -182,7 +183,7 @@
             this.lblSelectRoleError.AutoSize = true;
             this.lblSelectRoleError.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblSelectRoleError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.lblSelectRoleError.Location = new System.Drawing.Point(578, 99);
+            this.lblSelectRoleError.Location = new System.Drawing.Point(327, 178);
             this.lblSelectRoleError.Name = "lblSelectRoleError";
             this.lblSelectRoleError.Size = new System.Drawing.Size(123, 19);
             this.lblSelectRoleError.TabIndex = 28;
@@ -194,7 +195,7 @@
             this.lblErrorInsertingRole.AutoSize = true;
             this.lblErrorInsertingRole.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblErrorInsertingRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.lblErrorInsertingRole.Location = new System.Drawing.Point(829, 219);
+            this.lblErrorInsertingRole.Location = new System.Drawing.Point(585, 178);
             this.lblErrorInsertingRole.Name = "lblErrorInsertingRole";
             this.lblErrorInsertingRole.Size = new System.Drawing.Size(193, 19);
             this.lblErrorInsertingRole.TabIndex = 34;
@@ -206,7 +207,7 @@
             this.lblNewRoleError.AutoSize = true;
             this.lblNewRoleError.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblNewRoleError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.lblNewRoleError.Location = new System.Drawing.Point(327, 220);
+            this.lblNewRoleError.Location = new System.Drawing.Point(585, 99);
             this.lblNewRoleError.Name = "lblNewRoleError";
             this.lblNewRoleError.Size = new System.Drawing.Size(142, 19);
             this.lblNewRoleError.TabIndex = 33;
@@ -219,7 +220,7 @@
             this.btnSaveRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveRole.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.btnSaveRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.btnSaveRole.Location = new System.Drawing.Point(833, 189);
+            this.btnSaveRole.Location = new System.Drawing.Point(589, 148);
             this.btnSaveRole.Name = "btnSaveRole";
             this.btnSaveRole.Size = new System.Drawing.Size(215, 27);
             this.btnSaveRole.TabIndex = 32;
@@ -232,7 +233,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label7.Location = new System.Drawing.Point(327, 169);
+            this.label7.Location = new System.Drawing.Point(585, 48);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 19);
             this.label7.TabIndex = 31;
@@ -245,7 +246,7 @@
             this.tbRoleName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbRoleName.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.tbRoleName.ForeColor = System.Drawing.Color.White;
-            this.tbRoleName.Location = new System.Drawing.Point(331, 191);
+            this.tbRoleName.Location = new System.Drawing.Point(589, 70);
             this.tbRoleName.MaxLength = 256;
             this.tbRoleName.Name = "tbRoleName";
             this.tbRoleName.Size = new System.Drawing.Size(215, 26);
@@ -257,7 +258,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label8.Location = new System.Drawing.Point(326, 135);
+            this.label8.Location = new System.Drawing.Point(584, 14);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(94, 28);
             this.label8.TabIndex = 30;
@@ -268,7 +269,7 @@
             this.lblRemoveRoleError.AutoSize = true;
             this.lblRemoveRoleError.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblRemoveRoleError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.lblRemoveRoleError.Location = new System.Drawing.Point(327, 340);
+            this.lblRemoveRoleError.Location = new System.Drawing.Point(327, 374);
             this.lblRemoveRoleError.Name = "lblRemoveRoleError";
             this.lblRemoveRoleError.Size = new System.Drawing.Size(123, 19);
             this.lblRemoveRoleError.TabIndex = 40;
@@ -280,7 +281,7 @@
             this.lblErrorRemovingRole.AutoSize = true;
             this.lblErrorRemovingRole.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblErrorRemovingRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.lblErrorRemovingRole.Location = new System.Drawing.Point(829, 340);
+            this.lblErrorRemovingRole.Location = new System.Drawing.Point(327, 436);
             this.lblErrorRemovingRole.Name = "lblErrorRemovingRole";
             this.lblErrorRemovingRole.Size = new System.Drawing.Size(229, 19);
             this.lblErrorRemovingRole.TabIndex = 39;
@@ -293,7 +294,7 @@
             this.btnRemoveRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveRole.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.btnRemoveRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.btnRemoveRole.Location = new System.Drawing.Point(833, 310);
+            this.btnRemoveRole.Location = new System.Drawing.Point(331, 406);
             this.btnRemoveRole.Name = "btnRemoveRole";
             this.btnRemoveRole.Size = new System.Drawing.Size(215, 27);
             this.btnRemoveRole.TabIndex = 38;
@@ -310,7 +311,7 @@
             this.cbRemoveRole.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.cbRemoveRole.ForeColor = System.Drawing.Color.White;
             this.cbRemoveRole.FormattingEnabled = true;
-            this.cbRemoveRole.Location = new System.Drawing.Point(331, 310);
+            this.cbRemoveRole.Location = new System.Drawing.Point(331, 344);
             this.cbRemoveRole.Name = "cbRemoveRole";
             this.cbRemoveRole.Size = new System.Drawing.Size(215, 27);
             this.cbRemoveRole.TabIndex = 37;
@@ -320,7 +321,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label9.Location = new System.Drawing.Point(327, 289);
+            this.label9.Location = new System.Drawing.Point(327, 323);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(35, 19);
             this.label9.TabIndex = 36;
@@ -330,11 +331,21 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label10.Location = new System.Drawing.Point(326, 256);
+            this.label10.Location = new System.Drawing.Point(326, 290);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(125, 28);
             this.label10.TabIndex = 35;
             this.label10.Text = "Remove Role";
+            // 
+            // chkAdmin
+            // 
+            this.chkAdmin.AutoSize = true;
+            this.chkAdmin.Location = new System.Drawing.Point(626, 48);
+            this.chkAdmin.Name = "chkAdmin";
+            this.chkAdmin.Size = new System.Drawing.Size(108, 19);
+            this.chkAdmin.TabIndex = 42;
+            this.chkAdmin.Text = "Is administrator";
+            this.chkAdmin.UseVisualStyleBackColor = true;
             // 
             // lstEmployees
             // 
@@ -345,18 +356,8 @@
             this.lstEmployees.ForeColor = System.Drawing.Color.White;
             this.lstEmployees.Location = new System.Drawing.Point(15, 48);
             this.lstEmployees.Name = "lstEmployees";
-            this.lstEmployees.Size = new System.Drawing.Size(298, 548);
+            this.lstEmployees.Size = new System.Drawing.Size(302, 513);
             this.lstEmployees.TabIndex = 41;
-            // 
-            // chkAdmin
-            // 
-            this.chkAdmin.AutoSize = true;
-            this.chkAdmin.Location = new System.Drawing.Point(582, 195);
-            this.chkAdmin.Name = "chkAdmin";
-            this.chkAdmin.Size = new System.Drawing.Size(108, 19);
-            this.chkAdmin.TabIndex = 42;
-            this.chkAdmin.Text = "Is administrator";
-            this.chkAdmin.UseVisualStyleBackColor = true;
             // 
             // Settings
             // 
@@ -391,7 +392,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "Settings";
-            this.Size = new System.Drawing.Size(1080, 610);
+            this.Size = new System.Drawing.Size(869, 585);
             this.ResumeLayout(false);
             this.PerformLayout();
 
