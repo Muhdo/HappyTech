@@ -20,51 +20,30 @@ namespace HappyTech.Pages
         TabPage tabSection4 = new TabPage();
         TabPage tabSection5 = new TabPage();
         private List<TabPage> tabs = new List<TabPage>();
-        TextBox code1 = new TextBox();
-        TextBox code2 = new TextBox();
-        TextBox code3 = new TextBox();
-        TextBox code4 = new TextBox();
-        TextBox code5 = new TextBox();
-        private List<TextBox> codes = new List<TextBox>();
+        //names of the code text boxes that will be used
+        string[] codeNames = new string[5] { "txtCode1", "txtCode2", "txtCode3", "txtCode4", "txtCode5" };
+        //y positions for the codes
         int[] codeYs = new int[5] {55, 172, 286, 400, 514 };
-        TextBox comment1 = new TextBox();
-        TextBox comment2 = new TextBox();
-        TextBox comment3 = new TextBox();
-        TextBox comment4 = new TextBox();
-        TextBox comment5 = new TextBox();
-        private List<TextBox> comments = new List<TextBox>();
+        //names of the comment text boxes that will be used
+        string[] commentNames = new string[5] { "txtComment1", "txtComment2", "txtComment3", "txtComment4", "txtComment5" };
+        //y positions for the comments
         int[] commentYs = new int[5] { 93, 207, 321, 435, 549 };
         //array storing how many codes have been added to each section
         int[] sectionCodes = new int[5] { 0, 0, 0, 0, 0 };
+        Label errorMaxComments = new Label();
 
         public TemplateSetup(string templateName)
         {
             InitializeComponent();
             lblTemplateName.Text = templateName;
             lblTemplateName.Visible = true;
+
             tabs.Add(tabSection1);
             tabs.Add(tabSection2);
             tabs.Add(tabSection3);
             tabs.Add(tabSection4);
             tabs.Add(tabSection5);
-            codes.Add(code1);
-            codes.Add(code2);
-            codes.Add(code3);
-            codes.Add(code4);
-            codes.Add(code5);
-            comments.Add(comment1);
-            comments.Add(comment2);
-            comments.Add(comment3);
-            comments.Add(comment4);
-            comments.Add(comment5);
-            foreach (TextBox code in codes)
-            {
-                codeDesign(code);
-            }
-            foreach (TextBox comment in comments)
-            {
-                commentDesign(comment);
-            }
+            
             foreach (TabPage tab in tabs)
             {
                 tabDesign(tab);
@@ -96,11 +75,16 @@ namespace HappyTech.Pages
             nextTabText = "Section " + (tabs.IndexOf(tab) + 1);
             tab.BackColor = Color.FromArgb(39, 44, 74);
             tab.Text = nextTabText;
-            //here will also go code for adding text boxes and stuff to the tabs
+            tab.AutoScroll = true;
+            tab.AutoScrollMargin = new Size(10, 10);
+
+            //sectionName textbox
             TextBox sectionName = new TextBox();
             sectionName.Text = "Section name";
             sectionName.Location = new Point(23, 19);
             tab.Controls.Add(sectionName);
+
+            //addComment button
             Button addComment = new Button();
             addComment.Text = "Add Comment";
             addComment.BackColor = Color.FromArgb(39, 44, 74);
@@ -111,34 +95,122 @@ namespace HappyTech.Pages
             addComment.Size = new Size(141, 31);
             tab.Controls.Add(addComment);
             addComment.Click += AddComment_Click;
+
+            //error for if they try to add too many comments
+            errorMaxComments.AutoSize = true;
+            errorMaxComments.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            errorMaxComments.ForeColor = Color.FromArgb(230,60,60);
+            errorMaxComments.Location = new Point(3, 628);
+            errorMaxComments.Size = new Size(438, 19);
+            errorMaxComments.Text = "You have reached the maximum number of comments for this section.";
+            errorMaxComments.Visible = false;
+            tab.Controls.Add(errorMaxComments);
+
+            //this section is probably very inefficient and bad practise but it does seem to work
+            //code setup stuff
+            TextBox code1 = new TextBox();
+            TextBox code2 = new TextBox();
+            TextBox code3 = new TextBox();
+            TextBox code4 = new TextBox();
+            TextBox code5 = new TextBox();
+            List<TextBox> codes = new List<TextBox>();
+            codes.Add(code1);
+            codes.Add(code2);
+            codes.Add(code3);
+            codes.Add(code4);
+            codes.Add(code5);
+            codeDesign(codes);
+            foreach (TextBox code in codes)
+            {
+                code.Name = codeNames[codes.IndexOf(code)];
+                tab.Controls.Add(code);
+            }
+
+            //comment setup stuff
+            TextBox comment1 = new TextBox();
+            TextBox comment2 = new TextBox();
+            TextBox comment3 = new TextBox();
+            TextBox comment4 = new TextBox();
+            TextBox comment5 = new TextBox();
+            List<TextBox> comments = new List<TextBox>();
+            comments.Add(comment1);
+            comments.Add(comment2);
+            comments.Add(comment3);
+            comments.Add(comment4);
+            comments.Add(comment5);
+            commentDesign(comments);
+            foreach(TextBox comment in comments)
+            {
+                comment.Name = commentNames[comments.IndexOf(comment)];
+                tab.Controls.Add(comment);
+            }
         }
 
+        /// <summary>
+        /// called when the add comment button is clicked
+        /// adds the next code-comment pair to the tab from which it was called
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddComment_Click(object sender, EventArgs e)
         {
             //find which tab is selected
+            TabPage selectedTab = tabSections.SelectedTab;
+            int tabIndex = tabs.IndexOf(selectedTab);
             //find value of sectionCodes for the tab
-            //if value < 4
-            //  tab.Controls.Add(codes[value])
-            //  tab.Controls.Add(comments[value])
-            //  increment sectionCodes value
-            //else
-            //  error - max comments reached
+            int sectionCodesValue = sectionCodes[tabIndex];
+            //if there is another code-comment pair that can be added
+            if (sectionCodesValue < 5)
+            {
+                //find the next code
+                Control[] codes = selectedTab.Controls.Find(codeNames[sectionCodesValue], true);
+                //add it
+                codes[0].Visible = true;
+                //find the next comment
+                Control[] comments = selectedTab.Controls.Find(commentNames[sectionCodesValue], true);
+                //add it
+                comments[0].Visible = true;
+                //increment the number of code-comment pairs used on the tab
+                sectionCodes[tabIndex] = sectionCodesValue + 1;
+            }
+            //for some reason this either doesn't get triggered or the code inside doesn't do anything
+            else
+            {
+                errorMaxComments.Visible = true;
+            }
         }
-
-        private void codeDesign(TextBox code)
+        /// <summary>
+        /// configure design properties for the code text boxes
+        /// </summary>
+        /// <param name="codes">list of codes to be used</param>
+        private void codeDesign(List<TextBox> codes)
         {
-            code.Text = "Code " + (codes.IndexOf(code) + 1);
-            int pos = codes.IndexOf(code);
-            int y = codeYs[pos];
-            code.Location = new Point(23, y);
+            foreach (TextBox code in codes)
+            {
+                code.Text = "Code " + (codes.IndexOf(code) + 1);
+                int pos = codes.IndexOf(code);
+                int y = codeYs[pos];
+                code.Location = new Point(23, y);
+                code.Size = new Size(145, 29);
+                code.Visible = false; 
+            }
         }
-        private void commentDesign(TextBox comment)
+        /// <summary>
+        /// configure design properties for the comment text boxes
+        /// </summary>
+        /// <param name="comments">list of comments to be used</param>
+        private void commentDesign(List<TextBox> comments)
         {
-            comment.Text = "Comment...";
-            comment.Multiline = true;
-            int pos = comments.IndexOf(comment);
-            int y = commentYs[pos];
-            comment.Location = new Point(23, y);
+            foreach (TextBox comment in comments)
+            {
+                comment.Text = "Comment...";
+                comment.Multiline = true;
+                int pos = comments.IndexOf(comment);
+                int y = commentYs[pos];
+                comment.Location = new Point(23, y);
+                comment.Size = new Size(889, 73);
+                comment.Visible = false; 
+            }
         }
 
         private void btnBackPage(object sender, EventArgs e)
