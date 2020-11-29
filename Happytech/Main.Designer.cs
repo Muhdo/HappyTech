@@ -34,42 +34,42 @@
             this.DashboardMenu = new System.Windows.Forms.Panel();
             this.db_Settings = new System.Windows.Forms.Panel();
             this.SettingsText = new System.Windows.Forms.Label();
+            this.SettingsIcon = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.DrawerText = new System.Windows.Forms.Label();
+            this.DrawerIcon = new System.Windows.Forms.PictureBox();
             this.db_Applications = new System.Windows.Forms.Panel();
             this.ApplicationsText = new System.Windows.Forms.Label();
+            this.ApplicationsIcon = new System.Windows.Forms.PictureBox();
             this.db_ViewTemplates = new System.Windows.Forms.Panel();
             this.ViewTemplatesText = new System.Windows.Forms.Label();
+            this.ViewTemplatesIcon = new System.Windows.Forms.PictureBox();
             this.DrawerTitle = new System.Windows.Forms.Label();
             this.db_Dashboard = new System.Windows.Forms.Panel();
             this.DashboardText = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnMinimizeApplication = new System.Windows.Forms.PictureBox();
-            this.btnCloseApplication = new System.Windows.Forms.PictureBox();
-            this.SettingsIcon = new System.Windows.Forms.PictureBox();
-            this.DrawerIcon = new System.Windows.Forms.PictureBox();
-            this.ApplicationsIcon = new System.Windows.Forms.PictureBox();
-            this.ViewTemplatesIcon = new System.Windows.Forms.PictureBox();
             this.DashboardIcon = new System.Windows.Forms.PictureBox();
             this.SmallLogo = new System.Windows.Forms.PictureBox();
             this.Logo = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnMinimizeApplication = new System.Windows.Forms.PictureBox();
+            this.btnCloseApplication = new System.Windows.Forms.PictureBox();
             this.Drawer.SuspendLayout();
             this.DashboardMenu.SuspendLayout();
             this.db_Settings.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.db_Applications.SuspendLayout();
-            this.db_ViewTemplates.SuspendLayout();
-            this.db_Dashboard.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizeApplication)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCloseApplication)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsIcon)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DrawerIcon)).BeginInit();
+            this.db_Applications.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ApplicationsIcon)).BeginInit();
+            this.db_ViewTemplates.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ViewTemplatesIcon)).BeginInit();
+            this.db_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DashboardIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SmallLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizeApplication)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCloseApplication)).BeginInit();
             this.SuspendLayout();
             // 
             // pWindow
@@ -120,6 +120,17 @@
             this.SettingsText.MouseEnter += new System.EventHandler(this.OnHoverButtonColor);
             this.SettingsText.MouseLeave += new System.EventHandler(this.OffHoverButtonColor);
             // 
+            // SettingsIcon
+            // 
+            this.SettingsIcon.Image = global::HappyTech.Properties.Resources.settings;
+            resources.ApplyResources(this.SettingsIcon, "SettingsIcon");
+            this.SettingsIcon.Name = "SettingsIcon";
+            this.SettingsIcon.TabStop = false;
+            this.SettingsIcon.Tag = "UserSettings";
+            this.SettingsIcon.Click += new System.EventHandler(this.DrawerSelectTab);
+            this.SettingsIcon.MouseEnter += new System.EventHandler(this.OnHoverButtonColor);
+            this.SettingsIcon.MouseLeave += new System.EventHandler(this.OffHoverButtonColor);
+            // 
             // panel1
             // 
             resources.ApplyResources(this.panel1, "panel1");
@@ -132,6 +143,14 @@
             resources.ApplyResources(this.DrawerText, "DrawerText");
             this.DrawerText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.DrawerText.Name = "DrawerText";
+            // 
+            // DrawerIcon
+            // 
+            this.DrawerIcon.Image = global::HappyTech.Properties.Resources.close_drawer;
+            resources.ApplyResources(this.DrawerIcon, "DrawerIcon");
+            this.DrawerIcon.Name = "DrawerIcon";
+            this.DrawerIcon.TabStop = false;
+            this.DrawerIcon.Click += new System.EventHandler(this.ChangeDrawerState);
             // 
             // db_Applications
             // 
@@ -154,6 +173,17 @@
             this.ApplicationsText.MouseEnter += new System.EventHandler(this.OnHoverButtonColor);
             this.ApplicationsText.MouseLeave += new System.EventHandler(this.OffHoverButtonColor);
             // 
+            // ApplicationsIcon
+            // 
+            this.ApplicationsIcon.Image = global::HappyTech.Properties.Resources.curriculum_vitae;
+            resources.ApplyResources(this.ApplicationsIcon, "ApplicationsIcon");
+            this.ApplicationsIcon.Name = "ApplicationsIcon";
+            this.ApplicationsIcon.TabStop = false;
+            this.ApplicationsIcon.Tag = "Applications";
+            this.ApplicationsIcon.Click += new System.EventHandler(this.DrawerSelectTab);
+            this.ApplicationsIcon.MouseEnter += new System.EventHandler(this.OnHoverButtonColor);
+            this.ApplicationsIcon.MouseLeave += new System.EventHandler(this.OffHoverButtonColor);
+            // 
             // db_ViewTemplates
             // 
             this.db_ViewTemplates.Controls.Add(this.ViewTemplatesText);
@@ -174,6 +204,17 @@
             this.ViewTemplatesText.Click += new System.EventHandler(this.DrawerSelectTab);
             this.ViewTemplatesText.MouseEnter += new System.EventHandler(this.OnHoverButtonColor);
             this.ViewTemplatesText.MouseLeave += new System.EventHandler(this.OffHoverButtonColor);
+            // 
+            // ViewTemplatesIcon
+            // 
+            this.ViewTemplatesIcon.Image = global::HappyTech.Properties.Resources.templates;
+            resources.ApplyResources(this.ViewTemplatesIcon, "ViewTemplatesIcon");
+            this.ViewTemplatesIcon.Name = "ViewTemplatesIcon";
+            this.ViewTemplatesIcon.TabStop = false;
+            this.ViewTemplatesIcon.Tag = "ViewTemplates";
+            this.ViewTemplatesIcon.Click += new System.EventHandler(this.DrawerSelectTab);
+            this.ViewTemplatesIcon.MouseEnter += new System.EventHandler(this.OnHoverButtonColor);
+            this.ViewTemplatesIcon.MouseLeave += new System.EventHandler(this.OffHoverButtonColor);
             // 
             // DrawerTitle
             // 
@@ -203,6 +244,31 @@
             this.DashboardText.MouseEnter += new System.EventHandler(this.OnHoverButtonColor);
             this.DashboardText.MouseLeave += new System.EventHandler(this.OffHoverButtonColor);
             // 
+            // DashboardIcon
+            // 
+            this.DashboardIcon.Image = global::HappyTech.Properties.Resources.dashboard__1_;
+            resources.ApplyResources(this.DashboardIcon, "DashboardIcon");
+            this.DashboardIcon.Name = "DashboardIcon";
+            this.DashboardIcon.TabStop = false;
+            this.DashboardIcon.Tag = "Dashboard";
+            this.DashboardIcon.Click += new System.EventHandler(this.DrawerSelectTab);
+            this.DashboardIcon.MouseEnter += new System.EventHandler(this.OnHoverButtonColor);
+            this.DashboardIcon.MouseLeave += new System.EventHandler(this.OffHoverButtonColor);
+            // 
+            // SmallLogo
+            // 
+            this.SmallLogo.Image = global::HappyTech.Properties.Resources.Small_Logo;
+            resources.ApplyResources(this.SmallLogo, "SmallLogo");
+            this.SmallLogo.Name = "SmallLogo";
+            this.SmallLogo.TabStop = false;
+            // 
+            // Logo
+            // 
+            this.Logo.Image = global::HappyTech.Properties.Resources.logotipo;
+            resources.ApplyResources(this.Logo, "Logo");
+            this.Logo.Name = "Logo";
+            this.Logo.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
@@ -230,72 +296,6 @@
             this.btnCloseApplication.TabStop = false;
             this.btnCloseApplication.Click += new System.EventHandler(this.btnCloseApplication_Click);
             // 
-            // SettingsIcon
-            // 
-            this.SettingsIcon.Image = global::HappyTech.Properties.Resources.settings;
-            resources.ApplyResources(this.SettingsIcon, "SettingsIcon");
-            this.SettingsIcon.Name = "SettingsIcon";
-            this.SettingsIcon.TabStop = false;
-            this.SettingsIcon.Tag = "UserSettings";
-            this.SettingsIcon.Click += new System.EventHandler(this.DrawerSelectTab);
-            this.SettingsIcon.MouseEnter += new System.EventHandler(this.OnHoverButtonColor);
-            this.SettingsIcon.MouseLeave += new System.EventHandler(this.OffHoverButtonColor);
-            // 
-            // DrawerIcon
-            // 
-            this.DrawerIcon.Image = global::HappyTech.Properties.Resources.close_drawer;
-            resources.ApplyResources(this.DrawerIcon, "DrawerIcon");
-            this.DrawerIcon.Name = "DrawerIcon";
-            this.DrawerIcon.TabStop = false;
-            this.DrawerIcon.Click += new System.EventHandler(this.ChangeDrawerState);
-            // 
-            // ApplicationsIcon
-            // 
-            this.ApplicationsIcon.Image = global::HappyTech.Properties.Resources.templates1;
-            resources.ApplyResources(this.ApplicationsIcon, "ApplicationsIcon");
-            this.ApplicationsIcon.Name = "ApplicationsIcon";
-            this.ApplicationsIcon.TabStop = false;
-            this.ApplicationsIcon.Tag = "Applications";
-            this.ApplicationsIcon.Click += new System.EventHandler(this.DrawerSelectTab);
-            this.ApplicationsIcon.MouseEnter += new System.EventHandler(this.OnHoverButtonColor);
-            this.ApplicationsIcon.MouseLeave += new System.EventHandler(this.OffHoverButtonColor);
-            // 
-            // ViewTemplatesIcon
-            // 
-            this.ViewTemplatesIcon.Image = global::HappyTech.Properties.Resources.templates;
-            resources.ApplyResources(this.ViewTemplatesIcon, "ViewTemplatesIcon");
-            this.ViewTemplatesIcon.Name = "ViewTemplatesIcon";
-            this.ViewTemplatesIcon.TabStop = false;
-            this.ViewTemplatesIcon.Tag = "ViewTemplates";
-            this.ViewTemplatesIcon.Click += new System.EventHandler(this.DrawerSelectTab);
-            this.ViewTemplatesIcon.MouseEnter += new System.EventHandler(this.OnHoverButtonColor);
-            this.ViewTemplatesIcon.MouseLeave += new System.EventHandler(this.OffHoverButtonColor);
-            // 
-            // DashboardIcon
-            // 
-            this.DashboardIcon.Image = global::HappyTech.Properties.Resources.dashboard__1_;
-            resources.ApplyResources(this.DashboardIcon, "DashboardIcon");
-            this.DashboardIcon.Name = "DashboardIcon";
-            this.DashboardIcon.TabStop = false;
-            this.DashboardIcon.Tag = "Dashboard";
-            this.DashboardIcon.Click += new System.EventHandler(this.DrawerSelectTab);
-            this.DashboardIcon.MouseEnter += new System.EventHandler(this.OnHoverButtonColor);
-            this.DashboardIcon.MouseLeave += new System.EventHandler(this.OffHoverButtonColor);
-            // 
-            // SmallLogo
-            // 
-            this.SmallLogo.Image = global::HappyTech.Properties.Resources.Small_Logo;
-            resources.ApplyResources(this.SmallLogo, "SmallLogo");
-            this.SmallLogo.Name = "SmallLogo";
-            this.SmallLogo.TabStop = false;
-            // 
-            // Logo
-            // 
-            this.Logo.Image = global::HappyTech.Properties.Resources.logotipo;
-            resources.ApplyResources(this.Logo, "Logo");
-            this.Logo.Name = "Logo";
-            this.Logo.TabStop = false;
-            // 
             // Main
             // 
             resources.ApplyResources(this, "$this");
@@ -311,24 +311,24 @@
             this.DashboardMenu.ResumeLayout(false);
             this.db_Settings.ResumeLayout(false);
             this.db_Settings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsIcon)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DrawerIcon)).EndInit();
             this.db_Applications.ResumeLayout(false);
             this.db_Applications.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ApplicationsIcon)).EndInit();
             this.db_ViewTemplates.ResumeLayout(false);
             this.db_ViewTemplates.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ViewTemplatesIcon)).EndInit();
             this.db_Dashboard.ResumeLayout(false);
             this.db_Dashboard.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizeApplication)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCloseApplication)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SettingsIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DrawerIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ApplicationsIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ViewTemplatesIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DashboardIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SmallLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizeApplication)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCloseApplication)).EndInit();
             this.ResumeLayout(false);
 
         }

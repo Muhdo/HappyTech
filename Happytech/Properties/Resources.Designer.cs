@@ -83,6 +83,16 @@ namespace HappyTech.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap curriculum_vitae {
+            get {
+                object obj = ResourceManager.GetObject("curriculum-vitae", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dashboard__1_ {
             get {
                 object obj = ResourceManager.GetObject("dashboard (1)", resourceCulture);

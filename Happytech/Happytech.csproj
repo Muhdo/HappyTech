@@ -282,6 +282,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>database.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\curriculum-vitae.png" />
     <None Include="Resources\minimizebutton.png" />
     <None Include="Resources\close button.png" />
     <None Include="Resources\open drawer.png" />
