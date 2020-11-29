@@ -33,10 +33,8 @@
             this.cbApplicationList = new System.Windows.Forms.ComboBox();
             this.pCV = new System.Windows.Forms.Panel();
             this.pdfReader = new PdfiumViewer.PdfViewer();
-            this.btnHome = new System.Windows.Forms.Button();
-            this.picHome = new System.Windows.Forms.PictureBox();
+            this.btnInsertApplication = new System.Windows.Forms.Button();
             this.pCV.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.SuspendLayout();
             // 
             // grpApplications
@@ -45,7 +43,7 @@
             this.grpApplications.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(42)))), ((int)(((byte)(101)))));
             this.grpApplications.Location = new System.Drawing.Point(24, 121);
             this.grpApplications.Name = "grpApplications";
-            this.grpApplications.Size = new System.Drawing.Size(362, 454);
+            this.grpApplications.Size = new System.Drawing.Size(325, 446);
             this.grpApplications.TabIndex = 0;
             this.grpApplications.TabStop = false;
             this.grpApplications.Text = "Application List";
@@ -76,16 +74,19 @@
             "Replied Applications"});
             this.cbApplicationList.Location = new System.Drawing.Point(138, 78);
             this.cbApplicationList.Name = "cbApplicationList";
-            this.cbApplicationList.Size = new System.Drawing.Size(248, 32);
+            this.cbApplicationList.Size = new System.Drawing.Size(211, 32);
             this.cbApplicationList.TabIndex = 2;
             this.cbApplicationList.SelectedIndexChanged += new System.EventHandler(this.cbApplicationList_SelectedIndexChanged);
             // 
             // pCV
             // 
+            this.pCV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pCV.AutoSize = true;
             this.pCV.Controls.Add(this.pdfReader);
-            this.pCV.Location = new System.Drawing.Point(644, 0);
+            this.pCV.Location = new System.Drawing.Point(369, 3);
             this.pCV.Name = "pCV";
-            this.pCV.Size = new System.Drawing.Size(436, 610);
+            this.pCV.Size = new System.Drawing.Size(497, 585);
             this.pCV.TabIndex = 3;
             // 
             // pdfReader
@@ -93,49 +94,38 @@
             this.pdfReader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pdfReader.Location = new System.Drawing.Point(0, 0);
             this.pdfReader.Name = "pdfReader";
-            this.pdfReader.Size = new System.Drawing.Size(436, 610);
+            this.pdfReader.Size = new System.Drawing.Size(497, 585);
             this.pdfReader.TabIndex = 0;
+            this.pdfReader.ZoomMode = PdfiumViewer.PdfViewerZoomMode.FitWidth;
             // 
-            // btnHome
+            // btnInsertApplication
             // 
-            this.btnHome.BackColor = System.Drawing.Color.White;
-            this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnHome.Location = new System.Drawing.Point(24, 14);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(36, 32);
-            this.btnHome.TabIndex = 4;
-            this.btnHome.UseVisualStyleBackColor = false;
-            this.btnHome.Click += new System.EventHandler(this.ReturnHome);
-            // 
-            // picHome
-            // 
-            this.picHome.BackColor = System.Drawing.Color.White;
-            this.picHome.Image = global::HappyTech.Properties.Resources.home;
-            this.picHome.Location = new System.Drawing.Point(30, 18);
-            this.picHome.Name = "picHome";
-            this.picHome.Size = new System.Drawing.Size(24, 24);
-            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picHome.TabIndex = 5;
-            this.picHome.TabStop = false;
-            this.picHome.Click += new System.EventHandler(this.ReturnHome);
+            this.btnInsertApplication.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(42)))), ((int)(((byte)(101)))));
+            this.btnInsertApplication.FlatAppearance.BorderSize = 0;
+            this.btnInsertApplication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInsertApplication.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnInsertApplication.Location = new System.Drawing.Point(24, 40);
+            this.btnInsertApplication.Name = "btnInsertApplication";
+            this.btnInsertApplication.Size = new System.Drawing.Size(325, 32);
+            this.btnInsertApplication.TabIndex = 4;
+            this.btnInsertApplication.Text = "Insert New Application";
+            this.btnInsertApplication.UseVisualStyleBackColor = false;
+            this.btnInsertApplication.Click += new System.EventHandler(this.btnInsertApplication_Click);
             // 
             // RepliedApplications
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
-            this.Controls.Add(this.picHome);
-            this.Controls.Add(this.btnHome);
+            this.Controls.Add(this.btnInsertApplication);
             this.Controls.Add(this.pCV);
             this.Controls.Add(this.cbApplicationList);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.grpApplications);
             this.Name = "RepliedApplications";
-            this.Size = new System.Drawing.Size(1080, 610);
+            this.Size = new System.Drawing.Size(869, 585);
             this.pCV.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -146,7 +136,6 @@
         private System.Windows.Forms.ComboBox cbApplicationList;
         private System.Windows.Forms.Panel pCV;
         private PdfiumViewer.PdfViewer pdfReader;
-        private System.Windows.Forms.Button btnHome;
-        private System.Windows.Forms.PictureBox picHome;
+        private System.Windows.Forms.Button btnInsertApplication;
     }
 }

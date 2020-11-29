@@ -11,16 +11,22 @@ using Happytech.Components.ListReview;
 using System.Windows.Controls;
 using System.IO;
 using PdfiumViewer;
+using HappyTech.Pages;
 
 namespace Happytech.Pages
 {
     public partial class RepliedApplications : System.Windows.Forms.UserControl
     {
+        System.Windows.Forms.Panel pWindow;
+        ApplyToPosition ApplyForm; // Used as to know if there's one open already
         ListReview ListReview;
         Database db = new Database();
+
         public RepliedApplications()
         {
             InitializeComponent();
+            pWindow = (System.Windows.Forms.Panel)Parent;
+            this.Dock = DockStyle.Fill;
 
             // Initialize the applications list
             ListReview = new ListReview();
@@ -78,6 +84,13 @@ namespace Happytech.Pages
         {
             Controls.Clear();
             Controls.Add(new Home());
+        }
+
+        private void btnInsertApplication_Click(object sender, EventArgs e)
+        {
+            var parent = Parent;
+            parent.Controls.Clear();
+            parent.Controls.Add(new ApplyPosition());
         }
     }
 }

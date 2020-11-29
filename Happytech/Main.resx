@@ -118,20 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pWindow.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pWindow.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="pWindow.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pWindow.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+    <value>211, 25</value>
   </data>
   <data name="pWindow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1080, 610</value>
+    <value>869, 585</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="pWindow.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -146,6 +143,627 @@
   </data>
   <data name="&gt;&gt;pWindow.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="SettingsText.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="SettingsText.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 11.25pt</value>
+  </data>
+  <data name="SettingsText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SettingsText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>46, 16</value>
+  </data>
+  <data name="SettingsText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 18</value>
+  </data>
+  <data name="SettingsText.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="SettingsText.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="&gt;&gt;SettingsText.Name" xml:space="preserve">
+    <value>SettingsText</value>
+  </data>
+  <data name="&gt;&gt;SettingsText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SettingsText.Parent" xml:space="preserve">
+    <value>db_Settings</value>
+  </data>
+  <data name="&gt;&gt;SettingsText.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SettingsIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SettingsIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 16</value>
+  </data>
+  <data name="SettingsIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>18, 18</value>
+  </data>
+  <data name="SettingsIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="SettingsIcon.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;SettingsIcon.Name" xml:space="preserve">
+    <value>SettingsIcon</value>
+  </data>
+  <data name="&gt;&gt;SettingsIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SettingsIcon.Parent" xml:space="preserve">
+    <value>db_Settings</value>
+  </data>
+  <data name="&gt;&gt;SettingsIcon.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="db_Settings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 175</value>
+  </data>
+  <data name="db_Settings.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="db_Settings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 47</value>
+  </data>
+  <data name="db_Settings.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;db_Settings.Name" xml:space="preserve">
+    <value>db_Settings</value>
+  </data>
+  <data name="&gt;&gt;db_Settings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;db_Settings.Parent" xml:space="preserve">
+    <value>DashboardMenu</value>
+  </data>
+  <data name="&gt;&gt;db_Settings.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="DrawerText.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="DrawerText.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 11.25pt</value>
+  </data>
+  <data name="DrawerText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DrawerText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>46, 16</value>
+  </data>
+  <data name="DrawerText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 18</value>
+  </data>
+  <data name="DrawerText.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;DrawerText.Name" xml:space="preserve">
+    <value>DrawerText</value>
+  </data>
+  <data name="&gt;&gt;DrawerText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DrawerText.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;DrawerText.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DrawerIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DrawerIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 16</value>
+  </data>
+  <data name="DrawerIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>18, 18</value>
+  </data>
+  <data name="DrawerIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="DrawerIcon.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;DrawerIcon.Name" xml:space="preserve">
+    <value>DrawerIcon</value>
+  </data>
+  <data name="&gt;&gt;DrawerIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DrawerIcon.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;DrawerIcon.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 471</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 48</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>DashboardMenu</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ApplicationsText.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ApplicationsText.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 11.25pt</value>
+  </data>
+  <data name="ApplicationsText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ApplicationsText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>46, 16</value>
+  </data>
+  <data name="ApplicationsText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 18</value>
+  </data>
+  <data name="ApplicationsText.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ApplicationsText.Text" xml:space="preserve">
+    <value>Applications</value>
+  </data>
+  <data name="&gt;&gt;ApplicationsText.Name" xml:space="preserve">
+    <value>ApplicationsText</value>
+  </data>
+  <data name="&gt;&gt;ApplicationsText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ApplicationsText.Parent" xml:space="preserve">
+    <value>db_Applications</value>
+  </data>
+  <data name="&gt;&gt;ApplicationsText.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ApplicationsIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ApplicationsIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 16</value>
+  </data>
+  <data name="ApplicationsIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>18, 18</value>
+  </data>
+  <data name="ApplicationsIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="ApplicationsIcon.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ApplicationsIcon.Name" xml:space="preserve">
+    <value>ApplicationsIcon</value>
+  </data>
+  <data name="&gt;&gt;ApplicationsIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ApplicationsIcon.Parent" xml:space="preserve">
+    <value>db_Applications</value>
+  </data>
+  <data name="&gt;&gt;ApplicationsIcon.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="db_Applications.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 128</value>
+  </data>
+  <data name="db_Applications.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 48</value>
+  </data>
+  <data name="db_Applications.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;db_Applications.Name" xml:space="preserve">
+    <value>db_Applications</value>
+  </data>
+  <data name="&gt;&gt;db_Applications.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;db_Applications.Parent" xml:space="preserve">
+    <value>DashboardMenu</value>
+  </data>
+  <data name="&gt;&gt;db_Applications.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ViewTemplatesText.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ViewTemplatesText.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 11.25pt</value>
+  </data>
+  <data name="ViewTemplatesText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ViewTemplatesText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>46, 16</value>
+  </data>
+  <data name="ViewTemplatesText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 18</value>
+  </data>
+  <data name="ViewTemplatesText.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ViewTemplatesText.Text" xml:space="preserve">
+    <value>Templates</value>
+  </data>
+  <data name="&gt;&gt;ViewTemplatesText.Name" xml:space="preserve">
+    <value>ViewTemplatesText</value>
+  </data>
+  <data name="&gt;&gt;ViewTemplatesText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ViewTemplatesText.Parent" xml:space="preserve">
+    <value>db_ViewTemplates</value>
+  </data>
+  <data name="&gt;&gt;ViewTemplatesText.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ViewTemplatesIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ViewTemplatesIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 16</value>
+  </data>
+  <data name="ViewTemplatesIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>18, 18</value>
+  </data>
+  <data name="ViewTemplatesIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="ViewTemplatesIcon.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ViewTemplatesIcon.Name" xml:space="preserve">
+    <value>ViewTemplatesIcon</value>
+  </data>
+  <data name="&gt;&gt;ViewTemplatesIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ViewTemplatesIcon.Parent" xml:space="preserve">
+    <value>db_ViewTemplates</value>
+  </data>
+  <data name="&gt;&gt;ViewTemplatesIcon.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="db_ViewTemplates.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 81</value>
+  </data>
+  <data name="db_ViewTemplates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 48</value>
+  </data>
+  <data name="db_ViewTemplates.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;db_ViewTemplates.Name" xml:space="preserve">
+    <value>db_ViewTemplates</value>
+  </data>
+  <data name="&gt;&gt;db_ViewTemplates.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;db_ViewTemplates.Parent" xml:space="preserve">
+    <value>DashboardMenu</value>
+  </data>
+  <data name="&gt;&gt;db_ViewTemplates.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="DrawerTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="DrawerTitle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DrawerTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 15</value>
+  </data>
+  <data name="DrawerTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 16</value>
+  </data>
+  <data name="DrawerTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="DrawerTitle.Text" xml:space="preserve">
+    <value>MAIN</value>
+  </data>
+  <data name="&gt;&gt;DrawerTitle.Name" xml:space="preserve">
+    <value>DrawerTitle</value>
+  </data>
+  <data name="&gt;&gt;DrawerTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DrawerTitle.Parent" xml:space="preserve">
+    <value>DashboardMenu</value>
+  </data>
+  <data name="&gt;&gt;DrawerTitle.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="DashboardText.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="DashboardText.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 11.25pt</value>
+  </data>
+  <data name="DashboardText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DashboardText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>46, 16</value>
+  </data>
+  <data name="DashboardText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 18</value>
+  </data>
+  <data name="DashboardText.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="DashboardText.Text" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="&gt;&gt;DashboardText.Name" xml:space="preserve">
+    <value>DashboardText</value>
+  </data>
+  <data name="&gt;&gt;DashboardText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DashboardText.Parent" xml:space="preserve">
+    <value>db_Dashboard</value>
+  </data>
+  <data name="&gt;&gt;DashboardText.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DashboardIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DashboardIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 16</value>
+  </data>
+  <data name="DashboardIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>18, 18</value>
+  </data>
+  <data name="DashboardIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="DashboardIcon.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;DashboardIcon.Name" xml:space="preserve">
+    <value>DashboardIcon</value>
+  </data>
+  <data name="&gt;&gt;DashboardIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DashboardIcon.Parent" xml:space="preserve">
+    <value>db_Dashboard</value>
+  </data>
+  <data name="&gt;&gt;DashboardIcon.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="db_Dashboard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 34</value>
+  </data>
+  <data name="db_Dashboard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 48</value>
+  </data>
+  <data name="db_Dashboard.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;db_Dashboard.Name" xml:space="preserve">
+    <value>db_Dashboard</value>
+  </data>
+  <data name="&gt;&gt;db_Dashboard.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;db_Dashboard.Parent" xml:space="preserve">
+    <value>DashboardMenu</value>
+  </data>
+  <data name="&gt;&gt;db_Dashboard.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="DashboardMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 90</value>
+  </data>
+  <data name="DashboardMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 520</value>
+  </data>
+  <data name="DashboardMenu.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;DashboardMenu.Name" xml:space="preserve">
+    <value>DashboardMenu</value>
+  </data>
+  <data name="&gt;&gt;DashboardMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DashboardMenu.Parent" xml:space="preserve">
+    <value>Drawer</value>
+  </data>
+  <data name="&gt;&gt;DashboardMenu.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SmallLogo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SmallLogo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 18</value>
+  </data>
+  <data name="SmallLogo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 40</value>
+  </data>
+  <data name="SmallLogo.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="SmallLogo.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="SmallLogo.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;SmallLogo.Name" xml:space="preserve">
+    <value>SmallLogo</value>
+  </data>
+  <data name="&gt;&gt;SmallLogo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SmallLogo.Parent" xml:space="preserve">
+    <value>Drawer</value>
+  </data>
+  <data name="&gt;&gt;SmallLogo.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Logo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Logo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-129, 0</value>
+  </data>
+  <data name="Logo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>323, 71</value>
+  </data>
+  <data name="Logo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Logo.Name" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="&gt;&gt;Logo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Logo.Parent" xml:space="preserve">
+    <value>Drawer</value>
+  </data>
+  <data name="&gt;&gt;Logo.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Drawer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="Drawer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="Drawer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 610</value>
+  </data>
+  <data name="Drawer.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Drawer.Name" xml:space="preserve">
+    <value>Drawer</value>
+  </data>
+  <data name="&gt;&gt;Drawer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Drawer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Drawer.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnMinimizeApplication.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btnMinimizeApplication.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnMinimizeApplication.Location" type="System.Drawing.Point, System.Drawing">
+    <value>832, 3</value>
+  </data>
+  <data name="btnMinimizeApplication.Size" type="System.Drawing.Size, System.Drawing">
+    <value>14, 14</value>
+  </data>
+  <data name="btnMinimizeApplication.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="btnMinimizeApplication.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btnMinimizeApplication.Name" xml:space="preserve">
+    <value>btnMinimizeApplication</value>
+  </data>
+  <data name="&gt;&gt;btnMinimizeApplication.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnMinimizeApplication.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;btnMinimizeApplication.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnCloseApplication.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btnCloseApplication.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnCloseApplication.Location" type="System.Drawing.Point, System.Drawing">
+    <value>852, 3</value>
+  </data>
+  <data name="btnCloseApplication.Size" type="System.Drawing.Size, System.Drawing">
+    <value>14, 14</value>
+  </data>
+  <data name="btnCloseApplication.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="btnCloseApplication.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btnCloseApplication.Name" xml:space="preserve">
+    <value>btnCloseApplication</value>
+  </data>
+  <data name="&gt;&gt;btnCloseApplication.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnCloseApplication.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;btnCloseApplication.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>211, 0</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>869, 25</value>
+  </data>
+  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

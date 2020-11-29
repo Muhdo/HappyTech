@@ -105,6 +105,12 @@
     </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="GlobalData.cs" />
+    <Compile Include="Pages\ApplyPosition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\ApplyPosition.Designer.cs">
+      <DependentUpon>ApplyPosition.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CreateTemplate.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -147,6 +153,12 @@
     <Compile Include="Pages\TemplateSetup.Designer.cs">
       <DependentUpon>TemplateSetup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ViewApplications.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -188,6 +200,9 @@
     <EmbeddedResource Include="Components\ListReview\ItemReview.resx">
       <DependentUpon>ItemReview.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ApplyPosition.resx">
+      <DependentUpon>ApplyPosition.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\CreateTemplate.resx">
       <DependentUpon>CreateTemplate.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\TemplateSetup.resx">
       <DependentUpon>TemplateSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\ViewApplications.resx">
       <DependentUpon>ViewApplications.cs</DependentUpon>
@@ -264,6 +282,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>database.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\curriculum-vitae.png" />
+    <None Include="Resources\minimizebutton.png" />
+    <None Include="Resources\close button.png" />
+    <None Include="Resources\open drawer.png" />
+    <None Include="Resources\close drawer.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\templates1.png" />
+    <None Include="Resources\templates.png" />
+    <None Include="Resources\dashboard %281%29.png" />
+    <None Include="Resources\logotipo.png" />
+    <None Include="Resources\Small Logo.png" />
+    <None Include="Resources\Dashboard Illustation.jpg" />
     <None Include="Resources\home.png" />
   </ItemGroup>
   <ItemGroup>
