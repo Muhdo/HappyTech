@@ -105,6 +105,12 @@
     </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="GlobalData.cs" />
+    <Compile Include="Pages\ApplyPosition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\ApplyPosition.Designer.cs">
+      <DependentUpon>ApplyPosition.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CreateTemplate.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components\ListReview\ItemReview.resx">
       <DependentUpon>ItemReview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ApplyPosition.resx">
+      <DependentUpon>ApplyPosition.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\CreateTemplate.resx">
       <DependentUpon>CreateTemplate.cs</DependentUpon>
