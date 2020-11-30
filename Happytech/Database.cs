@@ -21,7 +21,7 @@ namespace Happytech
         //Lists every employee excluding the admin account
         private SqlCommand _listEmployees = new SqlCommand("SELECT EmployeeID, Name, Role FROM Employee INNER JOIN Role ON Employee.RoleID = Role.RoleID WHERE EmployeeID <> 0", connection);
         //Adds a new employee
-        private SqlCommand _addEmployee = new SqlCommand("INSERT INTO Employee (Name, RoleID) VALUES (@Name, @RoleID)", connection);
+        private SqlCommand _addEmployee = new SqlCommand("INSERT INTO Employee (Name, RoleID, Password) VALUES (@Name, @RoleID, @Password)", connection);
         //Removes employee from database
         private SqlCommand _removeEmployee = new SqlCommand("DELETE FROM Employee WHERE EmployeeID = @EmployeeID", connection);
         //Lists every role available
@@ -423,25 +423,29 @@ namespace Happytech
         /// <param name="name">Windows Username for the employee.</param>
         /// <param name="roleId">Id of the role.</param>
         /// <returns>True if was inserted, false in any error.</returns>
-        public bool AddEmployee(string name, int roleId)
+        public bool AddEmployee(string name, int roleId, string password)
         {
-            OpenDb();
-
-            bool success = false;
+            if (connection.State != ConnectionState.Open)
+                OpenDb();
 
             try
             {
+                _addEmployee.Parameters.Clear();
                 _addEmployee.Parameters.AddWithValue("@Name", name.Trim());
                 _addEmployee.Parameters.AddWithValue("@RoleID", roleId);
+                _addEmployee.Parameters.AddWithValue("@Password", password);
                 _addEmployee.ExecuteNonQuery();
-                _addEmployee.Parameters.Clear();
 
-                success = true;
+                CloseDb();
+                return true;
             }
-            catch (Exception) { }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             CloseDb();
-            return success;
+            return false;
         }
 
         /// <summary>
