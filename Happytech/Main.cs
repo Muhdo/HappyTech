@@ -12,6 +12,7 @@ using Happytech.Classes;
 using Happytech.Pages;
 using HappyTech.Pages;
 using HappyTech.Properties;
+using Settings = Happytech.Pages.Settings;
 
 namespace Happytech
 {
@@ -28,10 +29,13 @@ namespace Happytech
         {
             InitializeComponent();
 
-            if (new Database().FindEmployee() == false) 
-                pWindow.Controls.Add(new EmployeeError()); 
-            else
-                pWindow.Controls.Add(new Dashboard());
+            //if (new Database().FindEmployee() == false) 
+              //  pWindow.Controls.Add(new EmployeeError()); 
+            //else
+            pWindow.Controls.Add(new Dashboard());
+
+            // Settings option if admin, otherwise hidden.
+            db_Settings.Visible = CurrentEmployee.IsAdmin == true ? true : false;
         }
 
         private void ChangeDrawerState(object sender, EventArgs e)
