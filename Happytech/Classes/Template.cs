@@ -10,7 +10,7 @@ namespace HappyTech.Classes
     {
         private int _templateID;
         private string _name;
-        private Role _designedPositionID = new Role();
+        private int _designedPositionID;
         private List<Section> _sections = new List<Section>();
 
         public int TemplateID
@@ -23,7 +23,7 @@ namespace HappyTech.Classes
             get => _name;
             set => _name = value;
         }
-        public Role DesignedPositionID
+        public int DesignedPositionID
         {
             get => _designedPositionID;
             set => _designedPositionID = value;

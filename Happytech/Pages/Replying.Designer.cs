@@ -110,6 +110,7 @@
             this.cbTemplate.Size = new System.Drawing.Size(367, 27);
             this.cbTemplate.TabIndex = 26;
             this.cbTemplate.Tag = "Role";
+            this.cbTemplate.SelectedIndexChanged += new System.EventHandler(this.cbTemplate_SelectedIndexChanged);
             // 
             // label4
             // 

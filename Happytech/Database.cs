@@ -5,6 +5,7 @@ using Happytech.Classes;
 using System.Windows;
 using System.Data;
 using System.Windows.Navigation;
+using HappyTech.Classes;
 using HappyTech.Properties;
 
 namespace Happytech
@@ -50,7 +51,8 @@ namespace Happytech
         private SqlCommand _login = new SqlCommand("SELECT * FROM Employee WHERE Name = @Username AND Password = @Password", connection);
         //Find Role
         private SqlCommand _FindRole = new SqlCommand("SELECT * FROM Role WHERE RoleID = @RoleID", connection);
-
+        //Get every template
+        private SqlCommand _listTemplates = new SqlCommand("SELECT * FROM Template", connection);
 
         // REMOVE COMMANDS
         // Delete application
@@ -664,6 +666,28 @@ namespace Happytech
 
             CloseDb();
             return success;
+        }
+
+        public List<Template> GetTemplateNames()
+        {
+            List<Template> tempTemplates = new List<Template>();
+            OpenDb();
+
+            Reader = _listTemplates.ExecuteReader();
+
+            while (Reader.Read())
+            {
+                tempTemplates.Add(new Template()
+                {
+                    TemplateID = (int)Reader["TemplateID"],
+                    Name = (string)Reader["Name"],
+                    DesignedPositionID = (int)Reader["DesignedPositionID"],
+                    Sections = null
+                });
+            }
+
+            CloseDb();
+            return tempTemplates;
         }
 
         /// <summary>
