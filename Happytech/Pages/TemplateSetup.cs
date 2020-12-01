@@ -219,9 +219,47 @@ namespace HappyTech.Pages
             Controls.Add(new Happytech.Pages.CreateTemplate());
         }
 
+        /// <summary>
+        /// Gathers together template name and each sections name, codes and respective comments
+        /// Next step - insert to database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void saveTemplate(object sender, EventArgs e)
         {
-            //gather all values and stick a big sql insert into database.cs
+            //get the template name
+            string templateName = lblTemplateName.Text;
+            //variable set up
+            TabPage[] tabs = (tabSections.Controls.OfType<TabPage>()).ToArray();
+            int noOfSections = tabs.Length;
+            string[] sectionNames = new string[noOfSections];
+            int sectionNumber = 0;
+            List<string>[,] codeComments = new List<string>[2, noOfSections];
+            //for each tab
+            foreach (TabPage tab in tabs)
+            {
+                //get the section name
+                TextBox txtSectionName = (TextBox) tab.Controls.Find("sectionName", true)[0];
+                sectionNames[sectionNumber] = txtSectionName.Text;
+                //get the codes and comments
+                List<string> codes = new List<string>();
+                List<string> comments = new List<string>();
+                foreach (Control control in tab.Controls)
+                {
+                    if (control.Name.Contains("code"))
+                    {
+                        codes.Add(((TextBox)control).Text);
+                    }
+                    else if (control.Name.Contains("comment"))
+                    {
+                        comments.Add(((TextBox)control).Text);
+                    }
+                }
+                codeComments[0, sectionNumber] = codes;
+                codeComments[1, sectionNumber] = comments;
+                sectionNumber++;
+            }
+            //make an sql insert
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Happytech.Classes
 {
-    class Role
+    public class Role
     {
         private int _id;
         private string _role;
@@ -22,5 +22,7 @@ namespace Happytech.Classes
             get => _role;
             set => _role = value;
         }
+
+        public Role() {}
     }
 }
