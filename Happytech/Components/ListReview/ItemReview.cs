@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Happytech.databaseDataSetTableAdapters;
 using PdfiumViewer;
 using Happytech.Pages;
+using Happytech.Classes;
 using System.IO;
 
 namespace Happytech.Components.ListReview
@@ -117,6 +118,36 @@ namespace Happytech.Components.ListReview
                 btnApplication.Visible = false;
                 panel1.BackColor = Color.FromArgb(26, 36, 62);
             }
+        }
+
+        private void btnApplication_Click(object sender, EventArgs e)
+        {
+            // Fetch enclosing usercontrol
+            Control rootUserControl = Parent;
+            while ((rootUserControl.Name != "RepliedApplications"))
+                rootUserControl = rootUserControl.Parent;
+            var parent = (RepliedApplications)rootUserControl;
+
+
+            // Checks if the applicationID has already been added to the reviewing list (this.Name == ApplicationID)
+            if (ApplicationReviewing.ToBeReviewed.Contains(int.Parse(Name)))
+            {
+                MessageBox.Show($"{lblName.Text} has already been added to the reviewing list!",
+                    "Application already added",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                // Remove text from the success label
+                parent.SetReviewingListLabelText("");
+
+                return;
+            }
+
+            // If it is not yet added to the reviewing list, add it.
+            ApplicationReviewing.ToBeReviewed.Add(int.Parse(Name));
+
+            // Display that it was successful adding to the reviewing list
+            parent.SetReviewingListLabelText($"Successfully added {lblName.Text} to the reviewing list!");
         }
     }
 

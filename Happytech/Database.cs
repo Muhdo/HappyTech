@@ -91,7 +91,7 @@ namespace Happytech
             }
             catch (Exception ex)
             {
-                MessageBox.Show("xeue" + ex.Message);
+                MessageBox.Show(ex.Message);
                 CloseDb();
                 return false;
             }

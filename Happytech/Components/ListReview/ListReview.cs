@@ -21,21 +21,33 @@ namespace Happytech.Components.ListReview
             FlowLayout.HorizontalScroll.Visible = false;
         }
 
-        public void RefreshList(int dropdownIndex) 
+        public void RefreshList(int filterDropdown, int roleDropdownIndex) 
         {
             // Delete previous list
             FlowLayout.Controls.Clear();
 
             // Populate the list and assign the replyID as the name of the control
-            switch (dropdownIndex)
+            switch (filterDropdown)
             {
                 // All Applications
                 case 0:
                     var allApplications = db.FetchApplications();
                     foreach (DataRow application in allApplications.Rows)
                     {
-                        var item = new ItemReview(int.Parse(application["ApplicationID"].ToString()));
-                        FlowLayout.Controls.Add(item);
+                        // Filter by role
+                        if (roleDropdownIndex != 0)
+                        {
+                            if (int.Parse(application["RoleID"].ToString()) == roleDropdownIndex)
+                            {
+                                var item = new ItemReview(int.Parse(application["ApplicationID"].ToString()));
+                                FlowLayout.Controls.Add(item);
+                            }
+                        }
+                        else
+                        {
+                            var item = new ItemReview(int.Parse(application["ApplicationID"].ToString()));
+                            FlowLayout.Controls.Add(item);
+                        }
                     }
                     break;
                 // New Applications
@@ -43,8 +55,19 @@ namespace Happytech.Components.ListReview
                     var newApplications = db.FetchNewApplications();
                     foreach (DataRow application in newApplications.Rows)
                     {
-                        var item = new ItemReview(int.Parse(application["ApplicationID"].ToString()));
-                        FlowLayout.Controls.Add(item);
+                        if (roleDropdownIndex != 0)
+                        {
+                            if (int.Parse(application["RoleID"].ToString()) == roleDropdownIndex)
+                            {
+                                var item = new ItemReview(int.Parse(application["ApplicationID"].ToString()));
+                                FlowLayout.Controls.Add(item);
+                            }
+                        }
+                        else
+                        {
+                            var item = new ItemReview(int.Parse(application["ApplicationID"].ToString()));
+                            FlowLayout.Controls.Add(item);
+                        }
                     }
                     break;
                 // Replied Applications
@@ -52,8 +75,19 @@ namespace Happytech.Components.ListReview
                     var repliedApplications = db.FetchRepliedApplications();
                     foreach (DataRow application in repliedApplications.Rows)
                     {
-                        var item = new ItemReview(int.Parse(application["ApplicationID"].ToString()));
-                        FlowLayout.Controls.Add(item);
+                        if (roleDropdownIndex != 0)
+                        {
+                            if (int.Parse(application["RoleID"].ToString()) == roleDropdownIndex)
+                            {
+                                var item = new ItemReview(int.Parse(application["ApplicationID"].ToString()));
+                                FlowLayout.Controls.Add(item);
+                            }
+                        }
+                        else
+                        {
+                            var item = new ItemReview(int.Parse(application["ApplicationID"].ToString()));
+                            FlowLayout.Controls.Add(item);
+                        }
                     }
                     break;
             }

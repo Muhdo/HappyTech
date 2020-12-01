@@ -77,6 +77,7 @@
             this.btnApplication.Name = "btnApplication";
             this.btnApplication.TabStop = false;
             this.btnApplication.UseVisualStyleBackColor = false;
+            this.btnApplication.Click += new System.EventHandler(this.btnApplication_Click);
             // 
             // panel1
             // 

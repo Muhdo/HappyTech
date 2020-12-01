@@ -12,6 +12,7 @@ using System.Windows.Controls;
 using System.IO;
 using PdfiumViewer;
 using HappyTech.Pages;
+using Happytech.Classes;
 
 namespace Happytech.Pages
 {
@@ -26,15 +27,26 @@ namespace Happytech.Pages
         {
             InitializeComponent();
             pWindow = (System.Windows.Forms.Panel)Parent;
-            this.Dock = DockStyle.Fill;
+            Dock = DockStyle.Fill;
+
+            // Insert all roles onto the roles dropdown menu
+            Role[] roles = db.ListRoles();
+
+            // The cb index will be indicative of the role ID, e.g If the RoleID is 4, the dropdown menu index will be 4 as well.
+            foreach (var role in roles)
+                cbRolesList.Items.Insert(role.Id, role.RoleName);
+
+            // Set default index for the filter dropdown menu
+            cbApplicationList.SelectedIndex = 0;
 
             // Initialize the applications list
             ListReview = new ListReview();
             ListReview.Dock = DockStyle.Fill;
             grpApplications.Controls.Add(ListReview);
 
-            // Set default index for the dropdown menu
-            cbApplicationList.SelectedIndex = 0;
+            // Set default index for the roles dropdown menu
+            cbRolesList.SelectedIndex = 0;
+
 
             // Configure PDF Reader
             pdfReader.ShowBookmarks = false;
@@ -44,7 +56,7 @@ namespace Happytech.Pages
         private void button1_Click(object sender, EventArgs e)
         {
             // Refresh List
-            ListReview.RefreshList(cbApplicationList.SelectedIndex);
+            ListReview.RefreshList(cbApplicationList.SelectedIndex, cbRolesList.SelectedIndex);
         }
 
         private void cbApplicationList_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,7 +68,7 @@ namespace Happytech.Pages
             grpApplications.Text = cbApplicationList.Text;
 
             // Refresh the list
-            ListReview.RefreshList(cbApplicationList.SelectedIndex);
+            ListReview.RefreshList(cbApplicationList.SelectedIndex, cbRolesList.SelectedIndex);
         }
 
         public void OpenPDF(string name)
@@ -91,6 +103,20 @@ namespace Happytech.Pages
             var parent = Parent;
             parent.Controls.Clear();
             parent.Controls.Add(new ApplyPosition());
+        }
+
+        private void cbRolesList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ListReview == null)
+                return;
+
+            // Refresh the list
+            ListReview.RefreshList(cbApplicationList.SelectedIndex, cbRolesList.SelectedIndex);
+        }
+
+        public void SetReviewingListLabelText(string text)
+        {
+            lblReviewList.Text = text;
         }
     }
 }

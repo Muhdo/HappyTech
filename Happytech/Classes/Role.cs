@@ -22,7 +22,5 @@ namespace Happytech.Classes
             get => _role;
             set => _role = value;
         }
-
-        public Role() { }
     }
 }

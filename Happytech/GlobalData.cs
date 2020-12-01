@@ -8,6 +8,11 @@ using Happytech.Classes;
 
 namespace Happytech
 {
+    class ApplicationReviewing
+    {
+        public static List<int> ToBeReviewed = new List<int>();
+    }
+
     class UserPages
     {
         public static string firstAction { get; set; }
