@@ -72,8 +72,12 @@
       <DependentUpon>ApplyToPosition.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Applications.cs" />
+    <Compile Include="Classes\Comment.cs" />
+    <Compile Include="Classes\Section.cs" />
     <Compile Include="Classes\Employee.cs" />
+    <Compile Include="Classes\Reply.cs" />
     <Compile Include="Classes\Role.cs" />
+    <Compile Include="Classes\Template.cs" />
     <Compile Include="Components\ListComponent\List.cs">
       <SubType>UserControl</SubType>
     </Compile>
