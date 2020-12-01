@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Happytech.Classes;
-using Happytech.Properties;
 using System.IO;
 
 namespace Happytech.Pages

@@ -52,6 +52,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.chkAdmin = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.lstEmployees = new Happytech.Components.ListComponent.List();
             this.SuspendLayout();
             // 
@@ -111,15 +113,15 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label3.Location = new System.Drawing.Point(327, 48);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 19);
+            this.label3.Size = new System.Drawing.Size(71, 19);
             this.label3.TabIndex = 21;
-            this.label3.Text = "Windows Username";
+            this.label3.Text = "Username";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label4.Location = new System.Drawing.Point(327, 127);
+            this.label4.Location = new System.Drawing.Point(327, 184);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 19);
             this.label4.TabIndex = 23;
@@ -133,7 +135,7 @@
             this.cbRole.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.cbRole.ForeColor = System.Drawing.Color.White;
             this.cbRole.FormattingEnabled = true;
-            this.cbRole.Location = new System.Drawing.Point(331, 148);
+            this.cbRole.Location = new System.Drawing.Point(331, 205);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(215, 27);
             this.cbRole.TabIndex = 24;
@@ -145,7 +147,7 @@
             this.btnSaveUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveUser.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.btnSaveUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.btnSaveUser.Location = new System.Drawing.Point(331, 212);
+            this.btnSaveUser.Location = new System.Drawing.Point(331, 269);
             this.btnSaveUser.Name = "btnSaveUser";
             this.btnSaveUser.Size = new System.Drawing.Size(215, 27);
             this.btnSaveUser.TabIndex = 25;
@@ -171,7 +173,7 @@
             this.lblErrorInsertingUser.AutoSize = true;
             this.lblErrorInsertingUser.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblErrorInsertingUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.lblErrorInsertingUser.Location = new System.Drawing.Point(327, 242);
+            this.lblErrorInsertingUser.Location = new System.Drawing.Point(327, 299);
             this.lblErrorInsertingUser.Name = "lblErrorInsertingUser";
             this.lblErrorInsertingUser.Size = new System.Drawing.Size(196, 19);
             this.lblErrorInsertingUser.TabIndex = 27;
@@ -183,7 +185,7 @@
             this.lblSelectRoleError.AutoSize = true;
             this.lblSelectRoleError.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblSelectRoleError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.lblSelectRoleError.Location = new System.Drawing.Point(327, 178);
+            this.lblSelectRoleError.Location = new System.Drawing.Point(327, 235);
             this.lblSelectRoleError.Name = "lblSelectRoleError";
             this.lblSelectRoleError.Size = new System.Drawing.Size(123, 19);
             this.lblSelectRoleError.TabIndex = 28;
@@ -269,7 +271,7 @@
             this.lblRemoveRoleError.AutoSize = true;
             this.lblRemoveRoleError.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblRemoveRoleError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.lblRemoveRoleError.Location = new System.Drawing.Point(327, 374);
+            this.lblRemoveRoleError.Location = new System.Drawing.Point(327, 425);
             this.lblRemoveRoleError.Name = "lblRemoveRoleError";
             this.lblRemoveRoleError.Size = new System.Drawing.Size(123, 19);
             this.lblRemoveRoleError.TabIndex = 40;
@@ -281,7 +283,7 @@
             this.lblErrorRemovingRole.AutoSize = true;
             this.lblErrorRemovingRole.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblErrorRemovingRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.lblErrorRemovingRole.Location = new System.Drawing.Point(327, 436);
+            this.lblErrorRemovingRole.Location = new System.Drawing.Point(327, 487);
             this.lblErrorRemovingRole.Name = "lblErrorRemovingRole";
             this.lblErrorRemovingRole.Size = new System.Drawing.Size(229, 19);
             this.lblErrorRemovingRole.TabIndex = 39;
@@ -294,7 +296,7 @@
             this.btnRemoveRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveRole.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.btnRemoveRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.btnRemoveRole.Location = new System.Drawing.Point(331, 406);
+            this.btnRemoveRole.Location = new System.Drawing.Point(331, 457);
             this.btnRemoveRole.Name = "btnRemoveRole";
             this.btnRemoveRole.Size = new System.Drawing.Size(215, 27);
             this.btnRemoveRole.TabIndex = 38;
@@ -311,7 +313,7 @@
             this.cbRemoveRole.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.cbRemoveRole.ForeColor = System.Drawing.Color.White;
             this.cbRemoveRole.FormattingEnabled = true;
-            this.cbRemoveRole.Location = new System.Drawing.Point(331, 344);
+            this.cbRemoveRole.Location = new System.Drawing.Point(331, 395);
             this.cbRemoveRole.Name = "cbRemoveRole";
             this.cbRemoveRole.Size = new System.Drawing.Size(215, 27);
             this.cbRemoveRole.TabIndex = 37;
@@ -321,7 +323,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label9.Location = new System.Drawing.Point(327, 323);
+            this.label9.Location = new System.Drawing.Point(327, 374);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(35, 19);
             this.label9.TabIndex = 36;
@@ -331,7 +333,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label10.Location = new System.Drawing.Point(326, 290);
+            this.label10.Location = new System.Drawing.Point(326, 341);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(125, 28);
             this.label10.TabIndex = 35;
@@ -346,6 +348,30 @@
             this.chkAdmin.TabIndex = 42;
             this.chkAdmin.Text = "Is administrator";
             this.chkAdmin.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label5.Location = new System.Drawing.Point(327, 126);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 19);
+            this.label5.TabIndex = 44;
+            this.label5.Text = "Password";
+            // 
+            // tbPassword
+            // 
+            this.tbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
+            this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbPassword.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.tbPassword.ForeColor = System.Drawing.Color.White;
+            this.tbPassword.Location = new System.Drawing.Point(331, 148);
+            this.tbPassword.MaxLength = 256;
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
+            this.tbPassword.Size = new System.Drawing.Size(215, 26);
+            this.tbPassword.TabIndex = 43;
+            this.tbPassword.Tag = "Password";
             // 
             // lstEmployees
             // 
@@ -364,6 +390,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.chkAdmin);
             this.Controls.Add(this.lstEmployees);
             this.Controls.Add(this.lblRemoveRoleError);
@@ -424,5 +452,7 @@
         private System.Windows.Forms.Label label10;
         private Components.ListComponent.List lstEmployees;
         private System.Windows.Forms.CheckBox chkAdmin;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbPassword;
     }
 }

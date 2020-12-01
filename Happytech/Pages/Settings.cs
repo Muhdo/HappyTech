@@ -40,8 +40,16 @@ namespace Happytech.Pages
 
             //Checks if there is any error
             //If doesn't have errors, it will try to add the employee
-            if (!lblUsernameError.Visible && !lblSelectRoleError.Visible)
-                lblErrorInsertingUser.Visible = !db.AddEmployee(tbUsername.Text, roles[cbRole.SelectedIndex].Id);
+            if (!lblUsernameError.Visible && !lblSelectRoleError.Visible || string.IsNullOrEmpty(tbPassword.Text))
+                lblErrorInsertingUser.Visible = !db.AddEmployee(tbUsername.Text, roles[cbRole.SelectedIndex].Id, tbPassword.Text);
+            else
+            {
+                MessageBox.Show("Fields are wrong!", "Fields are wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tbUsername.Text = null;
+                tbPassword.Text = null;
+                cbRole.SelectedIndex = -1;
+                return;
+            }
 
             //If there is no error
             if (!lblErrorInsertingUser.Visible)

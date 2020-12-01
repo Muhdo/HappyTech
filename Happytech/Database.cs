@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Happytech.Properties;
 using System.Data.SqlClient;
 using Happytech.Classes;
 using System.Windows;
 using System.Data;
 using System.Windows.Navigation;
+using HappyTech.Properties;
 
 namespace Happytech
 {
@@ -21,7 +21,7 @@ namespace Happytech
         //Lists every employee excluding the admin account
         private SqlCommand _listEmployees = new SqlCommand("SELECT EmployeeID, Name, Role FROM Employee INNER JOIN Role ON Employee.RoleID = Role.RoleID WHERE EmployeeID <> 0", connection);
         //Adds a new employee
-        private SqlCommand _addEmployee = new SqlCommand("INSERT INTO Employee (Name, RoleID) VALUES (@Name, @RoleID)", connection);
+        private SqlCommand _addEmployee = new SqlCommand("INSERT INTO Employee (Name, RoleID, Password) VALUES (@Name, @RoleID, @Password)", connection);
         //Removes employee from database
         private SqlCommand _removeEmployee = new SqlCommand("DELETE FROM Employee WHERE EmployeeID = @EmployeeID", connection);
         //Lists every role available
@@ -46,12 +46,88 @@ namespace Happytech
         private SqlCommand _findApplicantByID = new SqlCommand("SELECT Name FROM Application WHERE ApplicationID = @ApplicationID", connection);
         //Finds curriculum by applicationID
         private SqlCommand _findCVNameByID = new SqlCommand("SELECT Curriculum FROM Application WHERE ApplicationID = @ApplicationID", connection);
+        //Login
+        private SqlCommand _login = new SqlCommand("SELECT * FROM Employee WHERE Name = @Username AND Password = @Password", connection);
+        //Find Role
+        private SqlCommand _FindRole = new SqlCommand("SELECT * FROM Role WHERE RoleID = @RoleID", connection);
+
 
         // REMOVE COMMANDS
-
         // Delete application
         private SqlCommand _removeApplication = new SqlCommand("DELETE FROM Application WHERE ApplicationID = @ApplicationID", connection);
         private SqlCommand _removeReply = new SqlCommand("DELETE FROM Reply WHERE ApplicationID = @ApplicationID", connection);
+
+
+        public bool Login(string username, string password)
+        {
+            _login.Parameters.Clear();
+            _login.Parameters.AddWithValue("@Username", username);
+            _login.Parameters.AddWithValue("@Password", password);
+
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                    OpenDb();
+
+                using (var reader = _login.ExecuteReader())
+                {
+                    while (reader.Read())
+                        if (reader.HasRows)
+                        {
+                            // Get role information
+                            var role = Role((int)reader["RoleID"]);
+
+                            // Set new employee
+                            new CurrentEmployee().SetEmployee(
+                                (int)reader["EmployeeID"],
+                                (string)reader["Name"],
+                                (string)role[0],
+                                (bool)role[1]);
+
+                            CloseDb();
+                            return true;
+                        }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("xeue" + ex.Message);
+                CloseDb();
+                return false;
+            }
+
+            CloseDb();
+            return false;
+        }
+
+        public object[] Role(int RoleID)
+        {
+            _FindRole.Parameters.Clear();
+            _FindRole.Parameters.AddWithValue("@RoleID", RoleID);
+
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                    OpenDb();
+
+                using(var reader = _FindRole.ExecuteReader())
+                {
+                    while(reader.Read())
+                        if (reader.HasRows)
+                        {
+                            object[] Role = new object[] { reader["Role"].ToString(), (bool)reader["IsAdmin"] };
+                            return Role;
+                        }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("xe " + ex.Message);
+                return null;
+            }
+
+            return null;
+        }
 
         public DataTable FetchNewApplications()
         {
@@ -237,7 +313,7 @@ namespace Happytech
             try
             {
                 // Open connection
-                if(connection.State != ConnectionState.Open)
+                if (connection.State != ConnectionState.Open)
                     OpenDb();
 
                 // Tries to find a name with an application id
@@ -263,16 +339,16 @@ namespace Happytech
         }
 
         /// <summary>
-        /// Finds if the current windows employee is registered
+        /// Finds if the current employee is registered
         /// </summary>
         /// <param name="name">Name to search.</param>
         /// <returns>True if registered or false if is not registered.</returns>
-        public bool FindEmployee(string name = null)
+        public bool FindEmployee(string name)
         {
             OpenDb();
 
             //Setting query to find current windows user
-            _findEmployee.Parameters.AddWithValue("@Name", name ?? Environment.UserName); //Uses name variable if it's not null, otherwise uses Environment.UserName
+            _findEmployee.Parameters.AddWithValue("@Name", name);
             Reader = _findEmployee.ExecuteReader();
             _findEmployee.Parameters.Clear();
 
@@ -347,25 +423,29 @@ namespace Happytech
         /// <param name="name">Windows Username for the employee.</param>
         /// <param name="roleId">Id of the role.</param>
         /// <returns>True if was inserted, false in any error.</returns>
-        public bool AddEmployee(string name, int roleId)
+        public bool AddEmployee(string name, int roleId, string password)
         {
-            OpenDb();
-
-            bool success = false;
+            if (connection.State != ConnectionState.Open)
+                OpenDb();
 
             try
             {
+                _addEmployee.Parameters.Clear();
                 _addEmployee.Parameters.AddWithValue("@Name", name.Trim());
                 _addEmployee.Parameters.AddWithValue("@RoleID", roleId);
+                _addEmployee.Parameters.AddWithValue("@Password", password);
                 _addEmployee.ExecuteNonQuery();
-                _addEmployee.Parameters.Clear();
 
-                success = true;
+                CloseDb();
+                return true;
             }
-            catch (Exception) { }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             CloseDb();
-            return success;
+            return false;
         }
 
         /// <summary>

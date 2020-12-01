@@ -105,6 +105,12 @@
     </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="GlobalData.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ApplyPosition.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     <EmbeddedResource Include="Components\ListReview\ItemReview.resx">
       <DependentUpon>ItemReview.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\ApplyPosition.resx">
       <DependentUpon>ApplyPosition.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,7 +271,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
