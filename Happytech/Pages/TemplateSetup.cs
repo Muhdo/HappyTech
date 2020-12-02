@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Happytech;
 
 namespace HappyTech.Pages
 {
     public partial class TemplateSetup : UserControl
     {
+        Database db = new Database();
+
         private int tabsIndex = 1;
         private string nextTabText = "";
         TabPage tabSection1 = new TabPage();
@@ -260,6 +263,7 @@ namespace HappyTech.Pages
                 sectionNumber++;
             }
             //make an sql insert
+            db.CreateTemplate(templateName, sectionNames, codeComments);
         }
     }
 }

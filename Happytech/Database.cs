@@ -59,6 +59,75 @@ namespace Happytech
         private SqlCommand _removeApplication = new SqlCommand("DELETE FROM Application WHERE ApplicationID = @ApplicationID", connection);
         private SqlCommand _removeReply = new SqlCommand("DELETE FROM Reply WHERE ApplicationID = @ApplicationID", connection);
 
+        //INSERT COMMANDS
+        //Add section
+        private SqlCommand _addSection = new SqlCommand("INSERT INTO Section (Title) VALUES (@Title)", connection);
+        //Add comment
+        private SqlCommand _addComment = new SqlCommand("INSERT INTO Comment (Comment, ShortName) VALUES (@Comment, @ShortName)", connection);
+        //Link a section to a template
+        private SqlCommand _linkTemplateSection = new SqlCommand("INSERT INTO Template_Section (SectionID, TemplateID) VALUES (@SectionID, @TemplateID)", connection);
+
+        //SELECT COMMANDS
+        //Get templateID
+        private SqlCommand _getTemplateID = new SqlCommand("SELECT TemplateID FROM Template WHERE Name = @Name", connection);
+        private SqlCommand _getSectionID = new SqlCommand("SELECT SectionID FROM Section WHERE Title = @Title", connection);
+
+        public void CreateTemplate(string templateName, string[] sectionNames, List<string>[,] codeComments)
+        {
+            AddTemplate(templateName);
+            //get templateID
+            OpenDb();
+            _getTemplateID.Parameters.Clear();
+            _getTemplateID.Parameters.AddWithValue("@Name", templateName);
+            int templateID = 0;
+            using(var reader = _getTemplateID.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    templateID = (int)reader[0];
+                }
+            }
+            //add sections
+            foreach (string sectionName in sectionNames)
+            {
+                OpenDb();
+                _addSection.Parameters.Clear();
+                _addSection.Parameters.AddWithValue("@Title", sectionName);
+                _addSection.ExecuteNonQuery();
+                //get sectionID
+                int sectionID = 0;
+                _getSectionID.Parameters.Clear();
+                _getSectionID.Parameters.AddWithValue("@Title", sectionName);
+                using(var reader = _getSectionID.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        sectionID = (int)reader[0];
+                    }
+                }
+                //link section and template
+                _linkTemplateSection.Parameters.Clear();
+                _linkTemplateSection.Parameters.AddWithValue("@SectionID", sectionID);
+                _linkTemplateSection.Parameters.AddWithValue("@TemplateID", templateID);
+                _linkTemplateSection.ExecuteNonQuery();
+                CloseDb();
+            }
+
+            //add comments
+            for (int i = 0; i < codeComments.Length/2; i++)
+            {
+                OpenDb();
+                _addComment.Parameters.Clear();
+                _addComment.Parameters.AddWithValue("@Comment", codeComments[1, i]);
+                _addComment.Parameters.AddWithValue("@ShortName", codeComments[0, i]);
+                _addComment.ExecuteNonQuery();
+                CloseDb();
+            }
+            //link comments to sections
+            CloseDb();
+        }
+
+
 
         public bool Login(string username, string password)
         {
@@ -399,6 +468,11 @@ namespace Happytech
             return employees.ToArray();
         }
 
+        /// <summary>
+        /// Adds a new template
+        /// </summary>
+        /// <param name="name">Template name</param>
+        /// <returns></returns>
         public bool AddTemplate(string name)
         {
             try
