@@ -67,7 +67,7 @@ namespace Happytech
         //Link a section to a template
         private SqlCommand _linkTemplateSection = new SqlCommand("INSERT INTO Template_Section (SectionID, TemplateID) VALUES (@SectionID, @TemplateID)", connection);
         //Link a comment to a section
-        private SqlCommand _linkCommentSection = new SqlCommand("INSERT INTO Comment_Section (CommentID, SectionID) VALUES (@CommentID, @SectionID", connection);
+        private SqlCommand _linkCommentSection = new SqlCommand("INSERT INTO Comment_Section (CommentID, SectionID) VALUES (@CommentID, @SectionID)", connection);
 
         //SELECT COMMANDS
         //Get templateID
@@ -102,11 +102,9 @@ namespace Happytech
                     templateID = (int)reader[0];
                 }
             }
-            CloseDb();
             //add sections
             foreach (string sectionName in sectionNames)
             {
-                OpenDb();
                 _addSection.Parameters.Clear();
                 _addSection.Parameters.AddWithValue("@Title", sectionName);
                 _addSection.ExecuteNonQuery();
@@ -126,14 +124,12 @@ namespace Happytech
                 _linkTemplateSection.Parameters.AddWithValue("@SectionID", sectionID);
                 _linkTemplateSection.Parameters.AddWithValue("@TemplateID", templateID);
                 _linkTemplateSection.ExecuteNonQuery();
-                CloseDb();
             }
 
             //add comments
             for (int i = 0; i < sectionNames.Length; i++)
             {
                 //get sectionID
-                OpenDb();
                 _getSectionID.Parameters.Clear();
                 _getSectionID.Parameters.AddWithValue("@Title", sectionNames[i]);
                 int sectionID = 0;
@@ -144,7 +140,6 @@ namespace Happytech
                         sectionID = (int)reader[0];
                     }
                 }
-                CloseDb();
                 //extract codes and comments for this section
                 List<string> sectionCodes = codeComments[0, i];
                 List<string> sectionComments = codeComments[1, i];
@@ -153,9 +148,8 @@ namespace Happytech
                 {
                     //get the matching comment
                     int commentNo = sectionCodes.IndexOf(code);
-                    string comment = (sectionComments.GetRange(commentNo, 1)).ToString();
+                    string comment = sectionComments[commentNo];
                     //insert the code-comment pair
-                    OpenDb();
                     _addComment.Parameters.Clear();
                     _addComment.Parameters.AddWithValue("@ShortName", code);
                     _addComment.Parameters.AddWithValue("@Comment", comment);
@@ -172,14 +166,11 @@ namespace Happytech
                             commentID = (int)reader[0];
                         }
                     }
-                    CloseDb();
                     //link comment and section
-                    OpenDb();
                     _linkCommentSection.Parameters.Clear();
                     _linkCommentSection.Parameters.AddWithValue("@CommentID", commentID);
                     _linkCommentSection.Parameters.AddWithValue("@SectionID", sectionID);
                     _linkCommentSection.ExecuteNonQuery();
-                    CloseDb();
                 }
             }
             CloseDb();

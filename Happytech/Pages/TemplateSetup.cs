@@ -251,11 +251,11 @@ namespace HappyTech.Pages
                 List<string> comments = new List<string>();
                 foreach (Control control in tab.Controls)
                 {
-                    if (control.Name.Contains("code"))
+                    if (control.Name.Contains("Code"))
                     {
                         codes.Add(((TextBox)control).Text);
                     }
-                    else if (control.Name.Contains("comment"))
+                    else if (control.Name.Contains("Comment"))
                     {
                         comments.Add(((TextBox)control).Text);
                     }
