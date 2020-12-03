@@ -83,6 +83,7 @@ namespace HappyTech.Pages
 
             //sectionName textbox
             TextBox sectionName = new TextBox();
+            sectionName.Name = "sectionName";
             sectionName.Text = "Section name";
             sectionName.Location = new Point(23, 19);
             tab.Controls.Add(sectionName);
@@ -235,12 +236,13 @@ namespace HappyTech.Pages
             //variable set up
             TabPage[] tabs = (tabSections.Controls.OfType<TabPage>()).ToArray();
             int noOfSections = tabs.Length;
-            string[] sectionNames = new string[noOfSections];
+            string[] sectionNames = new string[noOfSections - 1];
             int sectionNumber = 0;
             List<string>[,] codeComments = new List<string>[2, noOfSections];
             //for each tab
-            foreach (TabPage tab in tabs)
+            for (int i = 0; i < tabs.Length - 1; i++)
             {
+                TabPage tab = tabs[i];
                 //get the section name
                 TextBox txtSectionName = (TextBox) tab.Controls.Find("sectionName", true)[0];
                 sectionNames[sectionNumber] = txtSectionName.Text;

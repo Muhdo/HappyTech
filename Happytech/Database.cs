@@ -130,7 +130,7 @@ namespace Happytech
             }
 
             //add comments
-            for (int i = 0; i < codeComments.Length/2; i++)
+            for (int i = 0; i < sectionNames.Length; i++)
             {
                 //get sectionID
                 OpenDb();
