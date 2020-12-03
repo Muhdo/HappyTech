@@ -66,12 +66,27 @@ namespace Happytech
         private SqlCommand _addComment = new SqlCommand("INSERT INTO Comment (Comment, ShortName) VALUES (@Comment, @ShortName)", connection);
         //Link a section to a template
         private SqlCommand _linkTemplateSection = new SqlCommand("INSERT INTO Template_Section (SectionID, TemplateID) VALUES (@SectionID, @TemplateID)", connection);
+        //Link a comment to a section
+        private SqlCommand _linkCommentSection = new SqlCommand("INSERT INTO Comment_Section (CommentID, SectionID) VALUES (@CommentID, @SectionID", connection);
 
         //SELECT COMMANDS
         //Get templateID
         private SqlCommand _getTemplateID = new SqlCommand("SELECT TemplateID FROM Template WHERE Name = @Name", connection);
+        //Get sectionID
         private SqlCommand _getSectionID = new SqlCommand("SELECT SectionID FROM Section WHERE Title = @Title", connection);
+        //Get commentID
+        private SqlCommand _getCommentID = new SqlCommand("SELECT CommentId FROM Comment WHERE ShortName = @ShortName AND Comment = @Comment", connection);
 
+        /// <summary>
+        /// Inserts template name to Template
+        /// Inserts section names to Section
+        /// Inserts code-comment pairs to Comment
+        /// Links sections to template 
+        /// Links code-comment pairs to section
+        /// </summary>
+        /// <param name="templateName">The name of the template to be added</param>
+        /// <param name="sectionNames">The names of the sections to be added</param>
+        /// <param name="codeComments">2d array where for each code-comment pair y [x, y] x = 0 is the code and x = 1 is the comment</param>
         public void CreateTemplate(string templateName, string[] sectionNames, List<string>[,] codeComments)
         {
             AddTemplate(templateName);
@@ -87,6 +102,7 @@ namespace Happytech
                     templateID = (int)reader[0];
                 }
             }
+            CloseDb();
             //add sections
             foreach (string sectionName in sectionNames)
             {
@@ -116,14 +132,56 @@ namespace Happytech
             //add comments
             for (int i = 0; i < codeComments.Length/2; i++)
             {
+                //get sectionID
                 OpenDb();
-                _addComment.Parameters.Clear();
-                _addComment.Parameters.AddWithValue("@Comment", codeComments[1, i]);
-                _addComment.Parameters.AddWithValue("@ShortName", codeComments[0, i]);
-                _addComment.ExecuteNonQuery();
+                _getSectionID.Parameters.Clear();
+                _getSectionID.Parameters.AddWithValue("@Title", sectionNames[i]);
+                int sectionID = 0;
+                using (var reader = _getSectionID.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        sectionID = (int)reader[0];
+                    }
+                }
                 CloseDb();
+                //extract codes and comments for this section
+                List<string> sectionCodes = codeComments[0, i];
+                List<string> sectionComments = codeComments[1, i];
+                //for each code in the section
+                foreach (string code in sectionCodes)
+                {
+                    //get the matching comment
+                    int commentNo = sectionCodes.IndexOf(code);
+                    string comment = (sectionComments.GetRange(commentNo, 1)).ToString();
+                    //insert the code-comment pair
+                    OpenDb();
+                    _addComment.Parameters.Clear();
+                    _addComment.Parameters.AddWithValue("@ShortName", code);
+                    _addComment.Parameters.AddWithValue("@Comment", comment);
+                    _addComment.ExecuteNonQuery();
+                    //get commentID
+                    _getCommentID.Parameters.Clear();
+                    _getCommentID.Parameters.AddWithValue("@ShortName", code);
+                    _getCommentID.Parameters.AddWithValue("@Comment", comment);
+                    int commentID = 0;
+                    using (var reader = _getCommentID.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            commentID = (int)reader[0];
+                        }
+                    }
+                    CloseDb();
+                    //link comment and section
+                    OpenDb();
+                    _linkCommentSection.Parameters.Clear();
+                    _linkCommentSection.Parameters.AddWithValue("@CommentID", commentID);
+                    _linkCommentSection.Parameters.AddWithValue("@SectionID", sectionID);
+                    _linkCommentSection.ExecuteNonQuery();
+                    CloseDb();
+                }
             }
-            //link comments to sections
             CloseDb();
         }
 
