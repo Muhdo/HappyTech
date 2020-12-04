@@ -80,6 +80,10 @@ namespace Happytech
         //Get commentID
         private SqlCommand _getCommentID = new SqlCommand("SELECT CommentId FROM Comment WHERE ShortName = @ShortName AND Comment = @Comment", connection);
 
+
+        //Get sections from template
+        private SqlCommand _getDataFromTemplateID = new SqlCommand("SELECT Template.TemplateID, Name, DesignedPositionID, Section.SectionID, Title, Comment.CommentID, Comment, ShortName FROM Template INNER JOIN Template_Section ON Template.TemplateID = Template_Section.TemplateID INNER JOIN Section ON Template_Section.SectionID = Section.SectionID INNER JOIN Comment_Section ON Section.SectionID = Comment_Section.SectionID INNER JOIN Comment ON Comment_Section.CommentID = Comment.CommentId WHERE Template.TemplateID = @TemplateID", connection);
+
         /// <summary>
         /// Inserts template name to Template
         /// Inserts section names to Section
@@ -837,6 +841,77 @@ namespace Happytech
 
             CloseDb();
             return application;
+        }
+
+        public Template GetTemplateData(int templateID)
+        {
+            Template template = new Template();
+            OpenDb();
+
+            //Gets the data for the template
+            _getDataFromTemplateID.Parameters.AddWithValue("@TemplateID", templateID);
+            Reader = _getDataFromTemplateID.ExecuteReader();
+            _getDataFromTemplateID.Parameters.Clear();
+
+            //Checks if there is any template
+            if (Reader.HasRows)
+            {
+                //The first read will set the base data
+                Reader.Read();
+
+                template.TemplateID = (int)Reader["TemplateID"];
+                template.Name = (string)Reader["Name"];
+                template.DesignedPositionID = (int) Reader["DesignedPositionID"];
+                //Adds the first section
+                template.Sections.Add(new Section()
+                {
+                    SectionID = (int)Reader["SectionID"],
+                    //Adds the first comment
+                    Comments = new List<Comment>{ new Comment()
+                    {
+                        CommentID = (int)Reader["CommentID"],
+                        ShortName = (string)Reader["ShortName"],
+                        CommentText = (string)Reader["Comment"],
+                    }},
+                });
+
+                //Goes through the data and adds the comments to their corresponding section and adds the new sections
+                while (Reader.Read())
+                {
+                    //Gets the index of the section if exists (-1 if not) 
+                    int sectionIndex = template.Sections.FindIndex(s => s.SectionID == (int) Reader["SectionID"]);
+
+                    //If exists
+                    if (sectionIndex != -1)
+                    {
+                        //Adds comment to the section
+                        template.Sections[sectionIndex].Comments.Add(new Comment()
+                        {
+                            CommentID = (int)Reader["CommentID"],
+                            ShortName = (string)Reader["ShortName"],
+                            CommentText = (string)Reader["Comment"],
+                        });
+                    }
+                    else //if doesn't exist
+                    {
+                        //Adds a new section
+                        template.Sections.Add(new Section()
+                        {
+                            SectionID = (int)Reader["SectionID"],
+                            //Adds the first comment
+                            Comments = new List<Comment>{ new Comment()
+                            {
+                                CommentID = (int)Reader["CommentID"],
+                                ShortName = (string)Reader["ShortName"],
+                                CommentText = (string)Reader["Comment"],
+                            }},
+                        });
+                    }
+                }
+            }
+
+            CloseDb();
+            return template;
         }
 
         /// <summary>
