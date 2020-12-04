@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.btnBack = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnPrevCandidate = new System.Windows.Forms.Button();
+            this.btnNextCandidate = new System.Windows.Forms.Button();
             this.lblCandidateName = new System.Windows.Forms.Label();
             this.pdfReader = new PdfiumViewer.PdfViewer();
             this.cbTemplate = new System.Windows.Forms.ComboBox();
@@ -52,43 +52,47 @@
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnPrevCandidate
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(60, 45);
-            this.button1.TabIndex = 18;
-            this.button1.Tag = "";
-            this.button1.Text = "<";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnPrevCandidate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
+            this.btnPrevCandidate.Enabled = false;
+            this.btnPrevCandidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrevCandidate.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.btnPrevCandidate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
+            this.btnPrevCandidate.Location = new System.Drawing.Point(3, 3);
+            this.btnPrevCandidate.Name = "btnPrevCandidate";
+            this.btnPrevCandidate.Size = new System.Drawing.Size(60, 45);
+            this.btnPrevCandidate.TabIndex = 18;
+            this.btnPrevCandidate.Tag = "Previous";
+            this.btnPrevCandidate.Text = "<";
+            this.btnPrevCandidate.UseVisualStyleBackColor = false;
+            this.btnPrevCandidate.Click += new System.EventHandler(this.ChangeCandidate);
             // 
-            // button2
+            // btnNextCandidate
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.button2.Location = new System.Drawing.Point(379, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(60, 45);
-            this.button2.TabIndex = 19;
-            this.button2.Tag = "";
-            this.button2.Text = ">";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnNextCandidate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
+            this.btnNextCandidate.Enabled = false;
+            this.btnNextCandidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNextCandidate.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.btnNextCandidate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
+            this.btnNextCandidate.Location = new System.Drawing.Point(379, 3);
+            this.btnNextCandidate.Name = "btnNextCandidate";
+            this.btnNextCandidate.Size = new System.Drawing.Size(60, 45);
+            this.btnNextCandidate.TabIndex = 19;
+            this.btnNextCandidate.Tag = "Next";
+            this.btnNextCandidate.Text = ">";
+            this.btnNextCandidate.UseVisualStyleBackColor = false;
+            this.btnNextCandidate.Click += new System.EventHandler(this.ChangeCandidate);
             // 
             // lblCandidateName
             // 
-            this.lblCandidateName.AutoSize = true;
             this.lblCandidateName.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblCandidateName.Location = new System.Drawing.Point(69, 8);
+            this.lblCandidateName.Location = new System.Drawing.Point(69, 3);
             this.lblCandidateName.Name = "lblCandidateName";
-            this.lblCandidateName.Size = new System.Drawing.Size(158, 28);
+            this.lblCandidateName.Size = new System.Drawing.Size(304, 45);
             this.lblCandidateName.TabIndex = 20;
             this.lblCandidateName.Text = "Candidate Name";
+            this.lblCandidateName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pdfReader
             // 
@@ -139,8 +143,8 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pdfReader);
             this.Controls.Add(this.lblCandidateName);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnNextCandidate);
+            this.Controls.Add(this.btnPrevCandidate);
             this.Controls.Add(this.btnBack);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ForeColor = System.Drawing.Color.White;
@@ -154,8 +158,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnPrevCandidate;
+        private System.Windows.Forms.Button btnNextCandidate;
         private System.Windows.Forms.Label lblCandidateName;
         private PdfiumViewer.PdfViewer pdfReader;
         private System.Windows.Forms.ComboBox cbTemplate;

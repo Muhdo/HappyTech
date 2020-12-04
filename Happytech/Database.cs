@@ -36,7 +36,7 @@ namespace Happytech
         //Number of new applications (not replied yet)
         private SqlCommand _numberNewApplications = new SqlCommand("SELECT COUNT(ApplicationID) AS 'Count' FROM Application WHERE NOT EXISTS (SELECT ApplicationID FROM Reply)", connection);
         //Returns data from new applications
-        private SqlCommand _newApplications = new SqlCommand("SELECT ApplicationID, Name, Email, Role, Curriculum FROM Application INNER JOIN Role ON PositionID = RoleID WHERE NOT EXISTS (SELECT ApplicationID FROM Reply)", connection);
+        private SqlCommand _newApplications = new SqlCommand("SELECT ApplicationID, Name, Email, Role, Curriculum FROM Application INNER JOIN Role ON Application.RoleID = Role.RoleID WHERE NOT EXISTS (SELECT ApplicationID FROM Reply)", connection);
         //Number of replied applications by current user
         private SqlCommand _numberRepliedApplications = new SqlCommand("SELECT COUNT(ReplyID) AS 'Count' FROM Reply WHERE Sent = 0 AND EmployeeID = @EmployeeID", connection);
         //Adds a new application
@@ -53,6 +53,9 @@ namespace Happytech
         private SqlCommand _FindRole = new SqlCommand("SELECT * FROM Role WHERE RoleID = @RoleID", connection);
         //Get every template
         private SqlCommand _listTemplates = new SqlCommand("SELECT * FROM Template", connection);
+        //Get Applicant info
+        private SqlCommand _getApplicant = new SqlCommand("SELECT ApplicationID, Name, Email, Role, Curriculum FROM Application INNER JOIN Role ON Application.RoleID = Role.RoleID WHERE ApplicationID = @ApplicationID", connection);
+
 
         // REMOVE COMMANDS
         // Delete application
@@ -811,6 +814,29 @@ namespace Happytech
 
             CloseDb();
             return tempTemplates;
+        }
+
+        public Applications GetApplication(int id)
+        {
+            OpenDb();
+
+            _getApplicant.Parameters.AddWithValue("@ApplicationID", id);
+            Reader = _getApplicant.ExecuteReader();
+            _getApplicant.Parameters.Clear();
+
+            Reader.Read();
+
+            Applications application = new Applications()
+            {
+                ApplicationId = (int)Reader["ApplicationID"],
+                Name = (string)Reader["Name"],
+                Email = (string)Reader["Email"],
+                Position = (string)Reader["Role"],
+                Curriculum = (string)Reader["Curriculum"],
+            };
+
+            CloseDb();
+            return application;
         }
 
         /// <summary>

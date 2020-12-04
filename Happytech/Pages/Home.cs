@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Happytech.Classes;
 using System.IO;
+using HappyTech.Pages;
 
 namespace Happytech.Pages
 {
@@ -44,7 +45,7 @@ namespace Happytech.Pages
                 case "NewApplications": Controls.Add(new ViewApplications()); break;
                 case "RepliedApplications": Controls.Add(new RepliedApplications()); break;
                 case "AllApplications": Controls.Add(new ViewApplications()); break;
-                case "ContinueReplying": Controls.Add(new ViewApplications()); break;
+                case "ContinueReplying": Controls.Add(new Replying(ApplicationReviewing.ToBeReviewed.ToArray())); break;
                 //Templates
                 case "ViewTemplates": Controls.Add(new ViewTemplates()); break;
                 case "NewTemplate": Controls.Add(new CreateTemplate()); break;

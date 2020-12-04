@@ -100,6 +100,7 @@
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(335, 35);
             this.tbUsername.TabIndex = 5;
+            this.tbUsername.Text = "Admin";
             this.tbUsername.WordWrap = false;
             // 
             // tbPassword
@@ -110,6 +111,7 @@
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(335, 35);
             this.tbPassword.TabIndex = 7;
+            this.tbPassword.Text = "Admin";
             this.tbPassword.WordWrap = false;
             // 
             // label2
@@ -150,6 +152,7 @@
             // 
             // Login
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
