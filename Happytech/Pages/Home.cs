@@ -70,8 +70,11 @@ namespace Happytech.Pages
 
         private void backToMain(object sender, EventArgs e)
         {
-            Controls.Clear();
-            Controls.Add(new Main());
+            var form = FindForm();
+            form.Hide();
+
+            Main main = new Main();
+            main.Show();
         }
     }
 }
