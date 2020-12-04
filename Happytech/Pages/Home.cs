@@ -67,5 +67,11 @@ namespace Happytech.Pages
             ApplyToPosition form = new ApplyToPosition();
             form.Show();
         }
+
+        private void backToMain(object sender, EventArgs e)
+        {
+            Controls.Clear();
+            Controls.Add(new Main());
+        }
     }
 }
