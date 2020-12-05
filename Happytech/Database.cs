@@ -811,7 +811,7 @@ namespace Happytech
                 {
                     TemplateID = (int)Reader["TemplateID"],
                     Name = (string)Reader["Name"],
-                    DesignedPositionID = (int)Reader["DesignedPositionID"],
+                    DesignedPositionID = 0, //(int)Reader["DesignedPositionID"],
                     Sections = null
                 });
             }
@@ -861,7 +861,7 @@ namespace Happytech
 
                 template.TemplateID = (int)Reader["TemplateID"];
                 template.Name = (string)Reader["Name"];
-                template.DesignedPositionID = (int) Reader["DesignedPositionID"];
+                template.DesignedPositionID = 0; //(int)Reader["DesignedPositionID"];
                 //Adds the first section
                 template.Sections.Add(new Section()
                 {

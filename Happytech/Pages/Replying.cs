@@ -52,6 +52,7 @@ namespace HappyTech.Pages
             //TODO: Load every section and comments for that template
             //TODO: Display in the Panel
             //TODO: Save the changes somewhere
+            Template temp = db.GetTemplateData(templates[cbTemplate.SelectedIndex].TemplateID);
         }
 
         private void ChangeCandidate(object sender = null, EventArgs e = null)
