@@ -71,7 +71,7 @@ namespace Happytech
 
             if (!existsErrors) //If there is no errors
             {
-                lblErrorSubmit.Visible = !db.ApplyToPosition(tbName.Text, tbEmail.Text, roles[cbRole.SelectedIndex].Id, SaveCV()); //Tries to save in the database and save the file in the file explorer
+                lblErrorSubmit.Visible = !db.ApplyToPosition(tbName.Text, tbEmail.Text, roles[cbRole.SelectedIndex].RoleId, SaveCV()); //Tries to save in the database and save the file in the file explorer
 
                 if (!lblErrorSubmit.Visible) //If there is no errors submitting it will reset the page
                 {

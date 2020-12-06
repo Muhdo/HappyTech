@@ -11,7 +11,7 @@ namespace HappyTech.Classes
         public int TemplateId { get; set; }
         public string Name { get; set; }
         public int DesignedPositionId { get; set; }
-        public List<Section> Sections { get; set; }
+        public List<Section> Sections { get; set; } = new List<Section>();
 
         public Template() {}
     }

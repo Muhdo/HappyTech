@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HappyTech.Classes;
+using HappyTech.Pages;
 
 namespace HappyTech.Components.Templates
 {
@@ -17,15 +18,24 @@ namespace HappyTech.Components.Templates
         {
             InitializeComponent();
 
+            //TODO: Make it change the replies list to have the information updated when the checkboxes are updated
+
             lblSectionName.Text = section.Title;
 
             foreach (Comment comment in section.Comments)
             {
-                flpComments.Controls.Add(new CheckBox()
+                CheckBox cb = new CheckBox
                 {
-                    Text = comment.ShortName, 
-                    Tag = comment.CommentId,
-                });
+                    Text = comment.ShortName,
+                    Tag = comment.CommentId
+                };
+
+                cb.CheckedChanged += (sender, args) =>
+                {
+                    Console.WriteLine("Yo bruh");
+                };
+
+                flpComments.Controls.Add(cb);
             }
         }
     }

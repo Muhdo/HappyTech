@@ -10,7 +10,7 @@ namespace HappyTech.Classes
     {
         public int SectionId { get; set; }
         public string Title { get; set; }
-        public List<Comment> Comments { get; set; }
+        public List<Comment> Comments { get; set; } = new List<Comment>();
 
         public Section() { }
     }
