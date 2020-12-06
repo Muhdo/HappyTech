@@ -514,7 +514,7 @@ namespace Happytech
             {
                 employees.Add(new Employee
                 {
-                    Id = (int)Reader["EmployeeID"],
+                    EmployeeId = (int)Reader["EmployeeID"],
                     Name = (string)Reader["Name"],
                     Role = (string)Reader["Role"]
                 });
@@ -620,7 +620,7 @@ namespace Happytech
             {
                 roles.Add(new Role()
                 {
-                    Id = (int)Reader["RoleID"],
+                    RoleId = (int)Reader["RoleID"],
                     RoleName = (string)Reader["Role"]
                 });
             }
@@ -809,9 +809,9 @@ namespace Happytech
             {
                 tempTemplates.Add(new Template()
                 {
-                    TemplateID = (int)Reader["TemplateID"],
+                    TemplateId = (int)Reader["TemplateID"],
                     Name = (string)Reader["Name"],
-                    DesignedPositionID = 0, //(int)Reader["DesignedPositionID"],
+                    DesignedPositionId = (int)Reader["DesignedPositionID"],
                     Sections = null
                 });
             }
@@ -843,13 +843,13 @@ namespace Happytech
             return application;
         }
 
-        public Template GetTemplateData(int templateID)
+        public Template GetTemplateData(int templateId)
         {
             Template template = new Template();
             OpenDb();
 
             //Gets the data for the template
-            _getDataFromTemplateID.Parameters.AddWithValue("@TemplateID", templateID);
+            _getDataFromTemplateID.Parameters.AddWithValue("@TemplateID", templateId);
             Reader = _getDataFromTemplateID.ExecuteReader();
             _getDataFromTemplateID.Parameters.Clear();
 
@@ -859,27 +859,14 @@ namespace Happytech
                 //The first read will set the base data
                 Reader.Read();
 
-                template.TemplateID = (int)Reader["TemplateID"];
+                template.TemplateId = (int)Reader["TemplateID"];
                 template.Name = (string)Reader["Name"];
-                template.DesignedPositionID = 0; //(int)Reader["DesignedPositionID"];
-                //Adds the first section
-                template.Sections.Add(new Section()
-                {
-                    SectionID = (int)Reader["SectionID"],
-                    //Adds the first comment
-                    Comments = new List<Comment>{ new Comment()
-                    {
-                        CommentID = (int)Reader["CommentID"],
-                        ShortName = (string)Reader["ShortName"],
-                        CommentText = (string)Reader["Comment"],
-                    }},
-                });
-
+                template.DesignedPositionId = (int)Reader["DesignedPositionID"];
                 //Goes through the data and adds the comments to their corresponding section and adds the new sections
-                while (Reader.Read())
+                do
                 {
                     //Gets the index of the section if exists (-1 if not) 
-                    int sectionIndex = template.Sections.FindIndex(s => s.SectionID == (int) Reader["SectionID"]);
+                    int sectionIndex = template.Sections.FindIndex(s => s.SectionId == (int) Reader["SectionID"]);
 
                     //If exists
                     if (sectionIndex != -1)
@@ -887,9 +874,9 @@ namespace Happytech
                         //Adds comment to the section
                         template.Sections[sectionIndex].Comments.Add(new Comment()
                         {
-                            CommentID = (int)Reader["CommentID"],
-                            ShortName = (string)Reader["ShortName"],
-                            CommentText = (string)Reader["Comment"],
+                            CommentId = (int) Reader["CommentID"],
+                            ShortName = (string) Reader["ShortName"],
+                            CommentText = (string) Reader["Comment"],
                         });
                     }
                     else //if doesn't exist
@@ -897,17 +884,21 @@ namespace Happytech
                         //Adds a new section
                         template.Sections.Add(new Section()
                         {
-                            SectionID = (int)Reader["SectionID"],
+                            SectionId = (int) Reader["SectionID"],
+                            Title = (string) Reader["Title"],
                             //Adds the first comment
-                            Comments = new List<Comment>{ new Comment()
+                            Comments = new List<Comment>
                             {
-                                CommentID = (int)Reader["CommentID"],
-                                ShortName = (string)Reader["ShortName"],
-                                CommentText = (string)Reader["Comment"],
-                            }},
+                                new Comment()
+                                {
+                                    CommentId = (int) Reader["CommentID"],
+                                    ShortName = (string) Reader["ShortName"],
+                                    CommentText = (string) Reader["Comment"],
+                                }
+                            },
                         });
                     }
-                }
+                } while (Reader.Read());
             }
 
             CloseDb();

@@ -13,6 +13,7 @@ using Happytech;
 using Happytech.Classes;
 using HappyTech.Classes;
 using PdfiumViewer;
+using Section = HappyTech.Components.Templates.Section;
 
 namespace HappyTech.Pages
 {
@@ -52,7 +53,14 @@ namespace HappyTech.Pages
             //TODO: Load every section and comments for that template
             //TODO: Display in the Panel
             //TODO: Save the changes somewhere
-            Template temp = db.GetTemplateData(templates[cbTemplate.SelectedIndex].TemplateID);
+            Template selectedTemplate = db.GetTemplateData(templates[cbTemplate.SelectedIndex].TemplateId);
+
+
+            flpTemplate.Controls.Clear();
+
+            foreach (HappyTech.Classes.Section section in selectedTemplate.Sections) 
+                flpTemplate.Controls.Add(new Section(section));
+            
         }
 
         private void ChangeCandidate(object sender = null, EventArgs e = null)

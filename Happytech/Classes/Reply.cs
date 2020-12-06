@@ -8,25 +8,9 @@ namespace HappyTech.Classes
 {
     public class Reply
     {
-        private int _applicationId;
-        private int _templateId;
-        private List<Section> _commentSection = new List<Section>();
-
-        public int ApplicationId
-        {
-            get => _applicationId;
-            set => _applicationId = value;
-        }
-        public int TemplateId
-        {
-            get => _templateId;
-            set => _templateId = value;
-        }
-        public List<Section> CommentSection
-        {
-            get => _commentSection;
-            set => _commentSection = value;
-        }
+        public int ApplicationId { get; set; }
+        public int TemplateId { get; set; }
+        public List<int> CommentIds { get; set; }
 
         public Reply() {}
     }

@@ -24,7 +24,7 @@ namespace Happytech.Components.ListComponent
 
             foreach (Employee employee in employees)
             {
-                VerticalFlow.Controls.Add(new ListItem(employee.Id, employee.Name));
+                VerticalFlow.Controls.Add(new ListItem(employee.EmployeeId, employee.Name));
             }
         }
     }

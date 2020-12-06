@@ -41,7 +41,7 @@ namespace Happytech.Pages
             //Checks if there is any error
             //If doesn't have errors, it will try to add the employee
             if (!lblUsernameError.Visible && !lblSelectRoleError.Visible || string.IsNullOrEmpty(tbPassword.Text))
-                lblErrorInsertingUser.Visible = !db.AddEmployee(tbUsername.Text, roles[cbRole.SelectedIndex].Id, tbPassword.Text);
+                lblErrorInsertingUser.Visible = !db.AddEmployee(tbUsername.Text, roles[cbRole.SelectedIndex].RoleId, tbPassword.Text);
             else
             {
                 MessageBox.Show("Fields are wrong!", "Fields are wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -85,11 +85,11 @@ namespace Happytech.Pages
         {
             SelectedRole(cbRemoveRole);
 
-            lblErrorRemovingRole.Visible = db.IsRoleInUse(roles[cbRemoveRole.SelectedIndex].Id); //Checks if the role is in use by any employee.
+            lblErrorRemovingRole.Visible = db.IsRoleInUse(roles[cbRemoveRole.SelectedIndex].RoleId); //Checks if the role is in use by any employee.
 
             //Checks if there is any error
             if (!lblErrorRemovingRole.Visible)
-                if (db.RemoveRole(roles[cbRemoveRole.SelectedIndex].Id)) //Removes the role and checks if it was successful
+                if (db.RemoveRole(roles[cbRemoveRole.SelectedIndex].RoleId)) //Removes the role and checks if it was successful
                     PopulateRolesCb(); //If removed, it updates the comboboxes
         }
 
