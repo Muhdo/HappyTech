@@ -133,7 +133,7 @@ namespace Happytech
                 case "ViewTemplates":
                     SetButtonBackground(db_ViewTemplates, 29, 34, 64);
                     Controls.Clear();
-                    Controls.Add(new ViewTemplates());
+                    Controls.Add(new CreateTemplate());
                     break;
                 case "Applications":
                     SetButtonBackground(db_Applications, 29, 34, 64);
