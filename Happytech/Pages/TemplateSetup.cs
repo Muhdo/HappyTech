@@ -253,11 +253,25 @@ namespace HappyTech.Pages
                 {
                     if (control.Name.Contains("Code"))
                     {
-                        codes.Add(((TextBox)control).Text);
+                        if (control.Text.Contains("Code"))
+                        {
+                            //then it's default, don't add it
+                        }
+                        else
+                        {
+                            codes.Add(((TextBox)control).Text);
+                        }
                     }
                     else if (control.Name.Contains("Comment"))
                     {
-                        comments.Add(((TextBox)control).Text);
+                        if (control.Text.Contains("Comment"))
+                        {
+                            //then it's default, don't add it
+                        }
+                        else
+                        {
+                            comments.Add(((TextBox)control).Text);
+                        }
                     }
                 }
                 codeComments[0, sectionNumber] = codes;
@@ -266,6 +280,16 @@ namespace HappyTech.Pages
             }
             //make an sql insert
             db.CreateTemplate(templateName, sectionNames, codeComments);
+            //display message box to inform user template has been saved
+            string message = "The template has been saved. ";
+            string title = "Template Saved";
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.OK)
+            {
+                Controls.Clear();
+                Controls.Add(new Happytech.Pages.Home());
+            }
         }
     }
 }

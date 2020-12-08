@@ -34,7 +34,7 @@ namespace Happytech.Pages
 
             // The cb index will be indicative of the role ID, e.g If the RoleID is 4, the dropdown menu index will be 4 as well.
             foreach (var role in roles)
-                cbRolesList.Items.Insert(role.Id, role.RoleName);
+                cbRolesList.Items.Insert(role.RoleId, role.RoleName);
 
             // Set default index for the filter dropdown menu
             cbApplicationList.SelectedIndex = 0;

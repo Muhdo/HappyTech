@@ -8,25 +8,9 @@ namespace HappyTech.Classes
 {
     public class Comment
     {
-        private int _commentID;
-        private string _shortName;
-        private string _comment;
-
-        public int CommentID
-        {
-            get => _commentID;
-            set => _commentID = value;
-        }
-        public string ShortName
-        {
-            get => _shortName;
-            set => _shortName = value;
-        }
-        public string CommentText
-        {
-            get => _comment;
-            set => _comment = value;
-        }
+        public int CommentId { get; set; }
+        public string ShortName { get; set; }
+        public string CommentText { get; set; }
 
         public Comment() {}
     }

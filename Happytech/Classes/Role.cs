@@ -8,20 +8,8 @@ namespace Happytech.Classes
 {
     public class Role
     {
-        private int _id;
-        private string _role;
-
-        public int Id
-        {
-            get => _id;
-            set => _id = value;
-        }
-
-        public string RoleName
-        {
-            get => _role;
-            set => _role = value;
-        }
+        public int RoleId { get; set; }
+        public string RoleName { get; set; }
 
         public Role() {}
     }

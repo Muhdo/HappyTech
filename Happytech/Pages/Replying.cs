@@ -13,6 +13,7 @@ using Happytech;
 using Happytech.Classes;
 using HappyTech.Classes;
 using PdfiumViewer;
+using Section = HappyTech.Components.Templates.Section;
 
 namespace HappyTech.Pages
 {
@@ -22,6 +23,7 @@ namespace HappyTech.Pages
 
         List<Template> templates = new List<Template>();
         List<Applications> applications = new List<Applications>();
+        List<Reply> replies = new List<Reply>();
 
         private int appIndex = 0;
 
@@ -31,7 +33,10 @@ namespace HappyTech.Pages
 
             //Gets every application data
             foreach (int appID in revApplications)
+            {
                 applications.Add(db.GetApplication(appID));
+                replies.Add(new Reply(){ ApplicationId = appID });
+            }
 
             ChangeCandidate();
 
@@ -52,6 +57,15 @@ namespace HappyTech.Pages
             //TODO: Load every section and comments for that template
             //TODO: Display in the Panel
             //TODO: Save the changes somewhere
+            Template selectedTemplate = db.GetTemplateData(templates[cbTemplate.SelectedIndex].TemplateId);
+
+            replies[appIndex].TemplateId = selectedTemplate.TemplateId;
+
+            flpTemplate.Controls.Clear();
+
+            foreach (HappyTech.Classes.Section section in selectedTemplate.Sections) 
+                flpTemplate.Controls.Add(new Section(section));
+            //DONT FORGET TO MAKE THE LIST CHANGE
         }
 
         private void ChangeCandidate(object sender = null, EventArgs e = null)

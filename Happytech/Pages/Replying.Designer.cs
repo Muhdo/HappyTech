@@ -35,7 +35,7 @@
             this.pdfReader = new PdfiumViewer.PdfViewer();
             this.cbTemplate = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.pTemplate = new System.Windows.Forms.Panel();
+            this.flpTemplate = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // btnBack
@@ -126,19 +126,20 @@
             this.label4.TabIndex = 25;
             this.label4.Text = "Template";
             // 
-            // pTemplate
+            // flpTemplate
             // 
-            this.pTemplate.Location = new System.Drawing.Point(449, 57);
-            this.pTemplate.Name = "pTemplate";
-            this.pTemplate.Size = new System.Drawing.Size(611, 481);
-            this.pTemplate.TabIndex = 27;
+            this.flpTemplate.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpTemplate.Location = new System.Drawing.Point(449, 57);
+            this.flpTemplate.Name = "flpTemplate";
+            this.flpTemplate.Size = new System.Drawing.Size(611, 481);
+            this.flpTemplate.TabIndex = 28;
             // 
             // Replying
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
-            this.Controls.Add(this.pTemplate);
+            this.Controls.Add(this.flpTemplate);
             this.Controls.Add(this.cbTemplate);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pdfReader);
@@ -164,6 +165,6 @@
         private PdfiumViewer.PdfViewer pdfReader;
         private System.Windows.Forms.ComboBox cbTemplate;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel pTemplate;
+        private System.Windows.Forms.FlowLayoutPanel flpTemplate;
     }
 }
