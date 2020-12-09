@@ -127,7 +127,7 @@
             this.cbRolesList.ForeColor = System.Drawing.Color.White;
             this.cbRolesList.FormattingEnabled = true;
             this.cbRolesList.Items.AddRange(new object[] {
-            ""});
+            "All Roles"});
             this.cbRolesList.Location = new System.Drawing.Point(164, 38);
             this.cbRolesList.Name = "cbRolesList";
             this.cbRolesList.Size = new System.Drawing.Size(185, 33);

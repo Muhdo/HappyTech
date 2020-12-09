@@ -102,6 +102,12 @@
     <Compile Include="Components\ListReview\ItemReview.Designer.cs">
       <DependentUpon>ItemReview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\SectionButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\SectionButton.Designer.cs">
+      <DependentUpon>SectionButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\Templates\Section.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,6 +138,12 @@
     </Compile>
     <Compile Include="Pages\CreateTemplate.Designer.cs">
       <DependentUpon>CreateTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditTemplates.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\EditTemplates.Designer.cs">
+      <DependentUpon>EditTemplates.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\EmployeeError.cs">
       <SubType>UserControl</SubType>
@@ -216,6 +228,9 @@
     <EmbeddedResource Include="Components\ListReview\ItemReview.resx">
       <DependentUpon>ItemReview.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\SectionButton.resx">
+      <DependentUpon>SectionButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\Templates\Section.resx">
       <DependentUpon>Section.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\CreateTemplate.resx">
       <DependentUpon>CreateTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\EditTemplates.resx">
+      <DependentUpon>EditTemplates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\EmployeeError.resx">
       <DependentUpon>EmployeeError.cs</DependentUpon>

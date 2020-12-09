@@ -53,6 +53,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnMinimizeApplication = new System.Windows.Forms.PictureBox();
             this.btnCloseApplication = new System.Windows.Forms.PictureBox();
+            this.db_EditTemplates = new System.Windows.Forms.Panel();
+            this.EditTemplatesText = new System.Windows.Forms.Label();
+            this.EditTemplatesIcon = new System.Windows.Forms.PictureBox();
             this.Drawer.SuspendLayout();
             this.DashboardMenu.SuspendLayout();
             this.db_Settings.SuspendLayout();
@@ -70,6 +73,8 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizeApplication)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCloseApplication)).BeginInit();
+            this.db_EditTemplates.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EditTemplatesIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // pWindow
@@ -90,6 +95,7 @@
             // 
             // DashboardMenu
             // 
+            this.DashboardMenu.Controls.Add(this.db_EditTemplates);
             this.DashboardMenu.Controls.Add(this.db_Settings);
             this.DashboardMenu.Controls.Add(this.panel1);
             this.DashboardMenu.Controls.Add(this.db_Applications);
@@ -296,6 +302,38 @@
             this.btnCloseApplication.TabStop = false;
             this.btnCloseApplication.Click += new System.EventHandler(this.btnCloseApplication_Click);
             // 
+            // db_EditTemplates
+            // 
+            this.db_EditTemplates.Controls.Add(this.EditTemplatesText);
+            this.db_EditTemplates.Controls.Add(this.EditTemplatesIcon);
+            resources.ApplyResources(this.db_EditTemplates, "db_EditTemplates");
+            this.db_EditTemplates.Name = "db_EditTemplates";
+            this.db_EditTemplates.Tag = "Edit Templates";
+            this.db_EditTemplates.Click += new System.EventHandler(this.DrawerSelectTab);
+            this.db_EditTemplates.MouseEnter += new System.EventHandler(this.OnHoverButtonColor);
+            this.db_EditTemplates.MouseLeave += new System.EventHandler(this.OffHoverButtonColor);
+            // 
+            // EditTemplatesText
+            // 
+            resources.ApplyResources(this.EditTemplatesText, "EditTemplatesText");
+            this.EditTemplatesText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.EditTemplatesText.Name = "EditTemplatesText";
+            this.EditTemplatesText.Tag = "Edit Templates";
+            this.EditTemplatesText.Click += new System.EventHandler(this.DrawerSelectTab);
+            this.EditTemplatesText.MouseEnter += new System.EventHandler(this.OnHoverButtonColor);
+            this.EditTemplatesText.MouseLeave += new System.EventHandler(this.OffHoverButtonColor);
+            // 
+            // EditTemplatesIcon
+            // 
+            this.EditTemplatesIcon.Image = global::HappyTech.Properties.Resources.curriculum_vitae;
+            resources.ApplyResources(this.EditTemplatesIcon, "EditTemplatesIcon");
+            this.EditTemplatesIcon.Name = "EditTemplatesIcon";
+            this.EditTemplatesIcon.TabStop = false;
+            this.EditTemplatesIcon.Tag = "Edit Templates";
+            this.EditTemplatesIcon.Click += new System.EventHandler(this.DrawerSelectTab);
+            this.EditTemplatesIcon.MouseEnter += new System.EventHandler(this.OnHoverButtonColor);
+            this.EditTemplatesIcon.MouseLeave += new System.EventHandler(this.OffHoverButtonColor);
+            // 
             // Main
             // 
             resources.ApplyResources(this, "$this");
@@ -329,6 +367,9 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizeApplication)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCloseApplication)).EndInit();
+            this.db_EditTemplates.ResumeLayout(false);
+            this.db_EditTemplates.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EditTemplatesIcon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -359,6 +400,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox btnMinimizeApplication;
         private System.Windows.Forms.PictureBox btnCloseApplication;
+        private System.Windows.Forms.Panel db_EditTemplates;
+        private System.Windows.Forms.Label EditTemplatesText;
+        private System.Windows.Forms.PictureBox EditTemplatesIcon;
     }
 }
 

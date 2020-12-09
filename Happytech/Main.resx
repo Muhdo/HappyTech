@@ -144,6 +144,87 @@
   <data name="&gt;&gt;pWindow.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="EditTemplatesText.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="EditTemplatesText.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 11.25pt</value>
+  </data>
+  <data name="EditTemplatesText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="EditTemplatesText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>46, 16</value>
+  </data>
+  <data name="EditTemplatesText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 18</value>
+  </data>
+  <data name="EditTemplatesText.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="EditTemplatesText.Text" xml:space="preserve">
+    <value>EDIT TEMPLATES</value>
+  </data>
+  <data name="&gt;&gt;EditTemplatesText.Name" xml:space="preserve">
+    <value>EditTemplatesText</value>
+  </data>
+  <data name="&gt;&gt;EditTemplatesText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditTemplatesText.Parent" xml:space="preserve">
+    <value>db_EditTemplates</value>
+  </data>
+  <data name="&gt;&gt;EditTemplatesText.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="EditTemplatesIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="EditTemplatesIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 16</value>
+  </data>
+  <data name="EditTemplatesIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>18, 18</value>
+  </data>
+  <data name="EditTemplatesIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="EditTemplatesIcon.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;EditTemplatesIcon.Name" xml:space="preserve">
+    <value>EditTemplatesIcon</value>
+  </data>
+  <data name="&gt;&gt;EditTemplatesIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditTemplatesIcon.Parent" xml:space="preserve">
+    <value>db_EditTemplates</value>
+  </data>
+  <data name="&gt;&gt;EditTemplatesIcon.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="db_EditTemplates.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-2, 223</value>
+  </data>
+  <data name="db_EditTemplates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>217, 48</value>
+  </data>
+  <data name="db_EditTemplates.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;db_EditTemplates.Name" xml:space="preserve">
+    <value>db_EditTemplates</value>
+  </data>
+  <data name="&gt;&gt;db_EditTemplates.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;db_EditTemplates.Parent" xml:space="preserve">
+    <value>DashboardMenu</value>
+  </data>
+  <data name="&gt;&gt;db_EditTemplates.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="SettingsText.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -226,7 +307,7 @@
     <value>DashboardMenu</value>
   </data>
   <data name="&gt;&gt;db_Settings.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="panel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -307,7 +388,7 @@
     <value>DashboardMenu</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="ApplicationsText.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -388,7 +469,7 @@
     <value>DashboardMenu</value>
   </data>
   <data name="&gt;&gt;db_Applications.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="ViewTemplatesText.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -469,7 +550,7 @@
     <value>DashboardMenu</value>
   </data>
   <data name="&gt;&gt;db_ViewTemplates.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="DrawerTitle.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
@@ -499,7 +580,7 @@
     <value>DashboardMenu</value>
   </data>
   <data name="&gt;&gt;DrawerTitle.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="DashboardText.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -580,7 +661,7 @@
     <value>DashboardMenu</value>
   </data>
   <data name="&gt;&gt;db_Dashboard.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="DashboardMenu.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 90</value>

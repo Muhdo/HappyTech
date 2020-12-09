@@ -143,6 +143,10 @@ namespace Happytech
                     SetButtonBackground(db_Settings, 29, 34, 64);
                     pWindow.Controls.Add(new Settings());
                     break;
+                case "Edit Templates":
+                    SetButtonBackground(db_EditTemplates, 29, 34, 64);
+                    pWindow.Controls.Add(new EditTemplates());
+                    break;
             }
         }
 
