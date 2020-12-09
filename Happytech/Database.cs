@@ -812,7 +812,7 @@ namespace Happytech
                 {
                     TemplateId = (int)Reader["TemplateID"],
                     Name = (string)Reader["Name"],
-                    DesignedPositionId = (int)Reader["DesignedPositionID"],
+                    DesignedPositionId = 0,// (int)Reader["DesignedPositionID"],
                     Sections = null
                 });
             }

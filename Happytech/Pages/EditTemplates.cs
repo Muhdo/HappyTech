@@ -18,15 +18,23 @@ namespace HappyTech.Pages
         public EditTemplates()
         {
             InitializeComponent();
-            var Templates = db.GetTemplateNames();
+            List<Template> Templates = db.GetTemplateNames();
 
-            foreach (var template in Templates)
+            foreach (Template template in Templates)
                 cbSelectTemplate.Items.Insert(template.TemplateId, template.Name);
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void DisplayTemplate(object sender, EventArgs e)
         {
-
+            //get the selected template info
+            Template selectedTemplate = db.GetTemplateData(cbSelectTemplate.SelectedIndex);
+            int noOfSections = selectedTemplate.Sections.Count;
+            //add the right number of tabs to tab control
+            //for each section in the template
+            //add textbox for section name
+            //for each comment
+            //add textbox for code
+            //add textbox for comment
         }
     }
 }
