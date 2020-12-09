@@ -55,7 +55,8 @@ namespace Happytech
         private SqlCommand _listTemplates = new SqlCommand("SELECT * FROM Template", connection);
         //Get Applicant info
         private SqlCommand _getApplicant = new SqlCommand("SELECT ApplicationID, Name, Email, Role, Curriculum FROM Application INNER JOIN Role ON Application.RoleID = Role.RoleID WHERE ApplicationID = @ApplicationID", connection);
-
+        //Get specific comment
+        private SqlCommand _getComment = new SqlCommand("SELECT Comment FROM Comment WHERE CommentID = @CommentID", connection);
 
         // REMOVE COMMANDS
         // Delete application
@@ -903,6 +904,20 @@ namespace Happytech
 
             CloseDb();
             return template;
+        }
+
+        public string GetComment(int commentId)
+        {
+            OpenDb();
+            _getComment.Parameters.AddWithValue("@CommentID", commentId);
+            Reader = _getComment.ExecuteReader();
+            _getComment.Parameters.Clear();
+
+            Reader.Read();
+            string comment = (string)Reader["Comment"];
+
+            CloseDb();
+            return comment;
         }
 
         /// <summary>

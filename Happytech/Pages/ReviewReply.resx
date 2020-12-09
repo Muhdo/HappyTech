@@ -117,4 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="tbEmailBody.Text" xml:space="preserve">
+    <value>Here is some text
+
+That is super important
+
+bye bye bitch
+
+A super long line A super long line A super long line A super long line A super long line A super long line A super long line A super long line A super long line </value>
+  </data>
 </root>

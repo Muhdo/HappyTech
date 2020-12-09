@@ -148,18 +148,12 @@ namespace HappyTech.Pages
             foreach (Section section in sections) 
                 replies[appIndex].CommentIds.AddRange(section.selectedComments);
 
-            foreach (Reply reply in replies)
-            {
-                Console.WriteLine("Application ID: {0}", reply.ApplicationId);
-                Console.WriteLine("Template ID: {0}", reply.TemplateId);
+            txtViewResponse.Text =
+                ApplicationReviewing.GetMessage(applications[appIndex].Name, replies[appIndex].CommentIds.ToArray());
 
-                foreach (int commentId in reply.CommentIds)
-                {
-                    Console.WriteLine("Comment ID: {0}", commentId);
-                }
+            pView.Visible = true;
 
-                Console.WriteLine("-------------------------------------");
-            }
+
         }
     }
 }

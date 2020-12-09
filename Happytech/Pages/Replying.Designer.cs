@@ -36,7 +36,12 @@
             this.cbTemplate = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.flpTemplate = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnPreviewResponses = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.pReview = new System.Windows.Forms.Panel();
+            this.pView = new System.Windows.Forms.Panel();
+            this.txtViewResponse = new System.Windows.Forms.RichTextBox();
+            this.pReview.SuspendLayout();
+            this.pView.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBack
@@ -110,7 +115,7 @@
             this.cbTemplate.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.cbTemplate.ForeColor = System.Drawing.Color.White;
             this.cbTemplate.FormattingEnabled = true;
-            this.cbTemplate.Location = new System.Drawing.Point(449, 24);
+            this.cbTemplate.Location = new System.Drawing.Point(7, 21);
             this.cbTemplate.Name = "cbTemplate";
             this.cbTemplate.Size = new System.Drawing.Size(367, 27);
             this.cbTemplate.TabIndex = 26;
@@ -121,7 +126,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label4.Location = new System.Drawing.Point(445, 3);
+            this.label4.Location = new System.Drawing.Point(3, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 19);
             this.label4.TabIndex = 25;
@@ -130,46 +135,79 @@
             // flpTemplate
             // 
             this.flpTemplate.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpTemplate.Location = new System.Drawing.Point(449, 57);
+            this.flpTemplate.Location = new System.Drawing.Point(7, 54);
             this.flpTemplate.Name = "flpTemplate";
             this.flpTemplate.Size = new System.Drawing.Size(611, 481);
             this.flpTemplate.TabIndex = 28;
             // 
-            // btnPreviewResponses
+            // btnNext
             // 
-            this.btnPreviewResponses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
-            this.btnPreviewResponses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPreviewResponses.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.btnPreviewResponses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.btnPreviewResponses.Location = new System.Drawing.Point(703, 544);
-            this.btnPreviewResponses.Name = "btnPreviewResponses";
-            this.btnPreviewResponses.Size = new System.Drawing.Size(165, 45);
-            this.btnPreviewResponses.TabIndex = 29;
-            this.btnPreviewResponses.Tag = "";
-            this.btnPreviewResponses.Text = "Preview Responses";
-            this.btnPreviewResponses.UseVisualStyleBackColor = false;
-            this.btnPreviewResponses.Click += new System.EventHandler(this.btnPreviewResponses_Click);
+            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.btnNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
+            this.btnNext.Location = new System.Drawing.Point(703, 544);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(165, 45);
+            this.btnNext.TabIndex = 29;
+            this.btnNext.Tag = "Preview";
+            this.btnNext.Text = "Preview Responses";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnPreviewResponses_Click);
+            // 
+            // pReview
+            // 
+            this.pReview.Controls.Add(this.pView);
+            this.pReview.Controls.Add(this.label4);
+            this.pReview.Controls.Add(this.cbTemplate);
+            this.pReview.Controls.Add(this.flpTemplate);
+            this.pReview.Location = new System.Drawing.Point(449, 3);
+            this.pReview.Name = "pReview";
+            this.pReview.Size = new System.Drawing.Size(628, 535);
+            this.pReview.TabIndex = 30;
+            // 
+            // pView
+            // 
+            this.pView.Controls.Add(this.txtViewResponse);
+            this.pView.Location = new System.Drawing.Point(0, 0);
+            this.pView.Name = "pView";
+            this.pView.Size = new System.Drawing.Size(628, 535);
+            this.pView.TabIndex = 31;
+            this.pView.Visible = false;
+            // 
+            // txtViewResponse
+            // 
+            this.txtViewResponse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.txtViewResponse.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtViewResponse.ForeColor = System.Drawing.Color.White;
+            this.txtViewResponse.Location = new System.Drawing.Point(3, 3);
+            this.txtViewResponse.Name = "txtViewResponse";
+            this.txtViewResponse.ReadOnly = true;
+            this.txtViewResponse.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.txtViewResponse.Size = new System.Drawing.Size(622, 529);
+            this.txtViewResponse.TabIndex = 0;
+            this.txtViewResponse.Text = "";
             // 
             // Replying
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
-            this.Controls.Add(this.btnPreviewResponses);
-            this.Controls.Add(this.flpTemplate);
-            this.Controls.Add(this.cbTemplate);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnNext);
             this.Controls.Add(this.pdfReader);
             this.Controls.Add(this.lblCandidateName);
             this.Controls.Add(this.btnNextCandidate);
             this.Controls.Add(this.btnPrevCandidate);
             this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.pReview);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "Replying";
             this.Size = new System.Drawing.Size(1080, 610);
+            this.pReview.ResumeLayout(false);
+            this.pReview.PerformLayout();
+            this.pView.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -183,6 +221,9 @@
         private System.Windows.Forms.ComboBox cbTemplate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.FlowLayoutPanel flpTemplate;
-        private System.Windows.Forms.Button btnPreviewResponses;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Panel pReview;
+        private System.Windows.Forms.Panel pView;
+        private System.Windows.Forms.RichTextBox txtViewResponse;
     }
 }
