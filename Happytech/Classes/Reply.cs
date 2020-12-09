@@ -10,7 +10,7 @@ namespace HappyTech.Classes
     {
         public int ApplicationId { get; set; }
         public int TemplateId { get; set; }
-        public List<int> CommentIds { get; set; }
+        public List<int> CommentIds { get; set; } = new List<int>();
 
         public Reply() {}
     }

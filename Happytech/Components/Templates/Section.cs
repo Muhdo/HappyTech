@@ -14,7 +14,10 @@ namespace HappyTech.Components.Templates
 {
     public partial class Section : UserControl
     {
-        public Section(HappyTech.Classes.Section section)
+        public List<int> selectedComments = new List<int>();
+
+
+        public Section(HappyTech.Classes.Section section, int[] selectedComments)
         {
             InitializeComponent();
 
@@ -27,16 +30,26 @@ namespace HappyTech.Components.Templates
                 CheckBox cb = new CheckBox
                 {
                     Text = comment.ShortName,
-                    Tag = comment.CommentId
+                    Tag = comment.CommentId,
+                    Checked = selectedComments.Contains(comment.CommentId)
                 };
 
-                cb.CheckedChanged += (sender, args) =>
-                {
-                    Console.WriteLine("Yo bruh");
-                };
+                cb.CheckedChanged += updateData;
 
                 flpComments.Controls.Add(cb);
             }
+        }
+
+        private void updateData(object sender, EventArgs e)
+        {
+            CheckBox cb = (CheckBox)sender;
+
+            if (!selectedComments.Contains((int)cb.Tag)) 
+                selectedComments.Add((int)cb.Tag);
+            else 
+                selectedComments.Remove((int)cb.Tag); 
+            
+            selectedComments.Sort();
         }
     }
 }

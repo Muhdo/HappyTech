@@ -27,6 +27,8 @@ namespace HappyTech.Pages
 
         private int appIndex = 0;
 
+        List<Section> sections = new List<Section>();
+
         public Replying(int[] revApplications)
         {
             InitializeComponent();
@@ -46,26 +48,33 @@ namespace HappyTech.Pages
             templates.AddRange(db.GetTemplateNames());
             templates.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.Ordinal));
 
-            foreach (Template template in templates)
-            {
+            foreach (Template template in templates) 
                 cbTemplate.Items.Add(template.Name);
-            }
         }
 
         private void cbTemplate_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //TODO: Load every section and comments for that template
-            //TODO: Display in the Panel
-            //TODO: Save the changes somewhere
-            Template selectedTemplate = db.GetTemplateData(templates[cbTemplate.SelectedIndex].TemplateId);
+            flpTemplate.Controls.Clear(); //Clears the panel
+            sections.Clear(); //Clears the sections list
+            
+            if (cbTemplate.SelectedIndex != -1)
+            {
+                //Loads the template data
+                Template selectedTemplate = db.GetTemplateData(templates[cbTemplate.SelectedIndex].TemplateId);
 
-            replies[appIndex].TemplateId = selectedTemplate.TemplateId;
+                replies[appIndex].TemplateId = selectedTemplate.TemplateId; //Sets the template id for the current candidate
 
-            flpTemplate.Controls.Clear();
+                int[] selectedComments = replies[appIndex].CommentIds.ToArray();
 
-            foreach (HappyTech.Classes.Section section in selectedTemplate.Sections) 
-                flpTemplate.Controls.Add(new Section(section));
-            //DONT FORGET TO MAKE THE LIST CHANGE
+                //Goes through and creates new sections and comments as it is in the template
+                foreach (HappyTech.Classes.Section section in selectedTemplate.Sections)
+                {
+                    Section sec = new Section(section, selectedComments); //Declares the section
+                    sections.Add(sec); //Saves section data
+
+                    flpTemplate.Controls.Add(sec); //Adds section to panel
+                }
+            }
         }
 
         private void ChangeCandidate(object sender = null, EventArgs e = null)
@@ -73,6 +82,11 @@ namespace HappyTech.Pages
             Button btn = (Button) sender;
             string name;
             string curriculum;
+
+            //Saves the data to the specific application
+            foreach (Section section in sections) 
+                replies[appIndex].CommentIds.AddRange(section.selectedComments);
+            
 
             //Changes to the previous candidate
             if (btn != null && btn.Tag == "Previous")
@@ -93,6 +107,8 @@ namespace HappyTech.Pages
                 curriculum = applications[appIndex].Curriculum;
             }
 
+            cbTemplate.SelectedIndex = -1;
+
             lblCandidateName.Text = name;
             OpenPDF(curriculum);
             
@@ -100,7 +116,8 @@ namespace HappyTech.Pages
             btnPrevCandidate.Enabled = appIndex > 0; // ONE LINE IF STATEMENT True = index higher than 0  False = index equal to 0
             btnNextCandidate.Enabled = appIndex < (applications.Count - 1); // ONE LINE IF STATEMENT True = index lower than max length  False = index equal to max length
 
-            //TODO: I guess it's missing something to save the response when changing to a different applicant
+            if (replies[appIndex].TemplateId != 0) 
+                cbTemplate.SelectedIndex = templates.FindIndex(t => t.TemplateId == replies[appIndex].TemplateId);
         }
 
         public void OpenPDF(string name)
@@ -123,6 +140,26 @@ namespace HappyTech.Pages
                 MessageBox.Show("We don't know what happened, error message: " + ex.Message);
             }
 
+        }
+
+        private void btnPreviewResponses_Click(object sender, EventArgs e)
+        {
+            //Saves the data to the specific application
+            foreach (Section section in sections) 
+                replies[appIndex].CommentIds.AddRange(section.selectedComments);
+
+            foreach (Reply reply in replies)
+            {
+                Console.WriteLine("Application ID: {0}", reply.ApplicationId);
+                Console.WriteLine("Template ID: {0}", reply.TemplateId);
+
+                foreach (int commentId in reply.CommentIds)
+                {
+                    Console.WriteLine("Comment ID: {0}", commentId);
+                }
+
+                Console.WriteLine("-------------------------------------");
+            }
         }
     }
 }

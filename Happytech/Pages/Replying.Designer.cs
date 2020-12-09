@@ -36,6 +36,7 @@
             this.cbTemplate = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.flpTemplate = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnPreviewResponses = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBack
@@ -134,11 +135,27 @@
             this.flpTemplate.Size = new System.Drawing.Size(611, 481);
             this.flpTemplate.TabIndex = 28;
             // 
+            // btnPreviewResponses
+            // 
+            this.btnPreviewResponses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
+            this.btnPreviewResponses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPreviewResponses.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.btnPreviewResponses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
+            this.btnPreviewResponses.Location = new System.Drawing.Point(703, 544);
+            this.btnPreviewResponses.Name = "btnPreviewResponses";
+            this.btnPreviewResponses.Size = new System.Drawing.Size(165, 45);
+            this.btnPreviewResponses.TabIndex = 29;
+            this.btnPreviewResponses.Tag = "";
+            this.btnPreviewResponses.Text = "Preview Responses";
+            this.btnPreviewResponses.UseVisualStyleBackColor = false;
+            this.btnPreviewResponses.Click += new System.EventHandler(this.btnPreviewResponses_Click);
+            // 
             // Replying
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.Controls.Add(this.btnPreviewResponses);
             this.Controls.Add(this.flpTemplate);
             this.Controls.Add(this.cbTemplate);
             this.Controls.Add(this.label4);
@@ -166,5 +183,6 @@
         private System.Windows.Forms.ComboBox cbTemplate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.FlowLayoutPanel flpTemplate;
+        private System.Windows.Forms.Button btnPreviewResponses;
     }
 }
