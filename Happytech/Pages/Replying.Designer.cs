@@ -57,6 +57,7 @@
             this.btnBack.Tag = "";
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnPrevCandidate
             // 
@@ -146,14 +147,14 @@
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.btnNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.btnNext.Location = new System.Drawing.Point(703, 544);
+            this.btnNext.Location = new System.Drawing.Point(724, 544);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(165, 45);
             this.btnNext.TabIndex = 29;
             this.btnNext.Tag = "Preview";
             this.btnNext.Text = "Preview Responses";
             this.btnNext.UseVisualStyleBackColor = false;
-            this.btnNext.Click += new System.EventHandler(this.btnPreviewResponses_Click);
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // pReview
             // 

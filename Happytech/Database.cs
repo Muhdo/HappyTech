@@ -58,6 +58,10 @@ namespace Happytech
         //Get specific comment
         private SqlCommand _getComment = new SqlCommand("SELECT Comment FROM Comment WHERE CommentID = @CommentID", connection);
 
+        //Send Response
+        private SqlCommand _createReply = new SqlCommand("INSERT INTO Reply (TemplateID, EmployeeID, ApplicationID, Sent) VALUES (@TemplateID, @EmployeeID, @ApplicationID, @Sent);" + "SELECT CAST(scope_identity() AS int)", connection);
+        private SqlCommand _addCommentToReply = new SqlCommand("INSERT INTO Reply_Comment (ReplyID, CommentID) VALUES (@ReplyID, @CommentID)", connection);
+
         // REMOVE COMMANDS
         // Delete application
         private SqlCommand _removeApplication = new SqlCommand("DELETE FROM Application WHERE ApplicationID = @ApplicationID", connection);
@@ -918,6 +922,40 @@ namespace Happytech
 
             CloseDb();
             return comment;
+        }
+
+        public bool SendResponse(Reply[] replies)
+        {
+            OpenDb();
+
+            try
+            {
+                foreach (Reply reply in replies)
+                {
+                    _createReply.Parameters.AddWithValue("@TemplateID", reply.TemplateId);
+                    _createReply.Parameters.AddWithValue("@EmployeeID", CurrentEmployee.Id);
+                    _createReply.Parameters.AddWithValue("@ApplicationID", reply.ApplicationId);
+                    _createReply.Parameters.AddWithValue("@Sent", 1);
+                    int replyId = (int)_createReply.ExecuteScalar();
+
+                    foreach (int commentId in reply.CommentIds)
+                    {
+                        _addCommentToReply.Parameters.AddWithValue("@ReplyID", replyId);
+                        _addCommentToReply.Parameters.AddWithValue("@CommentID", commentId);
+                        _addCommentToReply.ExecuteNonQuery();
+                        _addCommentToReply.Parameters.Clear();
+                    }
+                    _createReply.Parameters.Clear();
+                }
+            }
+            catch (Exception)
+            {
+                CloseDb();
+                return false;
+            }
+
+            CloseDb();
+            return true;
         }
 
         /// <summary>

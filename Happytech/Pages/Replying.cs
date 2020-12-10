@@ -84,8 +84,14 @@ namespace HappyTech.Pages
             string curriculum;
 
             //Saves the data to the specific application
-            foreach (Section section in sections) 
-                replies[appIndex].CommentIds.AddRange(section.selectedComments);
+            foreach (Section section in sections)
+            {
+                foreach (int sectionSelectedComment in section.selectedComments)
+                {
+                    if (!replies[appIndex].CommentIds.Contains(sectionSelectedComment)) 
+                        replies[appIndex].CommentIds.Add(sectionSelectedComment);
+                }
+            }
             
 
             //Changes to the previous candidate
@@ -118,6 +124,21 @@ namespace HappyTech.Pages
 
             if (replies[appIndex].TemplateId != 0) 
                 cbTemplate.SelectedIndex = templates.FindIndex(t => t.TemplateId == replies[appIndex].TemplateId);
+
+            txtViewResponse.Text =
+                ApplicationReviewing.GetMessage(applications[appIndex].Name, replies[appIndex].CommentIds.ToArray());
+
+            //foreach (Reply reply in replies)
+            //{
+            //    Console.WriteLine("Application ID: {0}", reply.ApplicationId);
+            //    Console.WriteLine("Template ID: {0}", reply.TemplateId);
+            //    foreach (int replyCommentId in reply.CommentIds)
+            //    {
+            //        Console.WriteLine("Comment ID: {0}", replyCommentId);
+            //    }
+
+            //    Console.WriteLine("----------------------");
+            //}
         }
 
         public void OpenPDF(string name)
@@ -142,18 +163,61 @@ namespace HappyTech.Pages
 
         }
 
-        private void btnPreviewResponses_Click(object sender, EventArgs e)
+        private void btnNext_Click(object sender, EventArgs e)
         {
-            //Saves the data to the specific application
-            foreach (Section section in sections) 
-                replies[appIndex].CommentIds.AddRange(section.selectedComments);
+            if (btnNext.Tag == "Preview")
+            {
+                //Saves the data to the specific application
+                foreach (Section section in sections)
+                {
+                    foreach (int sectionSelectedComment in section.selectedComments)
+                    {
+                        if (!replies[appIndex].CommentIds.Contains(sectionSelectedComment)) 
+                            replies[appIndex].CommentIds.Add(sectionSelectedComment);
+                    }
+                }
 
-            txtViewResponse.Text =
-                ApplicationReviewing.GetMessage(applications[appIndex].Name, replies[appIndex].CommentIds.ToArray());
+                //foreach (Reply reply in replies)
+                //{
+                //    Console.WriteLine("Application ID: {0}", reply.ApplicationId);
+                //    Console.WriteLine("Template ID: {0}", reply.TemplateId);
+                //    foreach (int replyCommentId in reply.CommentIds)
+                //    {
+                //        Console.WriteLine("Comment ID: {0}", replyCommentId);
+                //    }
 
-            pView.Visible = true;
+                //    Console.WriteLine("----------------------");
+                //}
 
+                txtViewResponse.Text = ApplicationReviewing.GetMessage(applications[appIndex].Name, replies[appIndex].CommentIds.ToArray());
 
+                pView.Visible = true;
+
+                btnNext.Text = "Send Responses";
+                btnNext.Tag = "Send";
+            } 
+            else if (btnNext.Tag == "Send")
+            {
+                bool sent = db.SendResponse(replies.ToArray());
+
+                if (sent)
+                {
+                    MessageBox.Show("All Responses have been sent to the corresponding applicants.", "Responses Sent", MessageBoxButtons.OK);
+
+                    ApplicationReviewing.ToBeReviewed.Clear();
+
+                    Controls.Clear();
+                    Controls.Add(new Dashboard());
+                }
+                else
+                    MessageBox.Show("There was an error replying to the applicants.", "Error Sending Responses", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Controls.Clear();
+            Controls.Add(new Dashboard());
         }
     }
 }
