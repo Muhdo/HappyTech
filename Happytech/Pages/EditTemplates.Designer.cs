@@ -50,6 +50,7 @@
             this.cbSelectTemplate.Name = "cbSelectTemplate";
             this.cbSelectTemplate.Size = new System.Drawing.Size(231, 33);
             this.cbSelectTemplate.TabIndex = 0;
+            this.cbSelectTemplate.SelectedIndexChanged += new System.EventHandler(this.DisplayTemplate);
             // 
             // label1
             // 
@@ -61,7 +62,6 @@
             this.label1.Size = new System.Drawing.Size(68, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Template: ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tabControl1
             // 
