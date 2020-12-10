@@ -279,8 +279,9 @@ namespace HappyTech.Pages
                 sectionNumber++;
             }
             //make an sql insert
-            db.CreateTemplate(templateName, sectionNames, codeComments);
+            db.CreateTemplate(templateName, sectionNames, codeComments, 0);
             //display message box to inform user template has been saved
+            //https://www.c-sharpcorner.com/uploadfile/mahesh/understanding-message-box-in-windows-forms-using-C-Sharp/
             string message = "The template has been saved. ";
             string title = "Template Saved";
             MessageBoxButtons buttons = MessageBoxButtons.OK;

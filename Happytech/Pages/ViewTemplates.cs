@@ -23,7 +23,8 @@ namespace Happytech.Pages
         {
             if (!string.IsNullOrEmpty(txtTemplateName.Text))
             {
-                db.AddTemplate(txtTemplateName.Text);
+                //why is this adding a template?
+                //db.AddTemplate(txtTemplateName.Text);
                 this.Controls.Clear();
                 this.Controls.Add(new Home()); 
             }

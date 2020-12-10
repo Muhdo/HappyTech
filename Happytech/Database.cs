@@ -42,7 +42,7 @@ namespace Happytech
         //Adds a new application
         private SqlCommand _applyToPosition = new SqlCommand("INSERT INTO Application (Name, Email, RoleID, Curriculum) VALUES (@Name, @Email, @RoleID, @Curriculum)", connection);
         // Adds a new template
-        private SqlCommand _addTemplate = new SqlCommand("INSERT INTO Template (Name) VALUES (@Name)", connection);
+        private SqlCommand _addTemplate = new SqlCommand("INSERT INTO Template (Name, DesignedPositionID) VALUES (@Name, @PositionID)", connection);
         //Finds applicant by applicationID
         private SqlCommand _findApplicantByID = new SqlCommand("SELECT Name FROM Application WHERE ApplicationID = @ApplicationID", connection);
         //Finds curriculum by applicationID
@@ -99,9 +99,9 @@ namespace Happytech
         /// <param name="templateName">The name of the template to be added</param>
         /// <param name="sectionNames">The names of the sections to be added</param>
         /// <param name="codeComments">2d array where for each code-comment pair y [x, y] x = 0 is the code and x = 1 is the comment</param>
-        public void CreateTemplate(string templateName, string[] sectionNames, List<string>[,] codeComments)
+        public void CreateTemplate(string templateName, string[] sectionNames, List<string>[,] codeComments, int positionID)
         {
-            AddTemplate(templateName);
+            AddTemplate(templateName, positionID);
             //get templateID
             OpenDb();
             _getTemplateID.Parameters.Clear();
@@ -534,12 +534,13 @@ namespace Happytech
         /// </summary>
         /// <param name="name">Template name</param>
         /// <returns></returns>
-        public bool AddTemplate(string name)
+        public bool AddTemplate(string name, int positionID)
         {
             try
             {
                 OpenDb();
                 _addTemplate.Parameters.AddWithValue("@Name", name);
+                _addTemplate.Parameters.AddWithValue("@PositionID", positionID);
                 _addTemplate.ExecuteNonQuery();
                 _addTemplate.Parameters.Clear();
                 CloseDb();
