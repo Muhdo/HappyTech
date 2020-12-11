@@ -188,7 +188,33 @@ namespace Happytech
             CloseDb();
         }
 
-
+        public void AddComment(Comment comment, int sectionID)
+        {
+            //add the comment
+            _addComment.Parameters.Clear();
+            _addComment.Parameters.AddWithValue("@ShortName", comment.ShortName);
+            _addComment.Parameters.AddWithValue("@Comment", comment.CommentText);
+            OpenDb();
+            _addComment.ExecuteNonQuery();
+            //get commentID
+            _getCommentID.Parameters.Clear();
+            _getCommentID.Parameters.AddWithValue("@ShortName", comment.ShortName);
+            _getCommentID.Parameters.AddWithValue("@Comment", comment.CommentText);
+            int commentID = 0;
+            using (var reader = _getCommentID.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    commentID = (int)reader[0];
+                }
+            }
+            //add the commentSection link
+            _linkCommentSection.Parameters.Clear();
+            _linkCommentSection.Parameters.AddWithValue("@CommentID", commentID);
+            _linkCommentSection.Parameters.AddWithValue("@SectionID", sectionID);
+            _linkCommentSection.ExecuteNonQuery();
+            CloseDb();
+        }
 
         public bool Login(string username, string password)
         {

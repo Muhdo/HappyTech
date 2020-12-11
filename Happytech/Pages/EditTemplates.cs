@@ -64,8 +64,8 @@ namespace HappyTech.Pages
                     //add a textbox for the code
                     TextBox code = new TextBox();
                     code.Text = comment.ShortName;
-                    code.Name = comment.ShortName.Replace(' ', '_');
                     int pos = section.Comments.IndexOf(comment);
+                    code.Name = "Code " + (pos + 1);
                     int y = codeYs[pos];
                     code.Location = new Point(23, y);
                     code.Size = new Size(145, 29);
@@ -73,7 +73,7 @@ namespace HappyTech.Pages
                     //add a textbox for the comment
                     TextBox commentBox = new TextBox();
                     commentBox.Text = comment.CommentText;
-                    commentBox.Name = "Comment " + (section.Comments.IndexOf(comment) + 1);
+                    commentBox.Name = "Comment " + (pos + 1);
                     y = commentYs[pos];
                     commentBox.Location = new Point(23, y);
                     commentBox.Size = new Size(889, 73);
@@ -81,6 +81,41 @@ namespace HappyTech.Pages
                     tab.Controls.Add(commentBox);
                 }
             }
+        }
+
+        private void AddComment(object sender, EventArgs e)
+        {
+            //find which tab is selected
+            TabPage selectedTab = tabControl1.SelectedTab;
+            //get the template that is in use
+            Template selectedTemplate = db.GetTemplateData(cbSelectTemplate.SelectedIndex);
+            //get the section that is selected
+            Section selectedSection = selectedTemplate.Sections[tabControl1.TabPages.IndexOf(selectedTab)];
+            //get the number of comments already in use
+            int noOfComments = selectedSection.Comments.Count;
+            //create new comment
+            Comment newComment = new Comment();
+            newComment.ShortName = "Code " + (noOfComments + 1);
+            newComment.CommentText = "Comment " + (noOfComments + 1);
+            //add comment to db so we can update it later
+            db.AddComment(newComment, selectedSection.SectionId);
+            //create code and comment text boxes
+            TextBox code = new TextBox();
+            code.Text = newComment.ShortName;
+            int pos = selectedSection.Comments.IndexOf(newComment);
+            code.Name = "Code " + (pos + 1);
+            int y = codeYs[pos];
+            code.Location = new Point(23, y);
+            code.Size = new Size(145, 29);
+            selectedTab.Controls.Add(code);
+            TextBox commentBox = new TextBox();
+            commentBox.Text = newComment.CommentText;
+            commentBox.Name = "Comment " + (pos + 1);
+            y = commentYs[pos];
+            commentBox.Location = new Point(23, y);
+            commentBox.Size = new Size(889, 73);
+            commentBox.Multiline = true;
+            selectedTab.Controls.Add(commentBox);
         }
     }
 }
