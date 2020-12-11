@@ -59,6 +59,7 @@ namespace HappyTech.Pages
             try
             {
                 tabSections.Controls.Add(tabs.ElementAt(tabsIndex-1));
+                tabSections.SelectedIndex = tabsIndex - 1;
                 //if there are still more allowed sections
                 if(tabsIndex < 5)
                 {
@@ -85,7 +86,10 @@ namespace HappyTech.Pages
             TextBox sectionName = new TextBox();
             sectionName.Name = "sectionName";
             sectionName.Text = "Section name";
+            sectionName.Tag = "Section name";
             sectionName.Location = new Point(23, 19);
+            sectionName.GotFocus += RemovePlaceholder;
+            sectionName.LostFocus += AddPlaceholder;
             tab.Controls.Add(sectionName);
 
             //addComment button
@@ -191,12 +195,15 @@ namespace HappyTech.Pages
         {
             foreach (TextBox code in codes)
             {
-                code.Text = "Code " + (codes.IndexOf(code) + 1);
+                code.Text = "Code" + (codes.IndexOf(code) + 1);
+                code.Tag = "Code" + (codes.IndexOf(code) + 1);
                 int pos = codes.IndexOf(code);
                 int y = codeYs[pos];
                 code.Location = new Point(23, y);
                 code.Size = new Size(145, 29);
                 code.Visible = false; 
+                code.GotFocus += RemovePlaceholder;
+                code.LostFocus += AddPlaceholder;
             }
         }
         /// <summary>
@@ -208,12 +215,15 @@ namespace HappyTech.Pages
             foreach (TextBox comment in comments)
             {
                 comment.Text = "Comment...";
+                comment.Tag = "Comment...";
                 comment.Multiline = true;
                 int pos = comments.IndexOf(comment);
                 int y = commentYs[pos];
                 comment.Location = new Point(23, y);
                 comment.Size = new Size(889, 73);
-                comment.Visible = false; 
+                comment.Visible = false;
+                comment.GotFocus += RemovePlaceholder;
+                comment.LostFocus += AddPlaceholder;
             }
         }
 
@@ -221,6 +231,24 @@ namespace HappyTech.Pages
         {
             Controls.Clear();
             Controls.Add(new Happytech.Pages.CreateTemplate());
+        }
+
+        public void RemovePlaceholder(object sender, EventArgs e)
+        {
+            TextBox txtb = (TextBox) sender;
+
+            if (txtb.Text == (string)txtb.Tag) 
+            {
+                txtb.Text = "";
+            }
+        }
+
+        public void AddPlaceholder(object sender, EventArgs e)
+        {
+            TextBox txtb = (TextBox) sender;
+
+            if (string.IsNullOrWhiteSpace(txtb.Text))
+                txtb.Text = (string)txtb.Tag;
         }
 
         /// <summary>

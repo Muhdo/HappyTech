@@ -17,7 +17,7 @@ namespace Happytech
         {
             Database db = new Database();
 
-            string opening = $"Hello {name},\n\nAfter Reviewing your application we have concluded that.";
+            string opening = $"Hello {name},\n\nAfter reviewing your application we have concluded that.";
             string ending = $"\nThank you for your interest in working at HappyTech.\nWe hope to see you again.\n\nBest Regards,\n{CurrentEmployee.Name}.\n{CurrentEmployee.Role}.";
 
             string finalMessage = $"{opening}\n";
