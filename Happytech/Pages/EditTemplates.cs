@@ -117,5 +117,30 @@ namespace HappyTech.Pages
             commentBox.Multiline = true;
             selectedTab.Controls.Add(commentBox);
         }
+
+        private void UpdateTemplate(object sender, EventArgs e)
+        {
+            //create new template object
+            Template template = new Template();
+            //populate with sections
+            foreach(TabPage tab in tabControl1.TabPages)
+            {
+                Section section = new Section();
+                section.Title = ((TextBox)tab.Controls.Find("sectionName", true)[0]).Text;
+                template.Sections.Add(section);
+                //for each control in the tab
+                foreach(Control control in tab.Controls)
+                {
+                    //if it's a code, add text to codes list
+                    //if it's a comment, add text to comments list
+                }
+                //foreach comment
+                //create comment
+                //comment.CommentText = 
+                //comment.ShortName =
+            }
+
+            //sql update template
+        }
     }
 }
