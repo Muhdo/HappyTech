@@ -34,19 +34,12 @@
             this.lblNewApplications = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblWelcome = new System.Windows.Forms.Label();
-            this.btnNewApplications = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnRepliedApplications = new System.Windows.Forms.Button();
-            this.btnAllApplications = new System.Windows.Forms.Button();
             this.btnEditTemplates = new System.Windows.Forms.Button();
             this.btnNewTemplate = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btnViewTemplates = new System.Windows.Forms.Button();
             this.btnContinueReplying = new System.Windows.Forms.Button();
-            this.btnUnsuccessfulApplicants = new System.Windows.Forms.Button();
-            this.btnSuccessfulApplicants = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnViewResponses = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btn_OpenSubmitForm = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -126,21 +119,6 @@
             this.lblWelcome.TabIndex = 0;
             this.lblWelcome.Text = "Welcome back, beautiful user!";
             // 
-            // btnNewApplications
-            // 
-            this.btnNewApplications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
-            this.btnNewApplications.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewApplications.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.btnNewApplications.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.btnNewApplications.Location = new System.Drawing.Point(20, 142);
-            this.btnNewApplications.Name = "btnNewApplications";
-            this.btnNewApplications.Size = new System.Drawing.Size(165, 45);
-            this.btnNewApplications.TabIndex = 1;
-            this.btnNewApplications.Tag = "NewApplications";
-            this.btnNewApplications.Text = "New Applications";
-            this.btnNewApplications.UseVisualStyleBackColor = false;
-            this.btnNewApplications.Click += new System.EventHandler(this.ChangeWindow);
-            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -152,36 +130,6 @@
             this.label2.Size = new System.Drawing.Size(106, 21);
             this.label2.TabIndex = 5;
             this.label2.Text = "Applications";
-            // 
-            // btnRepliedApplications
-            // 
-            this.btnRepliedApplications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
-            this.btnRepliedApplications.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRepliedApplications.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.btnRepliedApplications.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.btnRepliedApplications.Location = new System.Drawing.Point(20, 193);
-            this.btnRepliedApplications.Name = "btnRepliedApplications";
-            this.btnRepliedApplications.Size = new System.Drawing.Size(165, 45);
-            this.btnRepliedApplications.TabIndex = 2;
-            this.btnRepliedApplications.Tag = "RepliedApplications";
-            this.btnRepliedApplications.Text = "Replied Applications";
-            this.btnRepliedApplications.UseVisualStyleBackColor = false;
-            this.btnRepliedApplications.Click += new System.EventHandler(this.ChangeWindow);
-            // 
-            // btnAllApplications
-            // 
-            this.btnAllApplications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
-            this.btnAllApplications.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAllApplications.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.btnAllApplications.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.btnAllApplications.Location = new System.Drawing.Point(20, 244);
-            this.btnAllApplications.Name = "btnAllApplications";
-            this.btnAllApplications.Size = new System.Drawing.Size(165, 45);
-            this.btnAllApplications.TabIndex = 3;
-            this.btnAllApplications.Tag = "AllApplications";
-            this.btnAllApplications.Text = "All Applications";
-            this.btnAllApplications.UseVisualStyleBackColor = false;
-            this.btnAllApplications.Click += new System.EventHandler(this.ChangeWindow);
             // 
             // btnEditTemplates
             // 
@@ -246,71 +194,14 @@
             this.btnContinueReplying.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContinueReplying.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.btnContinueReplying.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.btnContinueReplying.Location = new System.Drawing.Point(20, 295);
+            this.btnContinueReplying.Location = new System.Drawing.Point(20, 142);
             this.btnContinueReplying.Name = "btnContinueReplying";
-            this.btnContinueReplying.Size = new System.Drawing.Size(165, 70);
+            this.btnContinueReplying.Size = new System.Drawing.Size(165, 45);
             this.btnContinueReplying.TabIndex = 4;
             this.btnContinueReplying.Tag = "ContinueReplying";
-            this.btnContinueReplying.Text = "Continue Replying";
+            this.btnContinueReplying.Text = "Start Replying";
             this.btnContinueReplying.UseVisualStyleBackColor = false;
             this.btnContinueReplying.Click += new System.EventHandler(this.ChangeWindow);
-            // 
-            // btnUnsuccessfulApplicants
-            // 
-            this.btnUnsuccessfulApplicants.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
-            this.btnUnsuccessfulApplicants.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUnsuccessfulApplicants.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.btnUnsuccessfulApplicants.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.btnUnsuccessfulApplicants.Location = new System.Drawing.Point(430, 244);
-            this.btnUnsuccessfulApplicants.Name = "btnUnsuccessfulApplicants";
-            this.btnUnsuccessfulApplicants.Size = new System.Drawing.Size(165, 45);
-            this.btnUnsuccessfulApplicants.TabIndex = 10;
-            this.btnUnsuccessfulApplicants.Tag = "UnsuccessfulApplicants";
-            this.btnUnsuccessfulApplicants.Text = "Unsuccessful Applicants";
-            this.btnUnsuccessfulApplicants.UseVisualStyleBackColor = false;
-            this.btnUnsuccessfulApplicants.Click += new System.EventHandler(this.ChangeWindow);
-            // 
-            // btnSuccessfulApplicants
-            // 
-            this.btnSuccessfulApplicants.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
-            this.btnSuccessfulApplicants.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSuccessfulApplicants.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.btnSuccessfulApplicants.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.btnSuccessfulApplicants.Location = new System.Drawing.Point(430, 193);
-            this.btnSuccessfulApplicants.Name = "btnSuccessfulApplicants";
-            this.btnSuccessfulApplicants.Size = new System.Drawing.Size(165, 45);
-            this.btnSuccessfulApplicants.TabIndex = 9;
-            this.btnSuccessfulApplicants.Tag = "SuccessfulApplicants";
-            this.btnSuccessfulApplicants.Text = "Successful Applicants";
-            this.btnSuccessfulApplicants.UseVisualStyleBackColor = false;
-            this.btnSuccessfulApplicants.Click += new System.EventHandler(this.ChangeWindow);
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.label5.Location = new System.Drawing.Point(426, 118);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 21);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Responses";
-            // 
-            // btnViewResponses
-            // 
-            this.btnViewResponses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
-            this.btnViewResponses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewResponses.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.btnViewResponses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.btnViewResponses.Location = new System.Drawing.Point(430, 142);
-            this.btnViewResponses.Name = "btnViewResponses";
-            this.btnViewResponses.Size = new System.Drawing.Size(165, 45);
-            this.btnViewResponses.TabIndex = 8;
-            this.btnViewResponses.Tag = "ViewResponses";
-            this.btnViewResponses.Text = "View Responses";
-            this.btnViewResponses.UseVisualStyleBackColor = false;
-            this.btnViewResponses.Click += new System.EventHandler(this.ChangeWindow);
             // 
             // btnSettings
             // 
@@ -365,19 +256,12 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_OpenSubmitForm);
             this.Controls.Add(this.btnSettings);
-            this.Controls.Add(this.btnUnsuccessfulApplicants);
-            this.Controls.Add(this.btnSuccessfulApplicants);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.btnViewResponses);
             this.Controls.Add(this.btnContinueReplying);
             this.Controls.Add(this.btnEditTemplates);
             this.Controls.Add(this.btnNewTemplate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnViewTemplates);
-            this.Controls.Add(this.btnAllApplications);
-            this.Controls.Add(this.btnRepliedApplications);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnNewApplications);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ForeColor = System.Drawing.Color.White;
@@ -398,19 +282,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblRepliedApplications;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnNewApplications;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnRepliedApplications;
-        private System.Windows.Forms.Button btnAllApplications;
         private System.Windows.Forms.Button btnEditTemplates;
         private System.Windows.Forms.Button btnNewTemplate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnViewTemplates;
         private System.Windows.Forms.Button btnContinueReplying;
-        private System.Windows.Forms.Button btnUnsuccessfulApplicants;
-        private System.Windows.Forms.Button btnSuccessfulApplicants;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnViewResponses;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btn_OpenSubmitForm;
         private System.Windows.Forms.Button button1;

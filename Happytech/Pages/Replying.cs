@@ -216,8 +216,8 @@ namespace HappyTech.Pages
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Controls.Clear();
-            Controls.Add(new Dashboard());
+            new Main().Show();
+            Hide();
         }
     }
 }
