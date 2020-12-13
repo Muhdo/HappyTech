@@ -33,23 +33,33 @@ namespace HappyTech.Pages
         {
             InitializeComponent();
 
-            //Gets every application data
-            foreach (int appID in revApplications)
+            if (revApplications.Length == 0)
             {
-                applications.Add(db.GetApplication(appID));
-                replies.Add(new Reply(){ ApplicationId = appID });
+                MessageBox.Show("Please first select an application to review.", "No applications found", MessageBoxButtons.OK);
+
+                new Main().Show();
+                Hide();
+            } 
+            else
+            {
+                //Gets every application data
+                foreach (int appID in revApplications)
+                {
+                    applications.Add(db.GetApplication(appID));
+                    replies.Add(new Reply(){ ApplicationId = appID });
+                }
+
+                ChangeCandidate();
+
+
+                //Fetches the templates and adds it to the combobox
+                //TODO: filter the ones for the position
+                templates.AddRange(db.GetTemplateNames());
+                templates.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.Ordinal));
+
+                foreach (Template template in templates) 
+                    cbTemplate.Items.Add(template.Name);
             }
-
-            ChangeCandidate();
-
-
-            //Fetches the templates and adds it to the combobox
-            //TODO: filter the ones for the position
-            templates.AddRange(db.GetTemplateNames());
-            templates.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.Ordinal));
-
-            foreach (Template template in templates) 
-                cbTemplate.Items.Add(template.Name);
         }
 
         private void cbTemplate_SelectedIndexChanged(object sender, EventArgs e)
