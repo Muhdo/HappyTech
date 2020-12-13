@@ -50,7 +50,7 @@
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.btnBack.Location = new System.Drawing.Point(895, 544);
+            this.btnBack.Location = new System.Drawing.Point(689, 525);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(165, 45);
             this.btnBack.TabIndex = 17;
@@ -105,7 +105,7 @@
             // 
             this.pdfReader.Location = new System.Drawing.Point(3, 54);
             this.pdfReader.Name = "pdfReader";
-            this.pdfReader.Size = new System.Drawing.Size(436, 553);
+            this.pdfReader.Size = new System.Drawing.Size(436, 516);
             this.pdfReader.TabIndex = 21;
             // 
             // cbTemplate
@@ -147,7 +147,7 @@
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.btnNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
-            this.btnNext.Location = new System.Drawing.Point(724, 544);
+            this.btnNext.Location = new System.Drawing.Point(518, 525);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(165, 45);
             this.btnNext.TabIndex = 29;
@@ -164,15 +164,16 @@
             this.pReview.Controls.Add(this.flpTemplate);
             this.pReview.Location = new System.Drawing.Point(449, 3);
             this.pReview.Name = "pReview";
-            this.pReview.Size = new System.Drawing.Size(628, 535);
+            this.pReview.Size = new System.Drawing.Size(417, 502);
             this.pReview.TabIndex = 30;
             // 
             // pView
             // 
             this.pView.Controls.Add(this.txtViewResponse);
+            this.pView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pView.Location = new System.Drawing.Point(0, 0);
             this.pView.Name = "pView";
-            this.pView.Size = new System.Drawing.Size(628, 535);
+            this.pView.Size = new System.Drawing.Size(417, 502);
             this.pView.TabIndex = 31;
             this.pView.Visible = false;
             // 
@@ -180,12 +181,13 @@
             // 
             this.txtViewResponse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
             this.txtViewResponse.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtViewResponse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtViewResponse.ForeColor = System.Drawing.Color.White;
-            this.txtViewResponse.Location = new System.Drawing.Point(3, 3);
+            this.txtViewResponse.Location = new System.Drawing.Point(0, 0);
             this.txtViewResponse.Name = "txtViewResponse";
             this.txtViewResponse.ReadOnly = true;
             this.txtViewResponse.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtViewResponse.Size = new System.Drawing.Size(622, 529);
+            this.txtViewResponse.Size = new System.Drawing.Size(417, 502);
             this.txtViewResponse.TabIndex = 0;
             this.txtViewResponse.Text = "";
             // 
@@ -204,7 +206,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "Replying";
-            this.Size = new System.Drawing.Size(1080, 610);
+            this.Size = new System.Drawing.Size(869, 585);
             this.pReview.ResumeLayout(false);
             this.pReview.PerformLayout();
             this.pView.ResumeLayout(false);

@@ -118,9 +118,9 @@
             this.btnDeleteSection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteSection.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteSection.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteSection.Location = new System.Drawing.Point(32, 0);
+            this.btnDeleteSection.Location = new System.Drawing.Point(283, 9);
             this.btnDeleteSection.Name = "btnDeleteSection";
-            this.btnDeleteSection.Size = new System.Drawing.Size(200, 26);
+            this.btnDeleteSection.Size = new System.Drawing.Size(182, 33);
             this.btnDeleteSection.TabIndex = 7;
             this.btnDeleteSection.Text = "Delete selected section";
             this.btnDeleteSection.UseVisualStyleBackColor = false;

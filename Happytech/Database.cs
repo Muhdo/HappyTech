@@ -70,6 +70,8 @@ namespace Happytech
         private SqlCommand _removeSectionLink = new SqlCommand("DELETE FROM Template_Section WHERE SectionID = @SectionID", connection);
         private SqlCommand _removeCommentLink= new SqlCommand("DELETE FROM Comment_Section WHERE SectionID = @SectionID", connection);
 
+        // Delete template
+
         //INSERT COMMANDS
         //Add section
         private SqlCommand _addSection = new SqlCommand("INSERT INTO Section (Title) VALUES (@Title)", connection);

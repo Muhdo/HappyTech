@@ -36,6 +36,7 @@
             this.btnInsertApplication = new System.Windows.Forms.Button();
             this.cbRolesList = new System.Windows.Forms.ComboBox();
             this.lblReviewList = new System.Windows.Forms.Label();
+            this.btnNext = new System.Windows.Forms.Button();
             this.pCV.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +44,7 @@
             // 
             this.grpApplications.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.grpApplications.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(42)))), ((int)(((byte)(101)))));
-            this.grpApplications.Location = new System.Drawing.Point(24, 140);
+            this.grpApplications.Location = new System.Drawing.Point(24, 116);
             this.grpApplications.Name = "grpApplications";
             this.grpApplications.Size = new System.Drawing.Size(325, 415);
             this.grpApplications.TabIndex = 0;
@@ -145,10 +146,26 @@
             this.lblReviewList.TabIndex = 6;
             this.lblReviewList.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnNext
+            // 
+            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(74)))));
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.btnNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(83)))), ((int)(((byte)(127)))));
+            this.btnNext.Location = new System.Drawing.Point(24, 537);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(325, 30);
+            this.btnNext.TabIndex = 30;
+            this.btnNext.Tag = "Preview";
+            this.btnNext.Text = "Review Applications";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
             // RepliedApplications
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.Controls.Add(this.btnNext);
             this.Controls.Add(this.lblReviewList);
             this.Controls.Add(this.btnInsertApplication);
             this.Controls.Add(this.pCV);
@@ -174,5 +191,6 @@
         private System.Windows.Forms.Button btnInsertApplication;
         private System.Windows.Forms.ComboBox cbRolesList;
         private System.Windows.Forms.Label lblReviewList;
+        private System.Windows.Forms.Button btnNext;
     }
 }

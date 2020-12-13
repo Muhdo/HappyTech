@@ -118,5 +118,12 @@ namespace Happytech.Pages
         {
             lblReviewList.Text = text;
         }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            var parent = Parent;
+            parent.Controls.Clear();
+            parent.Controls.Add(new Replying(ApplicationReviewing.ToBeReviewed.ToArray()));
+        }
     }
 }
