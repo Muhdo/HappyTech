@@ -28,10 +28,6 @@ namespace Happytech
         public Main()
         {
             InitializeComponent();
-
-            //if (new Database().FindEmployee() == false) 
-              //  pWindow.Controls.Add(new EmployeeError()); 
-            //else
             pWindow.Controls.Add(new Dashboard());
 
             // Settings option if admin, otherwise hidden.
@@ -45,6 +41,7 @@ namespace Happytech
                 // Hide labels and logos
                 ApplicationsText.Visible = !DrawerOpened;
                 ViewTemplatesText.Visible = !DrawerOpened;
+                EditTemplatesText.Visible = !DrawerOpened;
                 DashboardText.Visible = !DrawerOpened;
                 SettingsText.Visible = !DrawerOpened;
                 DrawerText.Visible = !DrawerOpened;

@@ -157,13 +157,13 @@
     <value>46, 16</value>
   </data>
   <data name="EditTemplatesText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 18</value>
+    <value>106, 18</value>
   </data>
   <data name="EditTemplatesText.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="EditTemplatesText.Text" xml:space="preserve">
-    <value>EDIT TEMPLATES</value>
+    <value>Edit Templates</value>
   </data>
   <data name="&gt;&gt;EditTemplatesText.Name" xml:space="preserve">
     <value>EditTemplatesText</value>
@@ -205,7 +205,7 @@
     <value>1</value>
   </data>
   <data name="db_EditTemplates.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-2, 223</value>
+    <value>-1, 129</value>
   </data>
   <data name="db_EditTemplates.Size" type="System.Drawing.Size, System.Drawing">
     <value>217, 48</value>
@@ -286,7 +286,7 @@
     <value>1</value>
   </data>
   <data name="db_Settings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 175</value>
+    <value>-1, 225</value>
   </data>
   <data name="db_Settings.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -451,7 +451,7 @@
     <value>1</value>
   </data>
   <data name="db_Applications.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 128</value>
+    <value>-1, 178</value>
   </data>
   <data name="db_Applications.Size" type="System.Drawing.Size, System.Drawing">
     <value>215, 48</value>
@@ -484,13 +484,13 @@
     <value>46, 16</value>
   </data>
   <data name="ViewTemplatesText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 18</value>
+    <value>117, 18</value>
   </data>
   <data name="ViewTemplatesText.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="ViewTemplatesText.Text" xml:space="preserve">
-    <value>Templates</value>
+    <value>Create Template</value>
   </data>
   <data name="&gt;&gt;ViewTemplatesText.Name" xml:space="preserve">
     <value>ViewTemplatesText</value>
