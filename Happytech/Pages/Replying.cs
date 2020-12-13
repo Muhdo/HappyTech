@@ -37,7 +37,8 @@ namespace HappyTech.Pages
             {
                 MessageBox.Show("Please first select an application to review.", "No applications found", MessageBoxButtons.OK);
 
-                new Main().Show();
+                Main mainProgram = new Main();
+                mainProgram.Show();
                 Hide();
             } 
             else
@@ -226,7 +227,8 @@ namespace HappyTech.Pages
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            new Main().Show();
+            Main mainProgram = new Main();
+            mainProgram.Show();
             Hide();
         }
     }
