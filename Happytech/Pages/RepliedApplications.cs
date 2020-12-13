@@ -121,6 +121,11 @@ namespace Happytech.Pages
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            if (ApplicationReviewing.ToBeReviewed.Count <= 0)
+            {
+                MessageBox.Show("There are no applications to review. Add some by clicking on the list above", "No applications", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             var parent = Parent;
             parent.Controls.Clear();
             parent.Controls.Add(new Replying(ApplicationReviewing.ToBeReviewed.ToArray()));
