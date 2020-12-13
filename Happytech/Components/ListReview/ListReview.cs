@@ -29,10 +29,8 @@ namespace Happytech.Components.ListReview
             // Populate the list and assign the replyID as the name of the control
             switch (filterDropdown)
             {
-                // All Applications
                 case 0:
-                    var allApplications = db.FetchApplications();
-                    foreach (DataRow application in allApplications.Rows)
+                    foreach (DataRow application in db.FetchApplications().Rows)
                     {
                         // Filter by role
                         if (roleDropdownIndex != 0)
@@ -50,10 +48,9 @@ namespace Happytech.Components.ListReview
                         }
                     }
                     break;
-                // New Applications
+
                 case 1:
-                    var newApplications = db.FetchNewApplications();
-                    foreach (DataRow application in newApplications.Rows)
+                    foreach (DataRow application in db.FetchNewApplications().Rows)
                     {
                         if (roleDropdownIndex != 0)
                         {
@@ -70,10 +67,9 @@ namespace Happytech.Components.ListReview
                         }
                     }
                     break;
-                // Replied Applications
+
                 case 2:
-                    var repliedApplications = db.FetchRepliedApplications();
-                    foreach (DataRow application in repliedApplications.Rows)
+                    foreach (DataRow application in db.FetchRepliedApplications().Rows)
                     {
                         if (roleDropdownIndex != 0)
                         {

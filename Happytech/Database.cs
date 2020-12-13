@@ -66,6 +66,9 @@ namespace Happytech
         // Delete application
         private SqlCommand _removeApplication = new SqlCommand("DELETE FROM Application WHERE ApplicationID = @ApplicationID", connection);
         private SqlCommand _removeReply = new SqlCommand("DELETE FROM Reply WHERE ApplicationID = @ApplicationID", connection);
+        private SqlCommand _removeSection = new SqlCommand("DELETE FROM Section WHERE SectionID = @SectionID", connection);
+        private SqlCommand _removeSectionLink = new SqlCommand("DELETE FROM Template_Section WHERE SectionID = @SectionID", connection);
+        private SqlCommand _removeCommentLink= new SqlCommand("DELETE FROM Comment_Section WHERE SectionID = @SectionID", connection);
 
         //INSERT COMMANDS
         //Add section
@@ -75,7 +78,7 @@ namespace Happytech
         //Link a section to a template
         private SqlCommand _linkTemplateSection = new SqlCommand("INSERT INTO Template_Section (SectionID, TemplateID) VALUES (@SectionID, @TemplateID)", connection);
         //Link a comment to a section
-        private SqlCommand _linkCommentSection = new SqlCommand("INSERT INTO Comment_Section (CommentID, SectionID) VALUES (@CommentID, @SectionID)", connection);
+        private SqlCommand _linkCommentSection = new SqlCommand("INSERT INTO Comment_Section (CommentId, SectionID) VALUES (@CommentID, @SectionID)", connection);
 
         //SELECT COMMANDS
         //Get templateID
@@ -85,9 +88,116 @@ namespace Happytech
         //Get commentID
         private SqlCommand _getCommentID = new SqlCommand("SELECT CommentId FROM Comment WHERE ShortName = @ShortName AND Comment = @Comment", connection);
 
-
         //Get sections from template
         private SqlCommand _getDataFromTemplateID = new SqlCommand("SELECT Template.TemplateID, Name, DesignedPositionID, Section.SectionID, Title, Comment.CommentID, Comment, ShortName FROM Template INNER JOIN Template_Section ON Template.TemplateID = Template_Section.TemplateID INNER JOIN Section ON Template_Section.SectionID = Section.SectionID INNER JOIN Comment_Section ON Section.SectionID = Comment_Section.SectionID INNER JOIN Comment ON Comment_Section.CommentID = Comment.CommentId WHERE Template.TemplateID = @TemplateID", connection);
+
+        // UPDATE COMMENTS
+        private SqlCommand _updateShortName = new SqlCommand("UPDATE Comment " +
+            "SET ShortName = @ShortName WHERE CommentId = @CommentId", connection);
+
+        private SqlCommand _updateComment = new SqlCommand("UPDATE Comment " +
+            "SET Comment = @Comment WHERE CommentId = @CommentId", connection);
+
+        public void UpdateShortName(string shortName, int commentID)
+        {
+            // Set parameters
+            _updateShortName.Parameters.Clear();
+            _updateShortName.Parameters.AddWithValue("@ShortName", shortName);
+            _updateShortName.Parameters.AddWithValue("@CommentId", commentID);
+
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                    OpenDb();
+
+                // Update the short name
+                _updateShortName.ExecuteNonQuery();
+
+                if (connection.State != ConnectionState.Closed)
+                    CloseDb();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Short Name: " + ex.Message);
+            }
+        }
+
+        public void UpdateComment(string comment, int commentID)
+        {
+            // Set parameters
+            _updateComment.Parameters.Clear();
+            _updateComment.Parameters.AddWithValue("@Comment", comment);
+            _updateComment.Parameters.AddWithValue("@CommentId", commentID);
+
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                    OpenDb();
+
+                // Update the short name
+                _updateComment.ExecuteNonQuery();
+
+                if (connection.State != ConnectionState.Closed)
+                    CloseDb();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Comment Name: " + ex.Message);
+            }
+        }
+
+        public void AddComments(Comment comment, int sectionID)
+        {
+            _addComment.Parameters.Clear();
+            _addComment.Parameters.AddWithValue("@Comment", comment.CommentText);
+            _addComment.Parameters.AddWithValue("@ShortName", comment.ShortName);
+
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                    OpenDb();
+
+                // Insert comment to the database
+                _addComment.ExecuteNonQuery();
+
+                // Find last added comment and get its ID
+                _getCommentID.Parameters.Clear();
+                _getCommentID.Parameters.AddWithValue("@ShortName", comment.ShortName);
+                _getCommentID.Parameters.AddWithValue("@Comment", comment.CommentText);
+
+                List<Comment> comments = new List<Comment>();
+                using (var reader = _getCommentID.ExecuteReader())
+                {
+                    while (reader.Read())
+                        if (reader.HasRows)
+                        {
+                            // Fetch every section.
+                            Comment foundComments = new Comment();
+                            foundComments.CommentId = int.Parse(reader["CommentId"].ToString());
+
+                            // Add sections to a list.
+                            comments.Add(foundComments);
+                        }
+                }
+
+                // Create the link between the comment and the section
+                _linkCommentSection.Parameters.Clear();
+                _linkCommentSection.Parameters.AddWithValue("@CommentID", comments[comments.Count - 1].CommentId);
+                _linkCommentSection.Parameters.AddWithValue("@SectionID", sectionID);
+                _linkCommentSection.ExecuteNonQuery();
+
+                if (connection.State != ConnectionState.Closed)
+                    CloseDb();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                if (connection.State != ConnectionState.Closed)
+                    CloseDb();
+            }
+
+        }
+
 
         /// <summary>
         /// Inserts template name to Template
@@ -194,7 +304,10 @@ namespace Happytech
             _addComment.Parameters.Clear();
             _addComment.Parameters.AddWithValue("@ShortName", comment.ShortName);
             _addComment.Parameters.AddWithValue("@Comment", comment.CommentText);
-            OpenDb();
+
+            if(connection.State != ConnectionState.Open)
+                OpenDb();
+
             _addComment.ExecuteNonQuery();
             //get commentID
             _getCommentID.Parameters.Clear();
@@ -213,7 +326,104 @@ namespace Happytech
             _linkCommentSection.Parameters.AddWithValue("@CommentID", commentID);
             _linkCommentSection.Parameters.AddWithValue("@SectionID", sectionID);
             _linkCommentSection.ExecuteNonQuery();
-            CloseDb();
+
+            if(connection.State != ConnectionState.Closed)
+                CloseDb();
+        }
+
+        public void AddSection(Template template, string sectionName)
+        {
+            // Section parameters
+            _addSection.Parameters.Clear();
+            _addSection.Parameters.AddWithValue("@Title", sectionName);
+
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                    OpenDb();
+
+                // Insert the section to the database.
+                _addSection.ExecuteNonQuery();
+
+                // Link the section to template.
+                _getSectionID.Parameters.Clear();
+                _getSectionID.Parameters.AddWithValue("@Title", sectionName);
+
+                // Find the latest section inserted in case there are multiple sections with the same name.
+                List<Section> sections = new List<Section>();
+                using(var reader = _getSectionID.ExecuteReader())
+                {
+                    while (reader.Read())
+                        if (reader.HasRows)
+                        {
+                            // Fetch every section.
+                            Section newSection = new Section();
+                            newSection.SectionId = int.Parse(reader["SectionID"].ToString());
+
+                            // Add sections to a list.
+                            sections.Add(newSection);
+                        }
+                }
+
+                // Link the section to the template
+                _linkTemplateSection.Parameters.Clear();
+                _linkTemplateSection.Parameters.AddWithValue("@SectionID", sections[sections.Count-1].SectionId);
+                _linkTemplateSection.Parameters.AddWithValue("@TemplateID", template.TemplateId);
+                _linkTemplateSection.ExecuteNonQuery();
+
+                // Create default comment
+                Comment comment = new Comment();
+                comment.CommentId = 0;
+                comment.CommentText = "";
+                comment.ShortName = "";
+
+                // Insert comment into database
+                AddComment(comment, sections[sections.Count - 1].SectionId);
+
+                if (connection.State == ConnectionState.Open)
+                    CloseDb();
+
+            }
+            catch(Exception ex)
+            {
+                // TODO: Specific exception handling
+                MessageBox.Show("Algo errado: " + ex.Message);
+
+                if (connection.State == ConnectionState.Open)
+                    CloseDb();
+            }
+        }
+
+
+        public void RemoveSection(int sectionID)
+        {
+            if (connection.State != ConnectionState.Open)
+                OpenDb();
+
+            try
+            {
+                // Remove comments related to the section
+                _removeCommentLink.Parameters.Clear();
+                _removeCommentLink.Parameters.AddWithValue("@SectionID", sectionID);
+                _removeCommentLink.ExecuteNonQuery();
+
+                // Remove the link from template to section.
+                _removeSectionLink.Parameters.Clear();
+                _removeSectionLink.Parameters.AddWithValue("@SectionID", sectionID);
+                _removeSectionLink.ExecuteNonQuery();
+
+                // Delete the section.
+                _removeSection.Parameters.Clear();
+                _removeSection.Parameters.AddWithValue("@SectionID", sectionID);
+                _removeSection.ExecuteNonQuery();
+
+                if (connection.State != ConnectionState.Closed)
+                    CloseDb();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public bool Login(string username, string password)
@@ -881,9 +1091,9 @@ namespace Happytech
             OpenDb();
 
             //Gets the data for the template
+            _getDataFromTemplateID.Parameters.Clear();
             _getDataFromTemplateID.Parameters.AddWithValue("@TemplateID", templateId);
             Reader = _getDataFromTemplateID.ExecuteReader();
-            _getDataFromTemplateID.Parameters.Clear();
 
             //Checks if there is any template
             if (Reader.HasRows)
